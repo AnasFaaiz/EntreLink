@@ -29,6 +29,33 @@ app.get('/',(req, res) => {
     res.send('Backend is running!');
 });
 
+app.post("/api/register", async (req, res) => {
+    const { username, email, password } = req.body;
+  
+    // Hash password before saving
+    const hashedPassword = await bcrypt.hash(password, 10);
+  
+    const newUser = new User({ username, email, password: hashedPassword });
+    await newUser.save();
+    res.status(201).json({ message: "User registered successfully!" });
+  });
+  
+  // User Login Route
+  app.post("/api/login", async (req, res) => {
+    const { email, password } = req.body;
+  
+    // Find user by email
+    const user = await User.findOne({ email });
+    if (!user) return res.status(400).json({ message: "User not found" });
+  
+    // Compare the passwords
+    const isMatch = await bcrypt.compare(password, user.password);
+    if (!isMatch) return res.status(400).json({ message: "Invalid credentials" });
+  
+    // Generate JWT token
+    const token = jwt.sign({ userId: user._id }, "your_jwt_secret", { expiresIn: "1h" });
+    res.status(200).json({ message: "Login successful", token });
+  });
 // start server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`server is running on port ${PORT}`));
