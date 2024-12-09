@@ -16,25 +16,37 @@ function SignUp() {
         navigate('/login');
     };
 
-    const handleSignUpSubmit = (e) => {
+    const handleSignUpSubmit = async (e) => {
         e.preventDefault();
-
-        // Validate the inputs
+    
         if (!username || !email || !password) {
             setError("All fields are required.");
             return;
         }
-
-        // Here you would typically send the form data to your backend API
-        // For now, let's log the form data
-        console.log("SignUp Data:", { username, email, password });
-
-        // Clear the error and continue with the successful registration process
-        setError(""); // Clear any previous errors
-        // Example: Navigate to another page after successful sign-up
-        // navigate('/welcome');
+    
+        try {
+            // Make a POST request to the backend
+            const response = await fetch("http://localhost:5175/api/auth/register", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ username, email, password }),
+            });
+    
+            const data = await response.json();
+    
+            if (response.ok) {
+                alert(data.message); // Display success message
+                navigate("/login"); // Redirect to login page
+            } else {
+                setError(data.message); // Display error from the backend
+            }
+        } catch (err) {
+            console.error(err);
+            setError("Error connecting to the server.");
+        }
     };
-
     return (
         <div className="page-container">
             <BackGround />

@@ -4,6 +4,8 @@ const cors = require('cors'); //  This middleware allows your API to accept requ
 const dotenv = require('dotenv'); //This is useful for storing sensitive data like database URLs, API keys
 require('dotenv').config();
 
+const PORT = 5000;
+
 dotenv.config();
 const app = express();
 
@@ -24,10 +26,15 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb+srv://syedanasfaaiz:anasfaa
         console.log('Connection URI used:', process.env.MONGODB_URI);
     });
 
-//Test route
-app.get('/',(req, res) => {
-    res.send('Backend is running!');
+// User Schema
+const userSchema = new mongoose.Schema({
+    username: { type: String, required: true, unique: true },
+    email: { type: String, required: true, unique: true },
+    password: { type: String, required: true },
 });
+
+const User = mongoose.model('User', userSchema);
+
 
 app.post("/api/register", async (req, res) => {
     const { username, email, password } = req.body;
@@ -57,5 +64,5 @@ app.post("/api/register", async (req, res) => {
     res.status(200).json({ message: "Login successful", token });
   });
 // start server
-const PORT = process.env.PORT || 5000;
+
 app.listen(PORT, () => console.log(`server is running on port ${PORT}`));
