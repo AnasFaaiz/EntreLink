@@ -1,42 +1,254 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+/* Full-page background */
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  color-scheme: light dark;
+  color: rgb(24 23 178 / 87%);
+  background-color: aliceblue;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Page container to align content to the right */
+.page-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 100vh; /* Full height of the viewport */
+}
+
+/* Signup container and Login container */
+.signup-container, .login-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 100vh;
+  padding: 0 5%; /* Reduce horizontal padding for better fit */
+  box-sizing: border-box;
+  width: 70%; /* Full width of the viewport */
+}
+
+/* Signup Box and Login Box */
+.signup-box, .login-box {
+  background-color: white;
+  width: 28vw; /* Reduce the width of the box */
+  border: 3px solid #007bff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  margin-right: 10px; /* Adjust margin to bring it closer to the background */
+}
+
+/* Center text inside the box */
+.signup-box h2, .login-box h2 {
+  margin-bottom: 15px; /* Reduced margin for tighter layout */
+}
+
+/* Form Styling */
+.form-group {
+  margin-bottom: 15px;
+  width: 100%;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Signup Button */
+.signup-btn, .login-btn {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.signup-btn:hover, .login-btn:hover {
+  background-color: #0056b3;
+}
+
+/* Social Login Section */
+.social-login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  margin-top: 15px; /* Reduce top margin */
+}
+
+.social-login p {
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  color: #555;
+}
+
+/* Buttons container for social login */
+.social-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  width: 70%;
+}
+
+.social-btn {
+  flex: 1;
+  padding: 10px;
+  font-size: 14px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.google-btn {
+  background-color: #db4437;
+  color: white;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+.google-btn:hover {
+  background-color: #c23321;
+}
+
+.github-btn {
+  background-color: #333;
+  color: white;
+}
+
+.github-btn:hover {
+  background-color: #000;
+}
+
+/* Authentication buttons with vertical line */
+.auth-buttons {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  gap: 20px;
+}
+
+.auth-btn {
+  padding: 10px 20px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #1208ff;
+  background-color: transparent;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.auth-btn:hover {
+  background-image: linear-gradient(45deg, #FFFFFF, #808080);
+  color: black;
+}
+
+.vertical-line {
+  width: 2px;
+  height: 30px;
+  background-color: #ccc;
+}
+
+/* Forgot links */
+.forgot-links {
+  margin-top: 15px; /* Reduced top margin */
+  text-align: center;
+}
+
+.forgot-link {
+  font-size: 14px;
+  color: #007bff;
+  text-decoration: none;
+  margin: 5px;
+  display: inline-block;
+}
+
+.forgot-link:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .signup-box, .login-box {
+    width: 80vw; /* Make the box take up more space on smaller screens */
+    padding: 15px;
   }
-  to {
-    transform: rotate(360deg);
+
+  .social-buttons {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .auth-buttons {
+    flex-direction: column;
+    gap: 10px;
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+/* Background for both pages */
+.background-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full height of the viewport */
+  width: 65vw; /* 65% of the viewport width */
+  position: relative;
+  background-color: aliceblue;
+  margin-right: 1%; /* Reduced right margin to bring it closer */
 }
 
-.card {
-  padding: 2em;
+.content-wrapper {
+  position: absolute;
+  top: 10%;  /* Reduced top positioning for a more compact fit */
+  z-index: 1;
+  width: 100%;
+  margin-left: 100px;  /* Keeps content away from the left */
 }
 
-.read-the-docs {
-  color: #888;
+.content-wrapper h1 {
+  font-weight: bold;
+  color: #333;
+  margin-top: -30px;
+  font-size: 3.5rem; /* Increased font size */
 }
+.content-wrapper h4 {
+  font-weight: bold;
+  margin-top: 90px;
+  font-size: 1.5rem; /* Increased font size */
+}
+
+.content-wrapper p {
+  margin-top: 170px;
+  font-size: 1.2rem;
+  color: #555;
+}
+
+/* You can also adjust other styles based on your need */
+
