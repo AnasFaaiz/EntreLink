@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import BackGround from './Background';
 import "../App.css";
+import axios from 'axios';
 
 function SignUp() {
     const navigate = useNavigate();
@@ -16,36 +17,39 @@ function SignUp() {
         navigate('/login');
     };
 
-    const handleSignUpSubmit = async (e) => {
+    const handleSignUpSubmit = (e) => {
         e.preventDefault();
+        axios.post('https://localhost:3001/register', {name, email, password})
+        .then(result => console.log(result))
+        .catch(err => console.log(err)) 
     
         if (!username || !email || !password) {
             setError("All fields are required.");
             return;
         }
     
-        try {
-            // Make a POST request to the backend
-            const response = await fetch("http://localhost:5175/api/auth/register", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({ username, email, password }),
-            });
+        // try {
+        //     // Make a POST request to the backend
+        //     const response = await fetch("http://localhost:5175/api/auth/register", {
+        //         method: "POST",
+        //         headers: {
+        //             "Content-Type": "application/json",
+        //         },
+        //         body: JSON.stringify({ username, email, password }),
+        //     });
     
-            const data = await response.json();
+        //     const data = await response.json();
     
-            if (response.ok) {
-                alert(data.message); // Display success message
-                navigate("/login"); // Redirect to login page
-            } else {
-                setError(data.message); // Display error from the backend
-            }
-        } catch (err) {
-            console.error(err);
-            setError("Error connecting to the server.");
-        }
+        //     if (response.ok) {
+        //         alert(data.message); // Display success message
+        //         navigate("/login"); // Redirect to login page
+        //     } else {
+        //         setError(data.message); // Display error from the backend
+        //     }
+        // } catch (err) {
+        //     console.error(err);
+        //     setError("Error connecting to the server.");
+        // }
     };
     return (
         <div className="page-container">
