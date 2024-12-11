@@ -15,20 +15,21 @@ function LoginPage() {
 
     const handleLoginSubmit = (e) => {
         e.preventDefault();
+        navigate('/homepage');
 
-        // Here, you would typically handle form submission (API call, validation, etc.)
-        // For now, we'll just log the username and password
-        console.log('Username:', username);
-        console.log('Password:', password);
+        // // Here, you would typically handle form submission (API call, validation, etc.)
+        // // For now, we'll just log the username and password
+        // console.log('Username:', username);
+        // console.log('Password:', password);
 
-        // If the login fails, you could display an error message like this:
-        if (username === "" || password === "") {
-            setError("Both fields are required.");
-        } else {
-            setError(""); // Clear any previous errors
-            // Navigate to the dashboard or another page after successful login
-            // Example: navigate('/dashboard');
-        }
+        // // If the login fails, you could display an error message like this:
+        // if (username === "" || password === "") {
+        //     setError("Both fields are required.");
+        // } else {
+        //     setError(""); // Clear any previous errors
+        //     // Navigate to the dashboard or another page after successful login
+        //     // Example: navigate('/dashboard');
+        // }
     };
 
     return (
