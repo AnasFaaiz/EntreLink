@@ -48,7 +48,7 @@ const Navbar = () => {
         <Link to="/Community" style={styles.link}>Community</Link>
       </li>
       <li>
-        <Link to="/connections" style={styles.link}>Connections</Link>
+        <Link to="/Connections" style={styles.link}>Connections</Link>
       </li>
     </ul>
   

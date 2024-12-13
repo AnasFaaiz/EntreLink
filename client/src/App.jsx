@@ -6,6 +6,7 @@ import HomePage from './components/Home-page.jsx';
 import Articles from './components/Articles.jsx';
 import Community from './components/Community.jsx';
 import Events from './components/Events.jsx';
+import Connections from './components/Connections.jsx';
 
 function App() {
     return (
@@ -17,6 +18,7 @@ function App() {
                 <Route path="/Articles" element={<Articles />} />
                 <Route path="/Community" element={<Community />} />
                 <Route path="/Events" element={<Events />} />
+                <Route path="/Connections" element={<Connections />} />
             </Routes>
         </Router>
     );
