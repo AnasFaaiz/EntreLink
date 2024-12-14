@@ -12,10 +12,13 @@ const Navbar = () => {
   const toggleSearch = () => {
     setSearchVisible(!searchVisible);  // Toggle search visibility
   };
+  const handleLogoClick = () => {
+    navigate("/homepage");
+  };
 
   return (
     <nav style={styles.navbar}>
-    <div style={styles.logo}>
+    <div style={styles.logo} onClick={handleLogoClick}>
       <img
         src="./images/EntreLink.png"
         alt="LOGO"
@@ -94,13 +97,13 @@ const styles = {
       justifyContent: "space-between",
       alignItems: "center",
       backgroundColor: "#000",
-      margin: 10,
+      // margin: 10,
       color: "white",
       position: "fixed",
       top: 0,
-      width: "98%",
+      width: "100%",
       boxSizing: "border-box",
-      borderRadius: "10px",
+      // borderRadius: "10px",
     },
     logo: {
       position: "relative",
