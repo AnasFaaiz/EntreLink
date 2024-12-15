@@ -55,12 +55,13 @@ const Community = () => {
             </>
           )}
 
-          <li style={styles.menuItem}>
+          {/* <li style={styles.menuItem}>
             {!collapsed && <span style={styles.icon}>📞</span>}
             <Link to="/contact" style={{ ...styles.link, display: collapsed ? "none" : "block" }}>Contact</Link>
-          </li>
+          </li> */}
         </ul>
       </div>
+      
     </div>
   );
 };
