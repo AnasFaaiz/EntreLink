@@ -10,10 +10,10 @@ const Community = () => {
   };
 
   return (
-    <div>
+    <div style={styles.container}>
       <Navbar />
       {/* Menu Bar */}
-      <div style={{ ...styles.menuBar, width: collapsed ? "60px" : "250px" }}>
+      <div style={{ ...styles.menuBar, width: collapsed ? "60px" : "200px" }}>
         <button onClick={toggleMenu} style={styles.toggleButton}>
           {collapsed ? ">" : "<"} {/* Change icon based on state */}
         </button>
@@ -36,7 +36,7 @@ const Community = () => {
               </li>
             </>
           )}
-            <li style={styles.menuItem}>
+          <li style={styles.menuItem}>
             {!collapsed && <span style={styles.icon}>👥</span>} {/* Groups Icon */}
             <Link to="/groups" style={{ ...styles.link, display: collapsed ? "none" : "block" }}>Groups</Link>
           </li>
@@ -54,25 +54,36 @@ const Community = () => {
               </li>
             </>
           )}
-
-          {/* <li style={styles.menuItem}>
-            {!collapsed && <span style={styles.icon}>📞</span>}
-            <Link to="/contact" style={{ ...styles.link, display: collapsed ? "none" : "block" }}>Contact</Link>
-          </li> */}
         </ul>
       </div>
-      
+
+      {/* Top Groups Box (Right Side) */}
+      <div style={styles.rightBox}>
+        <h3 style={styles.rightBoxTitle}>Top Groups</h3>
+        <ul style={styles.rightBoxList}>
+          <li style={styles.rightBoxItem}><h4>Tech Startups</h4></li>
+          <li style={styles.rightBoxItem}><h4>Investors</h4></li>
+          <li style={styles.rightBoxItem}><h4>Shareholders</h4></li>
+          <li style={styles.rightBoxItem}><h4>Tech-Researchers</h4></li>
+          
+        </ul>
+      </div>
     </div>
   );
 };
 
 const styles = {
+  container: {
+    display: "flex",
+    height: "100vh", // Full viewport height
+  },
   menuBar: {
     position: "fixed", // Fixes it to the left side
     top: 65,
     left: 0,
     height: "100%", // Full viewport height
-    backgroundColor: "#333", // Background color
+    backgroundColor: "#333", 
+    width: "200px", // Background color
     padding: "1rem", // Padding inside the menu
     boxSizing: "border-box",
     borderRadius: "0 5px 5px 0",
@@ -112,6 +123,39 @@ const styles = {
   icon: {
     fontSize: "1.5rem",
     color: "white",
+  },
+  rightBox: {
+    position: "fixed", // Keeps it fixed on the right side
+    top: "65px", // Starts below the navbar
+    right: "0", // Fixes it to the right
+    width: "250px", // Width of the right box
+    backgroundColor: "#5b5858", // Light background
+    padding: "1rem", // Padding for content
+    boxSizing: "border-box",
+    borderRadius: "5px",
+    margin: "5px",
+    boxShadow: "-2px 0px 10px rgba(0,0,0,0.1)", // Adds a shadow for separation
+    overflowY: "auto", // Scroll if content overflows
+    height: "50%", // Takes full height
+  },
+  rightBoxTitle: {
+    fontSize: "1.2rem",
+    marginBottom: "1rem",
+    color: "white",
+    position: "sticky", // Sticky positioning
+    top: "1px", // Small gap from the top
+    backgroundColor: "#5b5858", // Background color for visibility
+    zIndex: 10, // Ensures it stays above the scrolling list
+  },
+  rightBoxList: {
+    listStyleType: "none",
+    padding: 0,
+    margin: 0,
+    maxHeight: "calc(100vh - 120px)", // Ensures the list area takes the remaining space minus the title
+    overflowY: "auto", // Makes the list scrollable
+  },
+  rightBoxItem: {
+    marginBottom: "1rem",
   },
 };
 
