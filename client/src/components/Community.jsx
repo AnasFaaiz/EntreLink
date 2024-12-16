@@ -65,7 +65,7 @@ const Community = () => {
           <li style={styles.rightBoxItem}><h4>Investors</h4></li>
           <li style={styles.rightBoxItem}><h4>Shareholders</h4></li>
           <li style={styles.rightBoxItem}><h4>Tech-Researchers</h4></li>
-          
+          <li style={styles.rightBoxItem}><h4>Tech-Researchers</h4></li>
         </ul>
       </div>
     </div>
@@ -140,13 +140,15 @@ const styles = {
   },
   rightBoxTitle: {
     fontSize: "1.2rem",
-    marginBottom: "1rem",
+    marginBottom: "0", // Remove margin to move it closer to the top
     color: "white",
     position: "sticky", // Sticky positioning
-    top: "1px", // Small gap from the top
+    top: "0", // Move it towards the very top
     backgroundColor: "#5b5858", // Background color for visibility
     zIndex: 10, // Ensures it stays above the scrolling list
+    // padding: "10px 0", // Adds some padding for spacing, adjust as needed
   },
+  
   rightBoxList: {
     listStyleType: "none",
     padding: 0,
@@ -156,6 +158,7 @@ const styles = {
   },
   rightBoxItem: {
     marginBottom: "1rem",
+    color: "silver",
   },
 };
 
