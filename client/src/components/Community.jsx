@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { AiFillCaretRight } from "react-icons/ai";
+import { Link } from 'react-router-dom';
 import Navbar from "./Navbar";
 
 const Community = () => {
@@ -58,6 +59,7 @@ const Community = () => {
 
           {!isVisible && (
             <div className="row" style={styles.row}>
+              <Link to="/Community" style={{ textDecoration: 'none' }}>
               <div
                 style={boxItemStyle(hoveredItem === "groups")}
                 onMouseEnter={() => setHoveredItem("groups")}
@@ -65,6 +67,9 @@ const Community = () => {
               >
                 Groups
               </div>
+              </Link>
+
+              <Link to="/Community/discussions" >
               <div
                 style={boxItemStyle(hoveredItem === "discussions")}
                 onMouseEnter={() => setHoveredItem("discussions")}
@@ -72,6 +77,9 @@ const Community = () => {
               >
                 Discussions
               </div>
+              </Link>
+
+              <Link to="/Community/Opportunity" >
               <div
                 style={boxItemStyle(hoveredItem === "Opportunity")}
                 onMouseEnter={() => setHoveredItem("Opportunity")}
@@ -79,6 +87,9 @@ const Community = () => {
               >
                 Opportunity
               </div>
+              </Link>
+
+              <Link to="/Community/Challenges">
               <div
                 style={boxItemStyle(hoveredItem === "Challenges")}
                 onMouseEnter={() => setHoveredItem("Challenges")}
@@ -86,6 +97,7 @@ const Community = () => {
               >
                 Challenges
               </div>
+              </Link>
             </div>
           )}
         </div>
@@ -145,12 +157,12 @@ const styles = {
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
-    gap: "10px",
+    // gap: "10px",
     backgroundColor: "#66B2B2",
     borderRadius: "10px",
     boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
     margin: "10px auto",
-    width: "35%",
+    // width: "35%",
     position: "fixed",
     top: "63px",
     left: "40px",

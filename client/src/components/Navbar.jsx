@@ -30,7 +30,7 @@ const Navbar = () => {
       {searchVisible && (
         <input
           type="text"
-          placeholder="Search..."
+          placeholder="Search Entrepreneurs, Events, and more..."
           style={styles.searchBar}
         />
       )}
