@@ -7,6 +7,9 @@ import Articles from './components/Articles.jsx';
 import Community from './components/Community.jsx';
 import Events from './components/Events.jsx';
 import Connections from './components/Connections.jsx';
+import Discussion from './components/Community/Discussion';
+import Challenges from './components/Community/Challenges.jsx';
+import Opportunity from './components/Community/Opportunity.jsx';
 
 function App() {
     return (
@@ -19,6 +22,9 @@ function App() {
                 <Route path="/Community" element={<Community />} />
                 <Route path="/Events" element={<Events />} />
                 <Route path="/Connections" element={<Connections />} />
+                <Route path="/Community/Discussion" element={<Discussion />} />
+                <Route path="/Community/Challenges" element={<Challenges />} />
+                <Route path="/Community/Opportunity" element={<Opportunity />} />
             </Routes>
         </Router>
     );

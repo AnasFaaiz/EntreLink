@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { AiFillCaretRight } from "react-icons/ai";
 import { Link } from 'react-router-dom';
-import Navbar from "./Navbar";
+import Navbar from "../Navbar";
 
-const Community = () => {
+const Challenges = () => {
   const [isVisible, setIsVisible] = useState(true);
   const [hoveredItem, setHoveredItem] = useState(null);
   const [hoveredCategory, setHoveredCategory] = useState(null);
@@ -51,6 +51,7 @@ const Community = () => {
     <div className="container">
       <Navbar />
       <div style={styles.mainContent}>
+        <h1>Challenges</h1>
         {/* Top Row Container */}
         <div style={styles.rowContainer}>
           <span style={styles.toggleButton} onClick={toggleRow}>
@@ -69,7 +70,7 @@ const Community = () => {
               </div>
               </Link>
 
-              <Link to="/Community/Discussion">
+              <Link to="/Community/Discussion" >
               <div
                 style={boxItemStyle(hoveredItem === "discussions")}
                 onMouseEnter={() => setHoveredItem("discussions")}
@@ -222,4 +223,4 @@ const styles = {
   },
 };
 
-export default Community;
+export default Challenges;
