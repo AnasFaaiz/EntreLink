@@ -51,8 +51,8 @@ const Opportunity = () => {
     <div className="container">
       <Navbar />
       <div style={styles.mainContent}>
-        <h1>Opportunity</h1>
-        {/* Top Row Container */}
+        
+{/* Top Row Container */}
         <div style={styles.rowContainer}>
           <span style={styles.toggleButton} onClick={toggleRow}>
             {isVisible ? <FaBars /> : <FaTimes />}
@@ -103,7 +103,7 @@ const Opportunity = () => {
           )}
         </div>
 
-        {/* Side Categories */}
+{/* Side Categories */}
         <div style={styles.categoriesContainer}>
           {categories.map((category, index) => (
             <div
@@ -133,6 +133,7 @@ const Opportunity = () => {
             </div>
           ))}
         </div>
+        <h1>Opportunity</h1>
       </div>
     </div>
   );

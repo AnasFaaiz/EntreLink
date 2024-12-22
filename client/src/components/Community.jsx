@@ -51,7 +51,8 @@ const Community = () => {
     <div className="container">
       <Navbar />
       <div style={styles.mainContent}>
-        {/* Top Row Container */}
+
+{/* Top Row Container */}
         <div style={styles.rowContainer}>
           <span style={styles.toggleButton} onClick={toggleRow}>
             {isVisible ? <FaBars /> : <FaTimes />}
@@ -102,7 +103,7 @@ const Community = () => {
           )}
         </div>
 
-        {/* Side Categories */}
+{/* Side Categories */}
         <div style={styles.categoriesContainer}>
           {categories.map((category, index) => (
             <div
@@ -132,6 +133,7 @@ const Community = () => {
             </div>
           ))}
         </div>
+<h1>Groups</h1>
       </div>
     </div>
   );

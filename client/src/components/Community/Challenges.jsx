@@ -50,8 +50,9 @@ const Challenges = () => {
   return (
     <div className="container">
       <Navbar />
+      
       <div style={styles.mainContent}>
-        <h1>Challenges</h1>
+        
         {/* Top Row Container */}
         <div style={styles.rowContainer}>
           <span style={styles.toggleButton} onClick={toggleRow}>
@@ -133,6 +134,7 @@ const Challenges = () => {
             </div>
           ))}
         </div>
+        <h1>Challenges</h1>
       </div>
     </div>
   );
