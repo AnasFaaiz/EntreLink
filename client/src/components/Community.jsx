@@ -170,6 +170,25 @@ const Community = () => {
             <GroupCard group={groupData} />
           </div>
          
+          <h4 style={{ ...styles.categories, marginTop: "40px", position: "relative" }}>
+           Explore Squads:
+          <span style={{
+            position: "absolute", 
+            bottom: "0", 
+            left: "0", 
+            width: "100%", 
+            height: "2px", 
+            backgroundColor: "#008080",
+            transform: "scaleX(1.5)", 
+            transformOrigin: "bottom left"
+          }} />
+        </h4>
+          <div style={{ display: "flex", justifyContent: "center", padding: "10px" }}>
+            <GroupCard group={groupData} />
+          </div>
+          <div style={{ display: "flex", justifyContent: "center", padding: "10px" }}>
+            <GroupCard group={groupData} />
+          </div>
         </div>
        </div>
       </div>
@@ -283,7 +302,7 @@ const styles = {
   gridContainer: {
     display: "grid",
     gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-    padding: "20px",
+    padding: "10px",
   },
 };
 

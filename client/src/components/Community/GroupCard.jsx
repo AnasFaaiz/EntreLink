@@ -11,7 +11,7 @@ const GroupCard = ({ group }) => {
       borderRadius: "10px",
       boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
       padding: "13px",
-      margin: "10px",
+      margin: "5px",
       maxWidth: "300px",
       backgroundColor: "#ffffff",
       display: "flex",
