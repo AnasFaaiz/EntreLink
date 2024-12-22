@@ -62,11 +62,11 @@ const Discussion = () => {
             <div className="row" style={styles.row}>
               <Link to="/Community" style={{ textDecoration: 'none' }}>
               <div
-                style={boxItemStyle(hoveredItem === "groups")}
-                onMouseEnter={() => setHoveredItem("groups")}
+                style={boxItemStyle(hoveredItem === "Squads")}
+                onMouseEnter={() => setHoveredItem("Squads")}
                 onMouseLeave={() => setHoveredItem(null)}
               >
-                Groups
+                Squads
               </div>
               </Link>
 

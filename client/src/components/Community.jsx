@@ -3,6 +3,7 @@ import { FaBars, FaTimes } from "react-icons/fa";
 import { AiFillCaretRight } from "react-icons/ai";
 import { Link } from 'react-router-dom';
 import Navbar from "./Navbar";
+import GroupCard from "./Community/GroupCard";
 
 const Community = () => {
   const [isVisible, setIsVisible] = useState(true);
@@ -27,6 +28,14 @@ const Community = () => {
       subcategories: ["Idea Stage", "Early Stage", "Growth Stage"],
     },
   ];
+
+  const groupData = {
+    name: "Tech Innovators",
+    tags: ["Technology", "Startups", "Innovation"],
+    keywords: ["AI", "Blockchain", "Web Development"],
+    memberCount: 120,
+    activityLevel: "High",
+  };
 
   const toggleRow = () => {
     setIsVisible(!isVisible);
@@ -62,11 +71,11 @@ const Community = () => {
             <div className="row" style={styles.row}>
               <Link to="/Community" style={{ textDecoration: 'none' }}>
               <div
-                style={boxItemStyle(hoveredItem === "groups")}
-                onMouseEnter={() => setHoveredItem("groups")}
+                style={boxItemStyle(hoveredItem === "Squads")}
+                onMouseEnter={() => setHoveredItem("Squads")}
                 onMouseLeave={() => setHoveredItem(null)}
               >
-                Groups
+                Squads
               </div>
               </Link>
 
@@ -105,6 +114,9 @@ const Community = () => {
 
 {/* Side Categories */}
         <div style={styles.categoriesContainer}>
+          <div>
+            <h4 style={styles.categories}>Categories</h4>
+          </div>
           {categories.map((category, index) => (
             <div
               key={index}
@@ -133,7 +145,33 @@ const Community = () => {
             </div>
           ))}
         </div>
-<h1>Groups</h1>
+      <div className="SquadContainer" style={styles.SquadContainer}>
+        <div className="SquadButton" style={styles.SquadButton}>
+          <button style={styles.Sbutton}>Create Squad</button>
+        </div>
+        <div style={styles.gridContainer}>
+        <h4 style={{ ...styles.categories, marginTop: "40px", position: "relative" }}>
+           My Squads:
+          <span style={{
+            position: "absolute", 
+            bottom: "0", 
+            left: "0", 
+            width: "100%", 
+            height: "2px", 
+            backgroundColor: "#008080",
+            transform: "scaleX(1.5)", 
+            transformOrigin: "bottom left"
+          }} />
+        </h4>
+          <div style={{ display: "flex", justifyContent: "center", padding: "10px" }}>
+            <GroupCard group={groupData} />
+          </div>
+          <div style={{ display: "flex", justifyContent: "center", padding: "10px" }}>
+            <GroupCard group={groupData} />
+          </div>
+         
+        </div>
+       </div>
       </div>
     </div>
   );
@@ -221,6 +259,31 @@ const styles = {
     '&:hover': {
       backgroundColor: "#f5f5f5",
     },
+  },
+  SquadButton: {
+    position: "fixed",  
+    top: "75px",       
+    right: "20px",      
+    zIndex: 1000,       
+  },
+  Sbutton: {
+    backgroundColor: "#008B8B",
+    border: "2px solid black",
+    borderRadius: "10px",
+  }, 
+  categories: {
+    fontSize: "17px",
+    color: "#008080", // Matches the theme
+    fontWeight: "bold",
+    fontFamily: "'Roboto', sans-serif", // Clean and professional font
+    textTransform: "uppercase", // Optional for a bold look
+    margin: "5px",
+    padding: "0",
+  },
+  gridContainer: {
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+    padding: "20px",
   },
 };
 
