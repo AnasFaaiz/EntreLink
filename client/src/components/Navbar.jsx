@@ -96,7 +96,7 @@ const styles = {
       display: "flex",
       justifyContent: "space-between",
       alignItems: "center",
-      backgroundColor: "#000",
+      backgroundColor: "#008080",
       // margin: 10,
       color: "white",
       position: "fixed",
@@ -129,7 +129,7 @@ const styles = {
       marginLeft: "auto", // Space between search bar and button
     },
     searchButton: {
-      backgroundColor: "#333",
+      backgroundColor: "#333333",
       color: "white",
       border: "none",
       padding: "0.3rem 0.8rem", // Reduced padding for a smaller button
