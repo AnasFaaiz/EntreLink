@@ -106,6 +106,9 @@ const Challenges = () => {
 
         {/* Side Categories */}
         <div style={styles.categoriesContainer}>
+        <div>
+            <h4 style={styles.categories}>Categories</h4>
+          </div>
           {categories.map((category, index) => (
             <div
               key={index}
@@ -223,6 +226,15 @@ const styles = {
     '&:hover': {
       backgroundColor: "#f5f5f5",
     },
+  },
+  categories: {
+    fontSize: "17px",
+    color: "#008080", // Matches the theme
+    fontWeight: "bold",
+    fontFamily: "'Roboto', sans-serif", // Clean and professional font
+    textTransform: "uppercase", // Optional for a bold look
+    margin: "5px",
+    padding: "0",
   },
 };
 
