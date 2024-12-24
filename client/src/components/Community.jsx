@@ -37,23 +37,23 @@ const Community = () => {
     activityLevel: "High",
   };
 
-  const toggleRow = () => {
-    setIsVisible(!isVisible);
-  };
+  // const toggleRow = () => {
+  //   setIsVisible(!isVisible);
+  // };
 
   const boxItemStyle = (isHovered) => ({
     flex: "1",
     textAlign: "center",
-    padding: "3px 2px",
+    padding: "2px",
     color: isHovered ? "white" : "black",
-    backgroundColor: isHovered ? "#008080" : "#ffffff",
+    backgroundColor: isHovered ? "#008080" : "#FFFFF0",
     borderRadius: "8px",
-    fontSize: "16px",
+    fontSize: "13px",
     cursor: "pointer",
     boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
     transition: "background-color 0.3s ease",
     fontWeight: "500",
-    margin: "5px",
+    margin: "4px",
   });
 
   return (
@@ -63,11 +63,11 @@ const Community = () => {
 
 {/* Top Row Container */}
         <div style={styles.rowContainer}>
-          <span style={styles.toggleButton} onClick={toggleRow}>
+          {/* <span style={styles.toggleButton} onClick={toggleRow}>
             {isVisible ? <FaBars /> : <FaTimes />}
-          </span>
+          </span> */}
 
-          {!isVisible && (
+          {isVisible && (
             <div className="row" style={styles.row}>
               <Link to="/Community" style={{ textDecoration: 'none' }}>
               <div
@@ -150,7 +150,7 @@ const Community = () => {
           <button style={styles.Sbutton}>Create Squad</button>
         </div>
         <div style={styles.gridContainer}>
-        <h4 style={{ ...styles.categories, marginTop: "40px", position: "relative" }}>
+        <h4 style={{ ...styles.categories, marginTop: "5px", position: "relative" }}>
            My Squads:
           <span style={{
             position: "absolute", 
@@ -210,7 +210,7 @@ const styles = {
     position: "absolute",
     top: "0",
     left: "3px",
-    zIndex: 1000,
+    zIndex: 100,
   },
   row: {
     display: "flex",
@@ -220,26 +220,26 @@ const styles = {
     backgroundColor: "#66B2B2",
     borderRadius: "10px",
     boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
-    margin: "10px auto",
+    margin: "20px auto",
     // width: "35%",
     position: "fixed",
-    top: "63px",
-    left: "40px",
+    top: "58px",
+    left: "10px",
   },
-  toggleButton: {
-    fontSize: "24px",
-    cursor: "pointer",
-    margin: "10px",
-    backgroundColor: "transparent",
-    border: "none",
-    color: "#008080",
-  },
+  // toggleButton: {
+  //   fontSize: "24px",
+  //   cursor: "pointer",
+  //   margin: "3px",
+  //   backgroundColor: "transparent",
+  //   border: "none",
+  //   color: "#008080",
+  // },
   categoriesContainer: {
     width: "250px",
     backgroundColor: "#66B2B2",
     borderRadius: "10px",
     padding: "15px",
-    margin: "58px 10px 20px",
+    margin: "50px 10px 20px",
     boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
   },
   categoryWrapper: {
@@ -283,11 +283,12 @@ const styles = {
     position: "fixed",  
     top: "75px",       
     right: "20px",      
-    zIndex: 1000,       
+    fontSize: "13px",     
+      
   },
   Sbutton: {
-    backgroundColor: "#008B8B",
-    border: "2px solid black",
+    backgroundColor: "#00f30c",
+    border: "1px solid black",
     borderRadius: "10px",
   }, 
   categories: {

@@ -35,16 +35,16 @@ const Opportunity = () => {
   const boxItemStyle = (isHovered) => ({
     flex: "1",
     textAlign: "center",
-    padding: "3px 2px",
+    padding: "2px",
     color: isHovered ? "white" : "black",
-    backgroundColor: isHovered ? "#008080" : "#ffffff",
+    backgroundColor: isHovered ? "#008080" : "#FFFFF0",
     borderRadius: "8px",
-    fontSize: "16px",
+    fontSize: "13px",
     cursor: "pointer",
     boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
     transition: "background-color 0.3s ease",
     fontWeight: "500",
-    margin: "5px",
+    margin: "4px",
   });
 
   return (
@@ -53,55 +53,55 @@ const Opportunity = () => {
       <div style={styles.mainContent}>
         
 {/* Top Row Container */}
-        <div style={styles.rowContainer}>
-          <span style={styles.toggleButton} onClick={toggleRow}>
-            {isVisible ? <FaBars /> : <FaTimes />}
-          </span>
-
-          {!isVisible && (
-            <div className="row" style={styles.row}>
-              <Link to="/Community" style={{ textDecoration: 'none' }}>
-              <div
-                style={boxItemStyle(hoveredItem === "Squads")}
-                onMouseEnter={() => setHoveredItem("Squads")}
-                onMouseLeave={() => setHoveredItem(null)}
-              >
-                Squads
-              </div>
-              </Link>
-
-              <Link to="/Community/Discussion" >
-              <div
-                style={boxItemStyle(hoveredItem === "discussions")}
-                onMouseEnter={() => setHoveredItem("discussions")}
-                onMouseLeave={() => setHoveredItem(null)}
-              >
-                Discussions
-              </div>
-              </Link>
-
-              <Link to="/Community/Opportunity" >
-              <div
-                style={boxItemStyle(hoveredItem === "Opportunity")}
-                onMouseEnter={() => setHoveredItem("Opportunity")}
-                onMouseLeave={() => setHoveredItem(null)}
-              >
-                Opportunity
-              </div>
-              </Link>
-
-              <Link to="/Community/Challenges">
-              <div
-                style={boxItemStyle(hoveredItem === "Challenges")}
-                onMouseEnter={() => setHoveredItem("Challenges")}
-                onMouseLeave={() => setHoveredItem(null)}
-              >
-                Challenges
-              </div>
-              </Link>
-            </div>
-          )}
-        </div>
+       <div style={styles.rowContainer}>
+                 {/* <span style={styles.toggleButton} onClick={toggleRow}>
+                   {isVisible ? <FaBars /> : <FaTimes />}
+                 </span> */}
+       
+                 {isVisible && (
+                   <div className="row" style={styles.row}>
+                     <Link to="/Community" style={{ textDecoration: 'none' }}>
+                     <div
+                       style={boxItemStyle(hoveredItem === "Squads")}
+                       onMouseEnter={() => setHoveredItem("Squads")}
+                       onMouseLeave={() => setHoveredItem(null)}
+                     >
+                       Squads
+                     </div>
+                     </Link>
+       
+                     <Link to="/Community/Discussion">
+                     <div
+                       style={boxItemStyle(hoveredItem === "discussions")}
+                       onMouseEnter={() => setHoveredItem("discussions")}
+                       onMouseLeave={() => setHoveredItem(null)}
+                     >
+                       Discussions
+                     </div>
+                     </Link>
+       
+                     <Link to="/Community/Opportunity" >
+                     <div
+                       style={boxItemStyle(hoveredItem === "Opportunity")}
+                       onMouseEnter={() => setHoveredItem("Opportunity")}
+                       onMouseLeave={() => setHoveredItem(null)}
+                     >
+                       Opportunity
+                     </div>
+                     </Link>
+       
+                     <Link to="/Community/Challenges">
+                     <div
+                       style={boxItemStyle(hoveredItem === "Challenges")}
+                       onMouseEnter={() => setHoveredItem("Challenges")}
+                       onMouseLeave={() => setHoveredItem(null)}
+                     >
+                       Challenges
+                     </div>
+                     </Link>
+                   </div>
+                 )}
+               </div>
 
 {/* Side Categories */}
         <div style={styles.categoriesContainer}>
@@ -156,7 +156,7 @@ const styles = {
     position: "absolute",
     top: "0",
     left: "3px",
-    zIndex: 1000,
+    zIndex: 100,
   },
   row: {
     display: "flex",
@@ -166,20 +166,20 @@ const styles = {
     backgroundColor: "#66B2B2",
     borderRadius: "10px",
     boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
-    margin: "10px auto",
+    margin: "20px auto",
     // width: "35%",
     position: "fixed",
-    top: "63px",
-    left: "40px",
+    top: "58px",
+    left: "10px",
   },
-  toggleButton: {
-    fontSize: "24px",
-    cursor: "pointer",
-    margin: "10px",
-    backgroundColor: "transparent",
-    border: "none",
-    color: "#008080",
-  },
+  // toggleButton: {
+  //   fontSize: "24px",
+  //   cursor: "pointer",
+  //   margin: "10px",
+  //   backgroundColor: "transparent",
+  //   border: "none",
+  //   color: "#008080",
+  // },
   categoriesContainer: {
     width: "250px",
     backgroundColor: "#66B2B2",
