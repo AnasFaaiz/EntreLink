@@ -6,7 +6,8 @@ import Navbar from "./Navbar";
 const HomePage = () => {
   return (
         <div className='main-page'>
-            <Navbar />            
+            <Navbar />    
+            <h1>Home Page</h1>        
         </div>
   );
 };

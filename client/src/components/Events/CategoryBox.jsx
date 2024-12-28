@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const startupFields = [
   "Fintech", "Healthtech", "Edtech", "E-commerce", "SaaS", "Biotech", 
@@ -19,30 +19,67 @@ const entrepreneurEvents = [
 ];
 
 const CategoryBox = () => {
+  const [showStartupFields, setShowStartupFields] = useState(false);
+  const [showEntrepreneurEvents, setShowEntrepreneurEvents] = useState(false);
+
   return (
     <div style={styles.categoryBox}>
       <div style={styles.section}>
-        <h4 style={styles.subHeading}>Startup Fields</h4>
+        {/* <h4 style={styles.subHeading}>Mode</h4> */}
         <ul style={styles.list}>
-          {startupFields.map(field => (
-            <li style={styles.listItem} key={field}>
-              <input type="checkbox" id={field.toLowerCase().replace(/ /g, "_")} name={field.toLowerCase().replace(/ /g, "_")} style={styles.checkbox} />
-              <label htmlFor={field.toLowerCase().replace(/ /g, "_")} style={styles.label}>{field}</label>
-            </li>
-          ))}
+          <li style={styles.listItem}>
+            <input type="checkbox" id="online" name="online" style={styles.checkbox} />
+            <label htmlFor="online" style={styles.label}>Online</label>
+          </li>
+          <li style={styles.listItem}>
+            <input type="checkbox" id="offline" name="offline" style={styles.checkbox} />
+            <label htmlFor="offline" style={styles.label}>Offline</label>
+          </li>
         </ul>
+      </div>
+
+      <div style={styles.section}>
+        <h4 style={styles.subHeading}>
+          Startup Fields
+          <button 
+            style={styles.toggleButton} 
+            onClick={() => setShowStartupFields(!showStartupFields)}
+          >
+            {showStartupFields ? '-' : '+'}
+          </button>
+        </h4>
+        {showStartupFields && (
+          <ul style={styles.list}>
+            {startupFields.map(field => (
+              <li style={styles.listItem} key={field}>
+                <input type="checkbox" id={field.toLowerCase().replace(/ /g, "_")} name={field.toLowerCase().replace(/ /g, "_")} style={styles.checkbox} />
+                <label htmlFor={field.toLowerCase().replace(/ /g, "_")} style={styles.label}>{field}</label>
+              </li>
+            ))}
+          </ul>
+        )}
       </div>
       
       <div style={styles.section}>
-        <h4 style={styles.subHeading}>Entrepreneur Events</h4>
-        <ul style={styles.list}>
-          {entrepreneurEvents.map(event => (
-            <li style={styles.listItem} key={event}>
-              <input type="checkbox" id={event.toLowerCase().replace(/ /g, "_")} name={event.toLowerCase().replace(/ /g, "_")} style={styles.checkbox} />
-              <label htmlFor={event.toLowerCase().replace(/ /g, "_")} style={styles.label}>{event}</label>
-            </li>
-          ))}
-        </ul>
+        <h4 style={styles.subHeading}>
+          Entrepreneur Events
+          <button 
+            style={styles.toggleButton} 
+            onClick={() => setShowEntrepreneurEvents(!showEntrepreneurEvents)}
+          >
+            {showEntrepreneurEvents ? '-' : '+'}
+          </button>
+        </h4>
+        {showEntrepreneurEvents && (
+          <ul style={styles.list}>
+            {entrepreneurEvents.map(event => (
+              <li style={styles.listItem} key={event}>
+                <input type="checkbox" id={event.toLowerCase().replace(/ /g, "_")} name={event.toLowerCase().replace(/ /g, "_")} style={styles.checkbox} />
+                <label htmlFor={event.toLowerCase().replace(/ /g, "_")} style={styles.label}>{event}</label>
+              </li>
+            ))}
+          </ul>
+        )}
       </div>
     </div>
   );
@@ -57,17 +94,22 @@ const styles = {
     width: "250px",
     margin: "112px 10px 20px",
     textAlign: "center",
+    height: "fit-content",
+    top: "0px",
+    position: "absolute",
   },
   heading: {
     fontSize: "24px",
     marginBottom: "20px",
-
   },
   subHeading: {
     fontSize: "20px",
     marginBottom: "10px",
     textAlign: "left",
     marginTop: "5px",
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center"
   },
   section: {
     marginBottom: "20px"
@@ -84,15 +126,20 @@ const styles = {
     margin: "5px 0",
     display: "flex",
     alignItems: "center",
-    // width: "50%",
   },
   checkbox: {
-    width: "20%",
-    left: "0",
     marginRight: "10px",
+    width: "20%",
   },
   label: {
     width: "100%",
+  },
+  toggleButton: {
+    background: "none",
+    border: "none",
+    fontSize: "20px",
+    cursor: "pointer",
+    color: "white",
   }
 };
 
