@@ -94,10 +94,10 @@ const styles = {
     borderRadius: "10px",
     boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
     width: "250px",
-    margin: "112px 10px 20px",
+    margin: "80px 10px 20px",
     textAlign: "center",
     height: "fit-content",
-    top: "0px",
+    top: "90vh",
     position: "absolute",
   },
   heading: {
@@ -144,10 +144,10 @@ const styles = {
     padding: "5px",
   },
   hr: {
-    width: "99%",
-    margin: "5px auto",
-    border: "0.2px solid black",
-    borderRadius: "50px",
+    height: "1px",
+    color: "black",
+    backgroundImage: "linear-gradient(90deg, rgba(255, 0, 0, 0), rgba(255, 0, 0, 1) 50%, rgba(255, 0, 0, 0) 100%)",
+    border: "none",
  },
 };
 
