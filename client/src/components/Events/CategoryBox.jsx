@@ -26,7 +26,7 @@ const CategoryBox = () => {
     <div style={styles.categoryBox}>
       <div style={styles.section}>
         {/* <h4 style={styles.subHeading}>Mode</h4> */}
-        <ul style={styles.list}>
+        <ul style={{ ...styles.list, display:"flex",gap:"15px" }}>
           <li style={styles.listItem}>
             <input type="checkbox" id="online" name="online" style={styles.checkbox} />
             <label htmlFor="online" style={styles.label}>Online</label>
@@ -38,6 +38,7 @@ const CategoryBox = () => {
         </ul>
       </div>
 
+      <hr style={styles.hr} />
       <div style={styles.section}>
         <h4 style={styles.subHeading}>
           Startup Fields
@@ -59,7 +60,7 @@ const CategoryBox = () => {
           </ul>
         )}
       </div>
-      
+      <hr style={styles.hr} />
       <div style={styles.section}>
         <h4 style={styles.subHeading}>
           Entrepreneur Events
@@ -81,6 +82,7 @@ const CategoryBox = () => {
           </ul>
         )}
       </div>
+      <hr style={styles.hr} />
     </div>
   );
 };
@@ -103,16 +105,15 @@ const styles = {
     marginBottom: "20px",
   },
   subHeading: {
-    fontSize: "20px",
-    marginBottom: "10px",
+    fontSize: "16px",
+    margin: "10px",
     textAlign: "left",
-    marginTop: "5px",
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center"
   },
   section: {
-    marginBottom: "20px"
+    // marginBottom: "20px"
   },
   list: {
     listStyleType: "none",
@@ -140,7 +141,14 @@ const styles = {
     fontSize: "20px",
     cursor: "pointer",
     color: "white",
-  }
+    padding: "5px",
+  },
+  hr: {
+    width: "99%",
+    margin: "5px auto",
+    border: "0.2px solid black",
+    borderRadius: "50px",
+ },
 };
 
 export default CategoryBox;

@@ -10,6 +10,14 @@ const Category = () => {
         <button style={styles.button}>Challenges</button>
         <button style={styles.button}>Opportunity</button>
       </div>
+
+      <hr style={styles.hr} />
+
+      <div className="categories" style={styles.cat}>
+        <label style={styles.catTitle}>Categories</label>
+      </div>
+
+
     </div>
   );
 };
@@ -34,6 +42,18 @@ const styles = {
     fontSize: '13px',
     cursor: 'pointer',
  },
+ hr: {
+    width: "90%",
+    margin: "5px auto",
+    border: "0.2px solid black",
+    borderRadius: "50px",
+ },
+ catTitle: {
+  fontSize: "15px",
+  position: "relative",
+  margin: "10px",
+  
+ }
 };
 
 export default Category;
