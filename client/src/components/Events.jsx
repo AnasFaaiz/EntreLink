@@ -15,7 +15,7 @@ const Events = () => {
         <div>
             <Navbar />
 
-            <div className='eventPhoto' style={styles.eventPhoto}>
+            <div className='eventPhoto'>
                 <ImagesSlider images={images} />
             </div>
             
@@ -36,8 +36,8 @@ const Events = () => {
             <div className="contcontainer" styles={styles.cont}>
                 <CategoryBox />
                 <div className="upcoming-events" style={styles.upcoming}>
-                    <label>Upcoming Events</label>
-                    <hr />
+                    <label atyle={styles.label}>Upcoming Events</label>
+                    <hr style={styles.hr}/>
                 </div>
             </div>
 
@@ -69,13 +69,6 @@ const styles = {
         height: "35px",
         marginTop: "9px",
       },
-      eventPhoto: {
-        width: "100%",
-        // height: "50px",
-        overflow: "hidden",
-        position: "relative",
-        top: "23px",
-      },
       ticketButton: {
         borderRadius: "10px",
         border: "1px solid #ccc",
@@ -94,6 +87,18 @@ const styles = {
         position: "relative",
         top: "10vh",
         left: "22%",
-      }
+      },
+      hr: {
+        height: "1px",
+        width: "70%",
+        color: "black",
+        backgroundImage: "linear-gradient(90deg, rgba(255, 0, 0, 1), rgba(255, 0, 0, 0) 100%, rgba(255, 0, 0, 0) 50%)",
+        border: "none",
+        position: "absolute",
+        margin: "0.5px",
+     },
+     label: {
+      marginBottom: "0",
+     },
 };
 export default Events;
