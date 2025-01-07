@@ -14,7 +14,7 @@ function SignUp() {
     const [error, setError] = useState('');
 
     const handleLoginClick = () => {
-        navigate('/login');
+        navigate('/');
     };
 
     const handleSignUpSubmit = (e) => {

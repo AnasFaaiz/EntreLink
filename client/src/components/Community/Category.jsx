@@ -7,6 +7,7 @@ const Category = () => {
       <div className="menu" style={styles.menu}>
         <button style={styles.button}>Squads</button>
         <button style={styles.button}>Discussion</button>
+        <hr styles={styles.hr} />
         <button style={styles.button}>Challenges</button>
         <button style={styles.button}>Opportunity</button>
       </div>
@@ -35,12 +36,15 @@ const styles = {
     flexWrap: "wrap",
     gap: "5px",
     margin: "8px",
+    backgroundColor: "#66b2b2",
+    border: "1px solid black",
  },
  button: {
     flex: '1 1 45%',
     // padding: '10px 20px',
     fontSize: '13px',
     cursor: 'pointer',
+    backgroundColor: '#66b2b2',
  },
  hr: {
     width: "90%",

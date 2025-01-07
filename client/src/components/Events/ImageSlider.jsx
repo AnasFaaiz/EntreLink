@@ -26,8 +26,8 @@ const styles = {
     position: 'relative',
   },
   image: {
-    width: '90%',
-    height: '90%',
+    width: '100vw',
+    height: '78vh',
     objectFit: 'cover',
   },
 };

@@ -20,16 +20,17 @@ const Events = () => {
             </div>
             
             <div className='Locations' style={styles.locations}>
-                <select style={styles.dropdown}>
-                    <option value="" disabled selected >Location..</option>
+                {/* <select style={styles.dropdown}>
+                    <option value="" disabled selected >map</option>
                     <option value="online">Online</option>
                     <option value="Hyderabad">Hyderabad</option>
                     <option value="Mumbai">Mumbai</option>
                     <option value="Bangalore">Bangalore</option>
                     <option value="Chennai">Chennai</option>
                     <option value="Pune">Pune</option>
-                </select>
-                <button style={styles.ticketButton}>My Ticket</button>
+                </select> */}
+                <button style={styles.createButton}>+ Create</button>
+                <button style={styles.ticketButton}>Tickets</button>
             </div>
 
 
@@ -50,30 +51,39 @@ const styles = {
         color: "black",
         padding: "10px",
         width: "400px",
-        margin: "0 auto",
+        // margin: "0 auto",
         textAlign: "center",
         display: "flex",
         alignItems: "center",
         position: "absolute",
-        top: "98vh",
-        left: "75%",
-        gap: "10px",
+        top: "87vh",
+        left: "80%",
+        gap: "5px",
+        zIndex: "1",
       },
       dropdown: {
-        width: "40%",
-        padding: "10px",
+        width: "30%",
+        padding: "6px",
         paddingBottom: "5px",
-        borderRadius: "10px",
+        borderRadius: "5px",
         border: "1px solid #ccc",
         fontSize: "13px",
         height: "35px",
         marginTop: "9px",
       },
+      createButton: {
+      borderRadius: "5px",
+      padding: "4px 10px",
+      border: "1px solid #ccc",
+      backgroundColor: "green",
+      cursor: "pointer",
+      marginTop: "8px",
+      },
       ticketButton: {
-        borderRadius: "10px",
+        borderRadius: "5px",
         border: "1px solid #ccc",
         backgroundColor: "green",
-        padding: "7px 22px",
+        padding: "4px 10px",
         cursor: "pointer",
         marginTop: "8px",
       },
@@ -83,10 +93,9 @@ const styles = {
         marginTop: "10px",
       },
       upcoming: {
-        marginLeft: "20px",
         position: "relative",
-        top: "10vh",
-        left: "22%",
+        top: "4vh",
+        left: "24%",
       },
       hr: {
         height: "1px",

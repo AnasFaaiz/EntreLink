@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGlobe } from '@fortawesome/free-solid-svg-icons';
+import DropdownBox from './DropdownBox';
 
 const startupFields = [
   "Fintech", "Healthtech", "Edtech", "E-commerce", "SaaS", "Biotech", 
@@ -21,6 +24,13 @@ const entrepreneurEvents = [
 const CategoryBox = () => {
   const [showStartupFields, setShowStartupFields] = useState(false);
   const [showEntrepreneurEvents, setShowEntrepreneurEvents] = useState(false);
+  const [showDropdown, setShowDropdown] = useState(false);
+
+  const toggleDropdown = () => {
+    setShowDropdown(!showDropdown);
+  }
+
+  const locations = ['Bangalore','Chennai','Delhi','Hyderabad','Mumbai','Pune','Punjab',];
 
   return (
     <div style={styles.categoryBox}>
@@ -34,6 +44,12 @@ const CategoryBox = () => {
           <li style={styles.listItem}>
             <input type="checkbox" id="offline" name="offline" style={styles.checkbox} />
             <label htmlFor="offline" style={styles.label}>Offline</label>
+          </li>
+          <li>
+            <button style={styles.iconButton} onClick={toggleDropdown}>
+              <FontAwesomeIcon icon={faGlobe} />
+            </button>
+            {showDropdown && <DropdownBox locations={locations} />}
           </li>
         </ul>
       </div>
@@ -94,7 +110,7 @@ const styles = {
     borderRadius: "10px",
     boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
     width: "250px",
-    margin: "80px 10px 20px",
+    margin: "auto 10px 20px",
     textAlign: "center",
     height: "fit-content",
     top: "90vh",
@@ -149,6 +165,12 @@ const styles = {
     backgroundImage: "linear-gradient(90deg, rgba(255, 0, 0, 0), rgba(255, 0, 0, 1) 50%, rgba(255, 0, 0, 0) 100%)",
     border: "none",
  },
+ iconButton: {
+  marginLeft: "30px",
+  padding: "2px 5px",
+  fontSize: "20px",
+  backgroundColor: "black",
+},
 };
 
 export default CategoryBox;
