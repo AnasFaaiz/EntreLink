@@ -21,9 +21,10 @@ const ImageSlider = ({ images, interval = 5000 }) => {
 const styles = {
   slider: {
     width: '100%',
-    height: "100%",
+    // height: "100%",
     overflow: 'hidden',
-    position: 'relative',
+    position: 'absolute',
+    top: '9vh',
   },
   image: {
     width: '100vw',

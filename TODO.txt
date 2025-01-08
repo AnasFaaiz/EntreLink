@@ -3,5 +3,5 @@ Features:
 2. Update Ariticles 
 
 Community:
-1. Add top forums box
-2. Add top Groups box 
+1. My squads can only contain 2 rows (max) and it should be scrollable towards horizontal.
+2. Add different Categories to the menu.

@@ -4,6 +4,7 @@ import "../App.css";
 import Navbar from './Navbar';
 import CategoryBox from './Events/CategoryBox';
 import ImagesSlider from './Events/ImageSlider';
+import Eventcard from './Events/Eventcard';
 
 const Events = () => {
     const images = [
@@ -34,19 +35,30 @@ const Events = () => {
             </div>
 
 
-            <div className="contcontainer" styles={styles.cont}>
+            <div>
                 <CategoryBox />
-                <div className="upcoming-events" style={styles.upcoming}>
+                <div  className="upcoming-events" style={styles.upcoming}>
                     <label atyle={styles.label}>Upcoming Events</label>
                     <hr style={styles.hr}/>
-                </div>
-            </div>
-
-        </div>
+                </div>   
+              <Eventcard />
+              <Eventcard />  
+              <Eventcard />      
+            </div>       
+         </div>
     );
 };
 
 const styles = {
+
+    // container: {
+    //   // display: "flex",
+    //   // flexDirection: "column",
+    //   // alignItems: "center",
+    //   // width: "100%",
+    //   // padding: "20px",
+    //   // boxSizing: "border-box",
+    // },
     locations: {
         color: "black",
         padding: "10px",
@@ -87,14 +99,17 @@ const styles = {
         cursor: "pointer",
         marginTop: "8px",
       },
-      cont: {
-        display: "flex",
-        alignItems: "center",
-        marginTop: "10px",
-      },
+      // cont: {
+      //   // display: "flex",
+      //   // alignItems: "center",
+      //   // marginTop: "10px",
+      //   top: "105vh",
+      //   zIndex: "2px",
+      //   height: "fit-content",
+      // },
       upcoming: {
         position: "relative",
-        top: "4vh",
+        top: "79vh",
         left: "24%",
       },
       hr: {
