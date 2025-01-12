@@ -40,10 +40,12 @@ const Events = () => {
                 <div  className="upcoming-events" style={styles.upcoming}>
                     <label atyle={styles.label}>Upcoming Events</label>
                     <hr style={styles.hr}/>
-                </div>   
+                    <div className="event-cards">
               <Eventcard />
               <Eventcard />  
-              <Eventcard />      
+              <Eventcard />    
+              </div>
+              </div>     
             </div>       
          </div>
     );
@@ -109,7 +111,7 @@ const styles = {
       // },
       upcoming: {
         position: "relative",
-        top: "79vh",
+        top: "90.5vh",
         left: "24%",
       },
       hr: {
@@ -124,5 +126,6 @@ const styles = {
      label: {
       marginBottom: "0",
      },
+     
 };
 export default Events;
