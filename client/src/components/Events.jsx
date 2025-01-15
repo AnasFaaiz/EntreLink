@@ -111,8 +111,9 @@ const styles = {
       // },
       upcoming: {
         position: "relative",
-        top: "90.5vh",
+        top: "82vh",
         left: "24%",
+        margin: "5px",
       },
       hr: {
         height: "1px",
@@ -122,10 +123,12 @@ const styles = {
         border: "none",
         position: "absolute",
         margin: "0.5px",
+        marginBottom: "10px",
      },
      label: {
       marginBottom: "0",
      },
+     
      
 };
 export default Events;
