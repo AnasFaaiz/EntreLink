@@ -122,9 +122,15 @@ const styles = {
       
   },
   Sbutton: {
-    backgroundColor: "#00f30c",
-    border: "1px solid black",
-    borderRadius: "10px",
+    display: 'flex',
+    alignItems: 'center',
+    // padding: '10px 20px',
+    borderRadius: '5px',
+    border: '1px solid #ccc',
+    backgroundColor: '#008080', // Teal green hex code
+    color: 'white',
+    cursor: 'pointer',
+    fontSize: '16px',
   }, 
   categories: {
     fontSize: "17px",

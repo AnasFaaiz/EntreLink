@@ -14,7 +14,7 @@ const Category = () => {
         <button style={styles.button}>Opportunity</button>
       </div>
 
-      <hr style={styles.hr} />
+      <hr style={{...styles.hr,border: '3px solid black'}} />
 
       <div className="categories" style={styles.cat}>
         <label style={styles.catTitle}>Categories</label>
@@ -50,8 +50,8 @@ const styles = {
  },
  hr: {
     width: "90%",
-    margin: "2px auto",
-    border: "0.2px solid black",
+    margin: "3px auto",
+    border: "1px solid black",
     borderRadius: "50px",
  },
  catTitle: {
@@ -62,7 +62,7 @@ const styles = {
  },
  verticalLine: {
   position: "absolute",
-  top: "10px",
+  top: "13px",
   left: "19%",
   height: "9%",
   backgroundColor: "black",

@@ -46,6 +46,20 @@ const Articles = () => {
         date: '2023-10-02',
         imageUrl: 'https://www.fsm.ac.in/blog/wp-content/uploads/2022/06/Entrepreneur-1024x643.jpg',
       },
+      {
+        title: 'Post 5',
+        description: 'This is the description for post 2.',
+        author: 'Jane Doe',
+        date: '2023-10-02',
+        imageUrl: 'https://www.fsm.ac.in/blog/wp-content/uploads/2022/06/Entrepreneur-1024x643.jpg',
+      },
+      {
+        title: 'Post 6',
+        description: 'This is the description for post 2.',
+        author: 'Jane Doe',
+        date: '2023-10-02',
+        imageUrl: 'https://www.fsm.ac.in/blog/wp-content/uploads/2022/06/Entrepreneur-1024x643.jpg',
+      },
     // Add more posts as needed
   ];
 
