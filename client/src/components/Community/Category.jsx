@@ -25,11 +25,12 @@ const Category = () => {
 
 const styles = {
  cont: {
-    width: "35%",
+    width: "25vw",
     border: "1px solid black",
     backgroundColor: "#66b2b2",
     borderRadius: "10px",
     margin: "10px",
+
  },
  menu: {
     display: "flex",
@@ -63,8 +64,8 @@ const styles = {
  verticalLine: {
   position: "absolute",
   top: "13px",
-  left: "19%",
-  height: "9%",
+  left: "11%",
+  height: "11%",
   backgroundColor: "black",
   border: "0.2px solid black",
 },

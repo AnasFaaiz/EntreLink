@@ -1,15 +1,10 @@
 import React, { useState } from "react";
-import { AiFillCaretRight } from "react-icons/ai";
-import { Link } from 'react-router-dom';
 import Navbar from "./Navbar";
 import GroupCard from "./Community/GroupCard";
 import Category from "./Community/Category";
+import SquadCircle from "./Community/SquadCircle";
 
 const Community = () => {
-  const [isVisible, setIsVisible] = useState(true);
-  const [hoveredItem, setHoveredItem] = useState(null);
-  const [hoveredCategory, setHoveredCategory] = useState(null);
-
   const groupData = {
     name: "Tech Innovators",
     tags: ["Technology", "Startups", "Innovation"],
@@ -19,132 +14,121 @@ const Community = () => {
   };
 
   return (
-    <div className="container">
+    <div className="container" style={styles.container}>
       <Navbar />
       <div style={styles.mainContent}>
-        <Category />
-       
-      <div className="SquadContainer" style={styles.SquadContainer}>
-        <div className="SquadButton" style={styles.SquadButton}>
-          <button style={styles.Sbutton}>Create Squad</button>
+        <div style={styles.leftColumn}>
+          <Category />
         </div>
-        <div style={styles.gridContainer}>
-        <h4 style={{ ...styles.categories, marginTop: "5px", position: "relative" }}>
-           My Squads:
-          <span style={{
-            position: "absolute", 
-            bottom: "0", 
-            left: "0", 
-            width: "100%", 
-            height: "2px", 
-            backgroundColor: "#008080",
-            transform: "scaleX(1.5)", 
-            transformOrigin: "bottom left"
-          }} />
-        </h4>
-          <div style={{ display: "flex", justifyContent: "center", padding: "10px" }}>
-            <GroupCard group={groupData} />
+        
+        <div style={styles.rightColumn}>
+          <div style={styles.squadsSection}>
+          <div style={styles.createSquadSection}>
+            <button style={styles.sbutton}>Create Squad</button>
           </div>
-          <div style={{ display: "flex", justifyContent: "center", padding: "10px" }}>
-            <GroupCard group={groupData} />
+            <h4 style={styles.sectionTitle}>My Squads</h4>
+            <div style={styles.mysquads}>
+              <SquadCircle name="Tech" profilePic="../images/EntreLink.png" />
+              <SquadCircle name="Design" profilePic="../images/EntreLink.png" />
+              <SquadCircle name="Marketing" profilePic="../images/EntreLink.png" />
+            </div>
           </div>
-         
-          <h4 style={{ ...styles.categories, marginTop: "40px", position: "relative" }}>
-           Explore Squads:
-          <span style={{
-            position: "absolute", 
-            bottom: "0", 
-            left: "0", 
-            width: "100%", 
-            height: "2px", 
-            backgroundColor: "#008080",
-            transform: "scaleX(1.5)", 
-            transformOrigin: "bottom left"
-          }} />
-        </h4>
-          <div style={{ display: "flex", justifyContent: "center", padding: "10px" }}>
-            <GroupCard group={groupData} />
-          </div>
-          <div style={{ display: "flex", justifyContent: "center", padding: "10px" }}>
-            <GroupCard group={groupData} />
+
+          <div style={styles.exploreSection}>
+            <h4 style={styles.sectionTitle}>Explore Squads</h4>
+            <div style={styles.groupCardsContainer}>
+              <GroupCard group={groupData} />
+              <GroupCard group={groupData} />
+            </div>
           </div>
         </div>
-       </div>
       </div>
     </div>
   );
 };
 
 const styles = {
+  container: {
+    width: '100%',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    backgroundColor: '#f4f4f4',
+  },
   mainContent: {
     display: "flex",
-    position: "relative",
-    minHeight: "calc(100vh - 65px)",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    width: "100%",
+    maxWidth: "1200px",
+    padding: "20px",
     marginTop: "65px",
+    gap: "20px",
   },
-  rowContainer: {
+  leftColumn: {
+    flex: "1",
     display: "flex",
     flexDirection: "column",
-    alignItems: "flex-start",
-    position: "absolute",
-    top: "0",
-    left: "3px",
-    zIndex: 100,
+    gap: "20px",
   },
-  row: {
+  createSquadSection: {
+    width: "100%",
     display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-    // gap: "10px",
-    backgroundColor: "#66B2B2",
+    justifyContent: "center",
+  },
+  rightColumn: {
+    flex: "2",
+    backgroundColor: "#fff",
     borderRadius: "10px",
     boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
-    margin: "20px auto",
-    // width: "35%",
-    position: "fixed",
-    top: "58px",
-    left: "10px",
+    padding: "20px",
+    display: "flex",
+    flexDirection: "column",
+    gap: "30px",
   },
-  // toggleButton: {
-  //   fontSize: "24px",
-  //   cursor: "pointer",
-  //   margin: "3px",
-  //   backgroundColor: "transparent",
-  //   border: "none",
-  //   color: "#008080",
-  // },
-  
-  SquadButton: {
-    position: "fixed",  
-    top: "75px",       
-    right: "20px",      
-    fontSize: "13px",     
-      
-  },
-  Sbutton: {
-    display: 'flex',
-    alignItems: 'center',
-    // padding: '10px 20px',
+  sbutton: {
+    padding: '10px 20px',
     borderRadius: '5px',
-    border: '1px solid #ccc',
-    backgroundColor: '#008080', // Teal green hex code
+    border: 'none',
+    backgroundColor: '#008080',
     color: 'white',
     cursor: 'pointer',
     fontSize: '16px',
-  }, 
-  categories: {
-    fontSize: "17px",
-    color: "#008080", // Matches the theme
-    fontWeight: "bold",
-    fontFamily: "'Roboto', sans-serif", // Clean and professional font
-    textTransform: "uppercase", // Optional for a bold look
-    margin: "5px",
-    padding: "0",
+    boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+    transition: 'background-color 0.3s ease',
   },
-  gridContainer: {
-    display: "grid",
-    gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-    padding: "10px",
+  sectionTitle: {
+    fontSize: "17px",
+    color: "#008080",
+    fontWeight: "bold",
+    fontFamily: "'Roboto', sans-serif",
+    textTransform: "uppercase",
+    marginBottom: "15px",
+    position: "relative",
+    paddingBottom: "10px",
+    borderBottom: "2px solid #008080",
+  },
+  mysquads: {
+    display: "flex",
+    justifyContent: "center",
+    flexWrap: "wrap",
+    gap: "20px",
+  },
+  squadsSection: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+  },
+  exploreSection: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+  },
+  groupCardsContainer: {
+    display: "flex",
+    flexDirection: "column",
+    gap: "20px",
+    width: "100%",
   },
 };
 

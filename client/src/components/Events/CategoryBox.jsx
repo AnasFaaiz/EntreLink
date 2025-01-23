@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGlobe } from '@fortawesome/free-solid-svg-icons';
 import DropdownBox from './DropdownBox';
+import EditLocationIcon from '@mui/icons-material/EditLocation';
 
 const startupFields = [
   "Fintech", "Healthtech", "Edtech", "E-commerce", "SaaS", "Biotech", 
