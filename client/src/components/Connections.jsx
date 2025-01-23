@@ -1,6 +1,4 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import "../App.css";
 import Navbar from './Navbar';
 import PersonCard from './Connections/PersonCard';
 
@@ -8,8 +6,8 @@ const Connections = () => {
   const recommendingPeoples = [
     { name: 'Alice Johnson', role: 'CEO', startupName: 'Tech Innovators', profilePic: 'https://via.placeholder.com/80', tag: 'EDC' },
     { name: 'Bob Smith', role: 'CTO', startupName: 'AI Solutions', profilePic: 'https://via.placeholder.com/80', tag: 'Student' },
-    { name: 'Alice Johnson', role: 'CEO', startupName: 'Tech Innovators', profilePic: 'https://via.placeholder.com/80', tag: 'EDC' },
-    { name: 'Alice Johnson', role: 'CEO', startupName: 'Tech Innovators', profilePic: 'https://via.placeholder.com/80', tag: 'EDC' },
+    { name: 'Charlie Davis', role: 'Founder', startupName: 'Innovation Labs', profilePic: 'https://via.placeholder.com/80', tag: 'EDC' },
+    { name: 'Emma Wilson', role: 'Product Manager', startupName: 'Tech Ventures', profilePic: 'https://via.placeholder.com/80', tag: 'Mentor' },
   ];
 
   const mentors = [
@@ -28,79 +26,102 @@ const Connections = () => {
   ];
 
   return (
-    <div>
+    <div style={styles.pageWrapper}>
       <Navbar />
       <div style={styles.container}>
-        <h1 style={styles.pageTitle}></h1>
-        <div style={styles.section}>
-          <h2 style={styles.sectionTitle}>Recommending Peoples</h2>
-          <div style={styles.gridContainer}>
-            {recommendingPeoples.map((person, index) => (
-              <PersonCard key={index} {...person} />
-            ))}
-          </div>
+        <div style={styles.searchSection}>
+          <input 
+            type="text" 
+            placeholder="Search connections..." 
+            style={styles.searchInput} 
+          />
+          <button style={styles.filterButton}>Filters</button>
         </div>
-        <div style={styles.section}>
-          <h2 style={styles.sectionTitle}>Mentors</h2>
-          <div style={styles.gridContainer}>
-            {mentors.map((person, index) => (
-              <PersonCard key={index} {...person} />
-            ))}
+
+        {[
+          { title: 'Recommending Peoples', data: recommendingPeoples },
+          { title: 'Mentors', data: mentors },
+          { title: 'Nearby Peoples', data: nearbyPeoples },
+          { title: 'Explore Peoples', data: explorePeoples }
+        ].map(({ title, data }) => (
+          <div key={title} style={styles.section}>
+            <div style={styles.sectionHeader}>
+              <h2 style={styles.sectionTitle}>{title}</h2>
+              <a href="#" style={styles.seeAllLink}>See All</a>
+            </div>
+            <div style={styles.gridContainer}>
+              {data.map((person, index) => (
+                <PersonCard key={index} {...person} />
+              ))}
+            </div>
           </div>
-        </div>
-        <div style={styles.section}>
-          <h2 style={styles.sectionTitle}>Nearby Peoples</h2>
-          <div style={styles.gridContainer}>
-            {nearbyPeoples.map((person, index) => (
-              <PersonCard key={index} {...person} />
-            ))}
-          </div>
-        </div>
-        <div style={styles.section}>
-          <h2 style={styles.sectionTitle}>Explore Peoples</h2>
-          <div style={styles.gridContainer}>
-            {explorePeoples.map((person, index) => (
-              <PersonCard key={index} {...person} />
-            ))}
-          </div>
-        </div>
+        ))}
       </div>
     </div>
   );
 };
 
 const styles = {
+  pageWrapper: {
+    backgroundColor: '#f4f4f4',
+    minHeight: '100vh',
+  },
   container: {
-    padding: '20px',
     maxWidth: '1200px',
     margin: '0 auto',
+    padding: '20px',
+    marginTop: '6%',
+    width: '100vw',
+    
   },
-  pageTitle: {
-    fontSize: '32px',
-    fontWeight: 'bold',
-    textAlign: 'center',
-    marginBottom: '40px',
-    color: '#333',
+  searchSection: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    marginBottom: '30px',
+  },
+  searchInput: {
+    flex: 1,
+    padding: '12px 20px',
+    borderRadius: '8px',
+    border: '1px solid #ddd',
+    fontSize: '16px',
+    marginRight: '15px',
+  },
+  filterButton: {
+    padding: '12px 20px',
+    borderRadius: '8px',
+    backgroundColor: '#008080',
+    color: 'white',
+    border: 'none',
+    cursor: 'pointer',
   },
   section: {
-    marginBottom: '40px',
-    padding: '20px',
-    border: '1px solid #ddd',
-    borderRadius: '10px',
-    backgroundColor: '#fff',
-    boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
-    maxHeight: '400px', // Adjust the height as needed
-    overflowY: 'auto',
+    backgroundColor: 'white',
+    borderRadius: '12px',
+    boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)',
+    padding: '25px',
+    marginBottom: '25px',
+  },
+  sectionHeader: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: '20px',
   },
   sectionTitle: {
-    fontSize: '24px',
+    fontSize: '22px',
     fontWeight: 'bold',
-    marginBottom: '20px',
-    color: '#008080', // Teal green hex code
+    color: '#008080',
+    margin: 0,
+  },
+  seeAllLink: {
+    color: '#008080',
+    textDecoration: 'none',
+    fontWeight: '600',
   },
   gridContainer: {
     display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fill, minmax(90vw, 1fr))',
+    gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))',
     gap: '20px',
   },
 };

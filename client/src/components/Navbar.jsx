@@ -108,7 +108,7 @@ const styles = {
     alignItems: "center",
     backgroundColor: "#006666", 
     color: "white",
-    // position: "fixed",
+    position: "fixed",
     top: 0,
     width: "100%",
     boxSizing: "border-box",

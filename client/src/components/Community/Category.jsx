@@ -1,17 +1,18 @@
 import React from 'react';
 import BackGround from '../Background';
+import { Link } from 'react-router-dom';
 
 const Category = () => {
   
   return (
     <div className="container" style={styles.cont}>
       <div className="menu" style={styles.menu}>
-        <button style={{...styles.button,marginTop: '5px',marginLeft: '3.5px'}}>Squads</button>
-        <button style={{...styles.button,marginTop: '5px'}}>Discussion</button>
-        <hr style={{...styles.hr, width: '88%'}} />
-        <hr style={styles.verticalLine} />
-        <button style={styles.button}>Challenges</button>
-        <button style={styles.button}>Opportunity</button>
+        <Link to="/squads" style={{...styles.button, marginTop: '5px', marginLeft: '3.5px'}}>Squads</Link>
+        <Link to="/discussion" style={{...styles.button, marginTop: '5px'}}>Discussion</Link>
+        {/* <hr style={{...styles.hr, width: '88%'}} />
+        <hr style={styles.verticalLine} /> */}
+        <Link to="/challenges" style={styles.button}>Challenges</Link>
+        <Link to="/opportunity" style={styles.button}>Opportunity</Link>
       </div>
 
       <hr style={{...styles.hr,border: '3px solid black'}} />
@@ -25,11 +26,11 @@ const Category = () => {
 
 const styles = {
  cont: {
-    width: "25vw",
+    width: "23vw",
     border: "1px solid black",
     backgroundColor: "#66b2b2",
     borderRadius: "10px",
-    margin: "10px",
+    // margin: "10px",
 
  },
  menu: {
@@ -63,8 +64,8 @@ const styles = {
  },
  verticalLine: {
   position: "absolute",
-  top: "13px",
-  left: "11%",
+  top: "12%",
+  left: "14%",
   height: "11%",
   backgroundColor: "black",
   border: "0.2px solid black",

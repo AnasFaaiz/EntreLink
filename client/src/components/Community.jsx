@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Navbar from "./Navbar";
 import GroupCard from "./Community/GroupCard";
 import Category from "./Community/Category";
@@ -23,22 +23,27 @@ const Community = () => {
         
         <div style={styles.rightColumn}>
           <div style={styles.squadsSection}>
-          <div style={styles.createSquadSection}>
-            <button style={styles.sbutton}>Create Squad</button>
-          </div>
+            <div style={styles.createSquadSection}>
             <h4 style={styles.sectionTitle}>My Squads</h4>
+              <button style={styles.sbutton}>Create Squad</button>
+            </div>
+            
             <div style={styles.mysquads}>
               <SquadCircle name="Tech" profilePic="../images/EntreLink.png" />
               <SquadCircle name="Design" profilePic="../images/EntreLink.png" />
               <SquadCircle name="Marketing" profilePic="../images/EntreLink.png" />
+              <SquadCircle name="Marketing" profilePic="../images/EntreLink.png" />
+              <SquadCircle name="Marketing" profilePic="../images/EntreLink.png" />
             </div>
           </div>
-
+          
           <div style={styles.exploreSection}>
             <h4 style={styles.sectionTitle}>Explore Squads</h4>
             <div style={styles.groupCardsContainer}>
               <GroupCard group={groupData} />
               <GroupCard group={groupData} />
+              <GroupCard group={groupData} />
+              
             </div>
           </div>
         </div>
@@ -49,32 +54,27 @@ const Community = () => {
 
 const styles = {
   container: {
-    width: '100%',
+    width: '98.7vw',  // Full viewport width
+    maxWidth: '100%', // Ensures it doesn't exceed screen width
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    backgroundColor: '#f4f4f4',
+    // backgroundColor: 'black',
+    margin: 0,
+    padding: 0,
   },
   mainContent: {
     display: "flex",
     flexDirection: "row",
-    justifyContent: "space-between",
-    width: "100%",
-    maxWidth: "1200px",
+    width: '100%',
+    maxWidth: "1200px", // Maintains max-width for content
     padding: "20px",
-    marginTop: "65px",
-    gap: "20px",
+    marginTop: "4%",
+    margin: "5",
   },
   leftColumn: {
-    flex: "1",
+    flex: "0.8",
     display: "flex",
-    flexDirection: "column",
-    gap: "20px",
-  },
-  createSquadSection: {
-    width: "100%",
-    display: "flex",
-    justifyContent: "center",
   },
   rightColumn: {
     flex: "2",
@@ -85,6 +85,12 @@ const styles = {
     display: "flex",
     flexDirection: "column",
     gap: "30px",
+  },
+  createSquadSection: {
+    width: "100%",
+    display: "flex",
+    justifyContent: "space-between",
+    marginBottom: "20px",
   },
   sbutton: {
     padding: '10px 20px',
@@ -103,26 +109,26 @@ const styles = {
     fontWeight: "bold",
     fontFamily: "'Roboto', sans-serif",
     textTransform: "uppercase",
-    marginBottom: "15px",
+    // marginBottom: "15px",
     position: "relative",
-    paddingBottom: "10px",
+    // paddingBottom: "10px",
     borderBottom: "2px solid #008080",
+    margin : "0",
+    width: "70%",
   },
   mysquads: {
     display: "flex",
-    justifyContent: "center",
+    // justifyContent: "center",
     flexWrap: "wrap",
     gap: "20px",
   },
   squadsSection: {
     display: "flex",
     flexDirection: "column",
-    alignItems: "center",
   },
   exploreSection: {
     display: "flex",
     flexDirection: "column",
-    alignItems: "center",
   },
   groupCardsContainer: {
     display: "flex",

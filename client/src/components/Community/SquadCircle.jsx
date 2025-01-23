@@ -14,7 +14,7 @@ const styles = {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    width: '40%',
+    width: '15%',
     
   },
   circle: {
