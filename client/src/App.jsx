@@ -15,16 +15,16 @@ function App() {
     return (
         <Router>
             <Routes>
-                <Route path="/signup" element={<SignUp />} />
-                <Route path="/" element={<LoginPage />} />
-                <Route path="/homepage" element={<HomePage />} />
-                <Route path="/Articles" element={<Articles />} />
-                <Route path="/Community" element={<Community />} />
-                <Route path="/Events" element={<Events />} />
-                <Route path="/Connections" element={<Connections />} />
-                <Route path="/Community/Discussion" element={<Discussion />} />
-                <Route path="/Community/Challenges" element={<Challenges />} />
-                <Route path="/Community/Opportunity" element={<Opportunity />} />
+                <Route path="/EntreLink/signup" element={<SignUp />} />
+                <Route path="/EntreLink" element={<LoginPage />} />
+                <Route path="/EntreLink/homepage" element={<HomePage />} />
+                <Route path="/EntreLink/Articles" element={<Articles />} />
+                <Route path="/EntreLink/Community" element={<Community />} />
+                <Route path="/EntreLink/Events" element={<Events />} />
+                <Route path="/EntreLink/Connections" element={<Connections />} />
+                <Route path="/EntreLink/Community/Discussion" element={<Discussion />} />
+                <Route path="/EntreLink/Community/Challenges" element={<Challenges />} />
+                <Route path="/EntreLink/Community/Opportunity" element={<Opportunity />} />
             </Routes>
         </Router>
     );

@@ -10,14 +10,14 @@ function LoginPage() {
     const [error, setError] = useState('');
 
     const handleSignUpClick = () => {
-        navigate('/signup');
+        navigate('/EntreLink/signup');
     };
 
     
 
     const handleLoginSubmit = (e) => {
         e.preventDefault();
-        navigate('/homepage');
+        navigate('/EntreLink/homepage');
 
         // // Here, you would typically handle form submission (API call, validation, etc.)
         // // For now, we'll just log the username and password

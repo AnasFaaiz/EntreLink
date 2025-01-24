@@ -15,7 +15,7 @@ const Navbar = () => {
   };
 
   const handleLogoClick = () => {
-    navigate("/homepage"); // Navigate to /homepage
+    navigate("/EntreLink/homepage"); // Navigate to /homepage
   };
 
   return (
@@ -54,16 +54,16 @@ const Navbar = () => {
       </div>
       <ul style={styles.navLinks}>
         <li>
-          <Link to="/Events" style={styles.link}>Events</Link>
+          <Link to="/EntreLink/Events" style={styles.link}>Events</Link>
         </li>
         <li>
-          <Link to="/Articles" style={styles.link}>Articles</Link>
+          <Link to="/EntreLink/Articles" style={styles.link}>Articles</Link>
         </li>
         <li>
-          <Link to="/Community" style={styles.link}>Community</Link>
+          <Link to="/EntreLink/Community" style={styles.link}>Community</Link>
         </li>
         <li>
-          <Link to="/Connections" style={styles.link}>Connections</Link>
+          <Link to="/EntreLink/Connections" style={styles.link}>Connections</Link>
         </li>
       </ul>
 
@@ -78,17 +78,17 @@ const Navbar = () => {
         {dropdownOpen && (
           <ul style={styles.dropdownMenu}>
             <li>
-              <Link to="/profile" style={styles.dropdownLink}>Profile</Link>
+              <Link to="/EntreLink/profile" style={styles.dropdownLink}>Profile</Link>
             </li>
             <li>
-              <Link to="/my_mentor" style={styles.dropdownLink}>Mentor</Link>
+              <Link to="/EntreLink/my_mentor" style={styles.dropdownLink}>Mentor</Link>
             </li>
             <li>
-              <Link to="/settings" style={styles.dropdownLink}>Settings</Link>
+              <Link to="/EntreLink/settings" style={styles.dropdownLink}>Settings</Link>
             </li>
             <li>
               <button
-                onClick={() => navigate("/login")}
+                onClick={() => navigate("/EntreLink/")}
                 style={styles.logoutButton}
               >
                 Logout
