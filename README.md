@@ -1,4 +1,4 @@
-# EntreLink
+# EntreLink: Empowering Entrepreneurs
 
 EntreLink is a dynamic platform designed to connect entrepreneurs with mentors, fellow entrepreneurs, and investors. It fosters collaboration, networking, and growth by providing tools and features tailored to the startup ecosystem. Built using the MERN stack (MongoDB, Express.js, React, Node.js), EntreLink leverages AI to deliver a personalized and efficient user experience.
 
