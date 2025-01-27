@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import "../App.css";
-import Navbar from './Navbar';
-import CategoryBox from './Events/CategoryBox';
-import ImagesSlider from './Events/ImageSlider';
-import Eventcard from './Events/Eventcard';
+// import "../App.css";
+import Navbar from '../Navbar';
+import CategoryBox from './CategoryBox';
+import ImagesSlider from './ImageSlider';
+import Eventcard from './Eventcard';
 
 const Events = () => {
     const images = [

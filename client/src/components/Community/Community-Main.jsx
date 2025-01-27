@@ -1,8 +1,8 @@
 import React from "react";
-import Navbar from "./Navbar";
-import GroupCard from "./Community/GroupCard";
-import Category from "./Community/Category";
-import SquadCircle from "./Community/SquadCircle";
+import Navbar from "../Navbar";
+import GroupCard from "./GroupCard";
+import Category from "./Category";
+import SquadCircle from "./SquadCircle";
 
 const Community = () => {
   const groupData = {

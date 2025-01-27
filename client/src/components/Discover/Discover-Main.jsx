@@ -1,8 +1,8 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import "../App.css";
-import Navbar from './Navbar';
-import PostCard from './Posts/postCard';
+// import "../App.css";
+import Navbar from '../Navbar';
+import PostCard from './postCard';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFilter } from '@fortawesome/free-solid-svg-icons';
 

@@ -1,6 +1,6 @@
 import React from 'react';
-import Navbar from './Navbar';
-import PersonCard from './Connections/PersonCard';
+import Navbar from '../Navbar';
+import PersonCard from './PersonCard';
 
 const Connections = () => {
   const recommendingPeoples = [
