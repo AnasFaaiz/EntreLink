@@ -18,7 +18,7 @@ function App() {
                 <Route path="/EntreLink/signup" element={<SignUp />} />
                 <Route path="/EntreLink" element={<LoginPage />} />
                 <Route path="/EntreLink/homepage" element={<HomePage />} />
-                <Route path="/EntreLink/Articles" element={<Articles />} />
+                <Route path="/EntreLink/Discover" element={<Articles />} />
                 <Route path="/EntreLink/Community" element={<Community />} />
                 <Route path="/EntreLink/Events" element={<Events />} />
                 <Route path="/EntreLink/Connections" element={<Connections />} />

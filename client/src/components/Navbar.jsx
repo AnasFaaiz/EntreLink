@@ -54,16 +54,28 @@ const Navbar = () => {
       </div>
       <ul style={styles.navLinks}>
         <li>
-          <Link to="/EntreLink/Events" style={styles.link}>Events</Link>
+          <Link to="/EntreLink/Events" style={styles.link}>
+            <img src="./images/Event.png" alt="Event" style={{ width: '30px', height: '30px' }} />
+            <div>Events</div>
+          </Link>
         </li>
         <li>
-          <Link to="/EntreLink/Articles" style={styles.link}>Articles</Link>
+          <Link to="/EntreLink/Discover" style={styles.link}>
+            <img src="./images/Discover.png" alt="Discover" style={{ width: '30px', height: '30px' }} />
+            <div>Discover</div>
+          </Link>
         </li>
         <li>
-          <Link to="/EntreLink/Community" style={styles.link}>Community</Link>
+          <Link to="/EntreLink/Community" style={styles.link}>
+            <img src="./images/community.png" alt="Community" style={{ width: '30px', height: '30px' }} />
+            <div>Community</div>
+          </Link>
         </li>
         <li>
-          <Link to="/EntreLink/Connections" style={styles.link}>Connections</Link>
+          <Link to="/EntreLink/Connections" style={styles.link}>
+            <img src="./images/Connections.png" alt="Connections" style={{ width: '30px', height: '30px' }} />
+            <div>Connections</div>
+          </Link>
         </li>
       </ul>
 
@@ -106,7 +118,7 @@ const styles = {
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
-    backgroundColor: "#006666", 
+    backgroundColor: "#009999 ", 
     color: "white",
     position: "fixed",
     top: 0,
@@ -131,7 +143,7 @@ const styles = {
   logo: {
     fontSize: '2.3rem',
     fontWeight: 'bold',
-    background: 'linear-gradient(to right,#004d40,rgb(10, 110, 224))', // Updated text gradient
+    background: 'linear-gradient(to right,rgb(85, 223, 200), rgb(79, 98, 125))', // Updated text gradient
     WebkitBackgroundClip: 'text', // Clip gradient to text
     WebkitTextFillColor: 'transparent', // Makes the gradient visible
     display: 'inline-block',
@@ -143,7 +155,7 @@ const styles = {
     left: '2px',
     width: '100%',
     height: '2px',
-    background: 'linear-gradient(to right,#004d40,rgb(10, 110, 224))', // Matches the text gradient
+    background: 'linear-gradient(to right,rgb(79, 98, 125), rgb(85, 223, 200))', // Matches the text gradient
     transform: 'scaleX(0)',
     transition: 'transform 0.3s ease',
     transformOrigin: 'center',
@@ -159,13 +171,12 @@ navLinks: {
 },
 
 link: {
-  textDecoration: "none",
-  color: "#008080",
-  fontSize: "1.2rem",
-  padding: "3px", // Add padding inside the box
-  border: "1px solid #008080", // Add border around the link (can be customized)
-  borderRadius: "8px", // Optional: Rounded corners for the box
-  transition: "background-color 0.3s ease,  color 0.3s ease", // Smooth background color change on hover
+ fontSize: '12px',
+ color: 'white',
+ display: "flex",
+ flexDirection: "column",
+ alignItems: "center",
+ justifyContent: "center",
 },
 linkHover: {
   backgroundColor: "#f0f0f0",

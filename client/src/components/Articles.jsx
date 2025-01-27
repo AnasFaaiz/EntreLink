@@ -6,11 +6,11 @@ import PostCard from './Posts/postCard';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFilter } from '@fortawesome/free-solid-svg-icons';
 
-const Articles = () => {
+const Discover = () => {
   const navigate = useNavigate();
 
-  const gotoArticles = () => {
-    navigate('/Articles');
+  const gotoDiscover = () => {
+    navigate('/Discover');
   };
 
   const gotoNews = () => {
@@ -73,7 +73,7 @@ const Articles = () => {
       <div className="buttons" style={styles.buttons}>
         <button style={styles.buttondetail} onClick={gotoNews}>News</button>
         <div style={styles.verticalLine}></div>
-        <button style={styles.buttondetail} onClick={gotoArticles}>Articles</button>
+        <button style={styles.buttondetail} onClick={gotoDiscover}>Discover</button>
       </div>
       <div style={styles.filterButtonContainer}>
         <button style={styles.filterButton}>
@@ -190,11 +190,11 @@ const styles = {
     left: '0%',
   },
   TopContributers: {
-    width: '25vw',
+    width: '23vw',
     height: "45vh",
     border: '2px solid black',
     borderRadius: '10px',
-    right: '0%',
+    left: '1%',
     position: 'absolute',
     backgroundColor: '#66b2b2',
     padding: '20px',
@@ -226,7 +226,9 @@ const styles = {
     gap: '75px',
     // marginTop: '20px',
     width: '60%',
+    position: 'absolute',
+    left: '31%',
   },
 };
 
-export default Articles;
+export default Discover;
