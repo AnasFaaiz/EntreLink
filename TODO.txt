@@ -5,3 +5,5 @@ Features:
 Community:
 1. My squads can only contain 2 rows (max) and it should be scrollable towards horizontal.
 2. Add different Categories to the menu.
+
+Hllo
