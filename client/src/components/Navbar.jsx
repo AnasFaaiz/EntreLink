@@ -63,6 +63,11 @@ const Navbar = () => {
           <Link to="/EntreLink/Discover" style={styles.link}>
             <img src="./images/Discover.png" alt="Discover" style={{ width: '30px', height: '30px' }} />
             <div>Discover</div>
+            <div className="dropdown" style={styles.dropdown}>
+              <Link to="/EntreLink/More1" style={styles.link}>More Link 1</Link>
+              <Link to="/EntreLink/More2" style={styles.link}>More Link 2</Link>
+              <Link to="/EntreLink/More3" style={styles.link}>More Link 3</Link>
+            </div>
           </Link>
         </li>
         <li>
@@ -177,10 +182,12 @@ link: {
  flexDirection: "column",
  alignItems: "center",
  justifyContent: "center",
+ position: 'relative',
 },
 linkHover: {
   backgroundColor: "#f0f0f0",
   color: "black",
+  display: 'block',
 },
 
   searchContainer: {
@@ -193,7 +200,7 @@ linkHover: {
     backgroundColor: "#e2f9e2",
     color: "black",
     border: "none",
-    padding: "0.3rem 0.8rem",
+    padding: "0.05rem 0.05rem",
     cursor: "pointer",
     fontSize: "1.4rem",
     marginRight: "20px",
@@ -248,6 +255,17 @@ linkHover: {
     cursor: "pointer",
     width: "100%",
   },
+  dropdown: {
+    display: 'none',
+    position: 'absolute',
+    top: '100%',
+    left: '0',
+    backgroundColor: '#004d40',
+    padding: '10px',
+    boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
+    zIndex: 1,
+  },
+  
 };
 
 export default Navbar;
