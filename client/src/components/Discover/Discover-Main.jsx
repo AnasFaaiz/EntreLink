@@ -10,11 +10,11 @@ const Discover = () => {
   const navigate = useNavigate();
 
   const gotoDiscover = () => {
-    navigate('/Discover');
+    navigate('/EntreLink/Discover');
   };
 
   const gotoNews = () => {
-    navigate('/News');
+    navigate('/EntreLink/News');
   };
 
   const posts = [
@@ -67,14 +67,15 @@ const Discover = () => {
     <div>
       <Navbar />
       <div className='Title' style={styles.heading}>
-        <h2 style={styles.headingTitle}>Latest Posts</h2>
-        {/* <hr style={{...styles.hr, border: '1px solid black', margin: '0'}}></hr> */}
-      </div>
+        {/* <h2 style={styles.headingTitle}>Latest Posts</h2> */}
       <div className="buttons" style={styles.buttons}>
         <button style={styles.buttondetail} onClick={gotoNews}>News</button>
         <div style={styles.verticalLine}></div>
         <button style={styles.buttondetail} onClick={gotoDiscover}>Discover</button>
       </div>
+        {/* <hr style={{...styles.hr, border: '1px solid black', margin: '0'}}></hr> */}
+      </div>
+      
       <div style={styles.filterButtonContainer}>
         <button style={styles.filterButton}>
           <FontAwesomeIcon icon={faFilter} style={styles.filterIcon} />
@@ -83,6 +84,7 @@ const Discover = () => {
         <button style={styles.createButton}>+ Create</button>
       </div>
       <div className='NewsContainer' style={styles.NewsContainer}>
+      
         <div className="TopContributers" style={styles.TopContributers}>
           <h3 style={styles.title}>Top Contributers</h3>
           <hr style={styles.hr}></hr>
@@ -123,8 +125,8 @@ const styles = {
     borderRadius: '5px',
     width: '18vw',
     position: 'absolute',
-    top: '11%',
-    right: '1%',
+    top: '10%',
+    left: '5%',
     gap: '10px',
   },
   buttondetail: {
@@ -141,20 +143,19 @@ const styles = {
     left: '50%',
   },
   heading: {
-    fontSize: '2rem',
-    position: 'absolute',
-    top: '9%',
+    // fontSize: '2rem',
+    // position: 'absolute',
+    // top: '9%',
   },
   headingTitle: {
     margin: '0',
     padding: '0',
     // marginTop: '30px',
-    marginLeft: '20px',
   },
   filterButtonContainer: {
     position: 'absolute',
-    top: '11%',
-    right: '21%',
+    top: '10%',
+    right: '5%',
     display: 'flex',
     gap: '10px',
   },
@@ -185,7 +186,7 @@ const styles = {
   },
   NewsContainer: {
     position: 'absolute',
-    top: '20%',
+    top: '17%',
     width: '100%',
     left: '0%',
   },
@@ -196,6 +197,7 @@ const styles = {
     borderRadius: '10px',
     left: '1%',
     position: 'absolute',
+    top: '10px',
     backgroundColor: '#66b2b2',
     padding: '20px',
     boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',

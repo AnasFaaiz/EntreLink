@@ -3,6 +3,7 @@ import Navbar from "../Navbar";
 import GroupCard from "./GroupCard";
 import Category from "./Category";
 import SquadCircle from "./SquadCircle";
+// import /images/EntreLink.png from "./images/EntreLink.png";
 
 const Community = () => {
   const groupData = {
@@ -29,11 +30,11 @@ const Community = () => {
             </div>
             
             <div style={styles.mysquads}>
-              <SquadCircle name="Tech" profilePic="../images/EntreLink.png" />
-              <SquadCircle name="Design" profilePic="../images/EntreLink.png" />
-              <SquadCircle name="Marketing" profilePic="../images/EntreLink.png" />
-              <SquadCircle name="Marketing" profilePic="../images/EntreLink.png" />
-              <SquadCircle name="Marketing" profilePic="../images/EntreLink.png" />
+              <SquadCircle name="Tech" profilePic="./images/EntreLink.png" />
+              <SquadCircle name="Design" profilePic="./images/EntreLink.png" />
+              <SquadCircle name="Marketing" profilePic="./images/EntreLink.png" />
+              <SquadCircle name="Marketing" profilePic="./images/EntreLink.png" />
+              <SquadCircle name="Marketing" profilePic="./images/EntreLink.png" />
             </div>
           </div>
           
@@ -77,7 +78,7 @@ const styles = {
     display: "flex",
   },
   rightColumn: {
-    flex: "2",
+    flex: "2.3",
     backgroundColor: "#fff",
     borderRadius: "10px",
     boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
