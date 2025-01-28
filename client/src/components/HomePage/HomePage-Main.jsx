@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 // import "../App.css";
 import Navbar from "../Navbar";
-import { maxHeight, width } from '@mui/system';
+import DiscoverComponent from './DiscoverComponent';
 
 const HomePage = () => {
   return (
@@ -13,6 +13,9 @@ const HomePage = () => {
                 {/* <h1>EntreLink</h1>
                 <p>Connecting Entrepreneurs</p> */}
                 <img src="./images/Event1.jpg" alt="hero" style={{width: '100%', height: '100%'}}/>
+              </div>
+              <div>
+                <DiscoverComponent />
               </div>
               <div className="PartnerSection" style={styles.sponser}>
                 <h2 style={styles.Title}>Our Trusted Partners</h2>
