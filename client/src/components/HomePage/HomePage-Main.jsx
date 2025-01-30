@@ -10,9 +10,7 @@ const HomePage = () => {
             <Navbar />    
             <div className="main-content" style={styles.mainContent}>
               <div className="HeroSection" style={styles.heroSection}>
-                {/* <h1>EntreLink</h1>
-                <p>Connecting Entrepreneurs</p> */}
-                <img src="./images/Event1.jpg" alt="hero" style={{width: '100%', height: '100%'}}/>
+                <img src="./images/Herosection.jpg" alt="hero" style={{width: '100%', height: '100%'}}/>
               </div>
               <div>
                 <DiscoverComponent />
@@ -63,7 +61,6 @@ const styles = {
     fontSize: '24',
     textAlign: 'center',
     margin: '5%',
-
   },
   sponser: {
     position: 'relative',
@@ -77,8 +74,14 @@ const styles = {
     alignItems: 'center',
   },
   logoImage: {
-    height: '7vh',
+    height: '10vh',
     width: 'auto',
+    padding: '3%',
+    border: '1px solid transparent ',
+    borderRadius: '10px',
+    backgroundColor: 'rgba(245, 245, 245, 0.27)',
+    // filter: 'blur(1px)',
+    boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
   },
   footer: {
     background: 'black',
