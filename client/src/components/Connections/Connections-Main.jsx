@@ -4,10 +4,10 @@ import PersonCard from './PersonCard';
 
 const Connections = () => {
   const recommendingPeoples = [
-    { name: 'Alice Johnson', role: 'CEO', startupName: 'Tech Innovators', profilePic: '', tag: 'EDC' },
-    { name: 'Bob Smith', role: 'CTO', startupName: 'AI Solutions', profilePic: 'https://via.placeholder.com/80', tag: 'Student' },
-    { name: 'Charlie Davis', role: 'Founder', startupName: 'Innovation Labs', profilePic: 'https://via.placeholder.com/80', tag: 'EDC' },
-    { name: 'Emma Wilson', role: 'Product Manager', startupName: 'Tech Ventures', profilePic: 'https://via.placeholder.com/80', tag: 'Mentor' },
+    { name: 'Alice Johnson', role: 'CEO', startupName: 'Tech Innovators', profilePic: 'https://shorturl.at/6mu5O', tag: 'EDC' },
+    { name: 'Bob Smith', role: 'CTO', startupName: 'AI Solutions', profilePic: 'https://shorturl.at/PnPyo', tag: 'Student' },
+    { name: 'Charlie Davis', role: 'Founder', startupName: 'Innovation Labs', profilePic: 'https://shorturl.at/btboT', tag: 'EDC' },
+    { name: 'Emma Wilson', role: 'Product Manager', startupName: 'Tech Ventures', profilePic: 'https://tinyurl.com/bdcseyxu', tag: 'Mentor' },
   ];
 
   const mentors = [
