@@ -7,13 +7,13 @@ const GroupCard = ({ group }) => {
   // Styles
   const styles = {
     card: {
-      border: "1px solid #ddd",
+      border: "0.5px dotted black",
       borderRadius: "10px",
-      boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+      boxShadow: "8px 8px 8px rgba(0, 0, 0, 0.1)",
       padding: "13px",
       margin: "5px",
       maxWidth: "300px",
-      backgroundColor: "#ffffff",
+      backgroundColor: "#1E1E1E",
       display: "flex",
       flexDirection: "column",
       justifyContent: "space-between",
@@ -27,6 +27,7 @@ const GroupCard = ({ group }) => {
     header: {
       fontSize: "18px",
       fontWeight: "bold",
+      color: "#E0E0E0",
     },
     tags: {
       display: "flex",
@@ -51,8 +52,8 @@ const GroupCard = ({ group }) => {
       padding: "10px 15px",
       fontSize: "14px",
       fontWeight: "bold",
-      backgroundColor: "#008080",
-      color: "white",
+      backgroundColor: "#DAA520",
+      color: "#001F3F",
       border: "none",
       borderRadius: "100px",
       cursor: "pointer",

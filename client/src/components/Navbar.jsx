@@ -123,7 +123,7 @@ const styles = {
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
-    backgroundColor: "#009999 ", 
+    backgroundColor: "#121212", 
     color: "white",
     position: "fixed",
     top: 0,
@@ -177,7 +177,7 @@ navLinks: {
 
 link: {
  fontSize: '12px',
- color: 'white',
+ color: '#E0E0E0',
  display: "flex",
  flexDirection: "column",
  alignItems: "center",

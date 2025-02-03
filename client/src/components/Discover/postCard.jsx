@@ -37,12 +37,12 @@ const PostCard = ({ title, description, author, date, imageUrl }) => {
 
 const styles = {
   card: {
-    border: '1px solid #ccc',
+    border: '1px solid #E0E0E0',
     borderRadius: '10px',
     padding: '20px',
     margin: '10px',
     boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
-    backgroundColor: 'white',
+    backgroundColor: '#1E1E1E',
     width: '100%', // Ensure the card takes full width of the grid item
   },
   image: {
@@ -56,6 +56,7 @@ const styles = {
     fontWeight: 'bold',
     marginBottom: '15px',
     margin: '0',
+    color: "#E0E0E0",
   },
   buttonsContainer: {
     display: 'flex',

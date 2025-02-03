@@ -1,6 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-// import "../App.css";
 import Navbar from '../Navbar';
 import PostCard from './postCard';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -8,6 +7,8 @@ import { faFilter } from '@fortawesome/free-solid-svg-icons';
 
 const Discover = () => {
   const navigate = useNavigate();
+  const [isFilterButtonHovered, setIsFilterButtonHovered] = useState(false);
+  const [isCreateButtonHovered, setIsCreateButtonHovered] = useState(false);
 
   const gotoDiscover = () => {
     navigate('/EntreLink/Discover');
@@ -33,58 +34,64 @@ const Discover = () => {
       imageUrl: 'https://www.fsm.ac.in/blog/wp-content/uploads/2022/06/Entrepreneur-1024x643.jpg',
     },
     {
-        title: 'Post 3',
-        description: 'This is the description for post 2.',
-        author: 'Jane Doe',
-        date: '2023-10-02',
-        imageUrl: 'https://www.fsm.ac.in/blog/wp-content/uploads/2022/06/Entrepreneur-1024x643.jpg',
-      },
-      {
-        title: 'Post 4',
-        description: 'This is the description for post 2.',
-        author: 'Jane Doe',
-        date: '2023-10-02',
-        imageUrl: 'https://www.fsm.ac.in/blog/wp-content/uploads/2022/06/Entrepreneur-1024x643.jpg',
-      },
-      {
-        title: 'Post 5',
-        description: 'This is the description for post 2.',
-        author: 'Jane Doe',
-        date: '2023-10-02',
-        imageUrl: 'https://www.fsm.ac.in/blog/wp-content/uploads/2022/06/Entrepreneur-1024x643.jpg',
-      },
-      {
-        title: 'Post 6',
-        description: 'This is the description for post 2.',
-        author: 'Jane Doe',
-        date: '2023-10-02',
-        imageUrl: 'https://www.fsm.ac.in/blog/wp-content/uploads/2022/06/Entrepreneur-1024x643.jpg',
-      },
-    // Add more posts as needed
+      title: 'Post 3',
+      description: 'This is the description for post 2.',
+      author: 'Jane Doe',
+      date: '2023-10-02',
+      imageUrl: 'https://www.fsm.ac.in/blog/wp-content/uploads/2022/06/Entrepreneur-1024x643.jpg',
+    },
+    {
+      title: 'Post 4',
+      description: 'This is the description for post 2.',
+      author: 'Jane Doe',
+      date: '2023-10-02',
+      imageUrl: 'https://www.fsm.ac.in/blog/wp-content/uploads/2022/06/Entrepreneur-1024x643.jpg',
+    },
+    {
+      title: 'Post 5',
+      description: 'This is the description for post 2.',
+      author: 'Jane Doe',
+      date: '2023-10-02',
+      imageUrl: 'https://www.fsm.ac.in/blog/wp-content/uploads/2022/06/Entrepreneur-1024x643.jpg',
+    },
+    {
+      title: 'Post 6',
+      description: 'This is the description for post 2.',
+      author: 'Jane Doe',
+      date: '2023-10-02',
+      imageUrl: 'https://www.fsm.ac.in/blog/wp-content/uploads/2022/06/Entrepreneur-1024x643.jpg',
+    },
   ];
 
   return (
     <div>
       <Navbar />
       <div className='Title' style={styles.heading}>
-        {/* <h2 style={styles.headingTitle}>Latest Posts</h2> */}
-      <div className="buttons" style={styles.buttons}>
-        <button style={styles.buttondetail} onClick={gotoNews}>News</button>
-        <div style={styles.verticalLine}></div>
-        <button style={styles.buttondetail} onClick={gotoDiscover}>Discover</button>
-      </div>
-        {/* <hr style={{...styles.hr, border: '1px solid black', margin: '0'}}></hr> */}
+        <div className="buttons" style={styles.buttons}>
+          <button style={styles.buttondetail} onClick={gotoNews}>News</button>
+          <div style={styles.verticalLine}></div>
+          <button style={styles.buttondetail} onClick={gotoDiscover}>Discover</button>
+        </div>
       </div>
       
       <div style={styles.filterButtonContainer}>
-        <button style={styles.filterButton}>
+        <button 
+          style={isFilterButtonHovered ? { ...styles.filterButton, ...styles.filterButtonHover } : styles.filterButton}
+          onMouseEnter={() => setIsFilterButtonHovered(true)}
+          onMouseLeave={() => setIsFilterButtonHovered(false)}
+        >
           <FontAwesomeIcon icon={faFilter} style={styles.filterIcon} />
           Filter
         </button>
-        <button style={styles.createButton}>+ Create</button>
+        <button 
+          style={isCreateButtonHovered ? { ...styles.createButton, ...styles.createButtonHover } : styles.createButton}
+          onMouseEnter={() => setIsCreateButtonHovered(true)}
+          onMouseLeave={() => setIsCreateButtonHovered(false)}
+        >
+          + Create
+        </button>
       </div>
       <div className='NewsContainer' style={styles.NewsContainer}>
-      
         <div className="TopContributers" style={styles.TopContributers}>
           <h3 style={styles.title}>Top Contributers</h3>
           <hr style={styles.hr}></hr>
@@ -99,19 +106,18 @@ const Discover = () => {
           <h4 style={styles.Items}>5. John Doe</h4>
         </div>
         <div className="postCardsContainer" style={styles.postCardsContainer}>
-        {posts.map((post, index) => (
-          <PostCard
-            key={index}
-            title={post.title}
-            description={post.description}
-            author={post.author}
-            date={post.date}
-            imageUrl={post.imageUrl} // Pass image URL here
-          />
-        ))}
+          {posts.map((post, index) => (
+            <PostCard
+              key={index}
+              title={post.title}
+              description={post.description}
+              author={post.author}
+              date={post.date}
+              imageUrl={post.imageUrl}
+            />
+          ))}
+        </div>
       </div>
-      </div>
-      
     </div>
   );
 };
@@ -121,7 +127,7 @@ const styles = {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    border: '1px solid black',
+    border: '1px solid #E0E0E0',
     borderRadius: '5px',
     width: '18vw',
     position: 'absolute',
@@ -132,25 +138,20 @@ const styles = {
   buttondetail: {
     backgroundColor: "transparent",
     border: "none",
-    color: "black",
+    color: "#E0E0E0",
   },
   verticalLine: {
     width: '1px',
     height: '30px',
-    backgroundColor: 'black',
+    backgroundColor: '#E0E0E0',
     position: 'absolute',
     top: '5px',
     left: '50%',
   },
-  heading: {
-    // fontSize: '2rem',
-    // position: 'absolute',
-    // top: '9%',
-  },
+  heading: {},
   headingTitle: {
     margin: '0',
     padding: '0',
-    // marginTop: '30px',
   },
   filterButtonContainer: {
     position: 'absolute',
@@ -162,13 +163,18 @@ const styles = {
   filterButton: {
     display: 'flex',
     alignItems: 'center',
-    // padding: '10px 20px',
     borderRadius: '5px',
     border: '1px solid #ccc',
-    backgroundColor: '#008080', // Teal green hex code
-    color: 'white',
+    backgroundColor: '#008B8B',
+    color: '#0D1117',
     cursor: 'pointer',
     fontSize: '16px',
+    boxShadow: '0px 0px 12px rgba(218, 165, 32, 0.4)',
+  },
+  filterButtonHover: {
+    backgroundColor: '#DAA520',
+    color: '#121829',
+    boxShadow: '0px 0px 16px rgba(218, 165, 32, 0.8)',
   },
   filterIcon: {
     marginRight: '10px',
@@ -176,13 +182,18 @@ const styles = {
   createButton: {
     display: 'flex',
     alignItems: 'center',
-    // padding: '10px 20px',
     borderRadius: '5px',
-    border: '1px solid #ccc',
-    backgroundColor: '#008080', // Teal green hex code
-    color: 'white',
+    border: 'none',
+    backgroundColor: '#008B8B',
+    color: '#0D1117',
     cursor: 'pointer',
     fontSize: '16px',
+    boxShadow: '0px 0px 12px rgba(218, 165, 32, 0.4)',
+  },
+  createButtonHover: {
+    backgroundColor: '#DAA520',
+    color: '#121829',
+    boxShadow: '0px 0px 16px rgba(218, 165, 32, 0.8)',
   },
   NewsContainer: {
     position: 'absolute',
@@ -198,7 +209,7 @@ const styles = {
     left: '1%',
     position: 'absolute',
     top: '10px',
-    backgroundColor: '#66b2b2',
+    backgroundColor: '#1E1E1E',
     padding: '20px',
     boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
   },
@@ -207,9 +218,9 @@ const styles = {
     margin: '0',
     fontSize: '24px',
     fontWeight: 'bold',
-    color: '#fff',
+    color: '#DAA520',
     textAlign: 'center',
-    backgroundColor: '#008080', // Teal green hex code
+    backgroundColor: '#0a0a0a',
     borderRadius: '10px 10px 0 0',
   },
   hr: {
@@ -226,7 +237,6 @@ const styles = {
     display: 'grid',
     gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))',
     gap: '75px',
-    // marginTop: '20px',
     width: '60%',
     position: 'absolute',
     left: '31%',

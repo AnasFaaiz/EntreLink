@@ -46,8 +46,8 @@ const Eventcard = () => {
               </div>
             </div>
           </div>
-          <div className="address-registerButton" styles={styles.addressRegisterButton}>
-            <h4 style={{...styles.venue}}>Venue: Draper House, gachibowli, Hyderabad</h4>
+          <div className="address-registerButton" style={styles.addressRegisterButton}>
+            <h4 style={styles.venue}>Venue: Draper House, gachibowli, Hyderabad</h4>
             <button style={styles.registerButton}>Register</button>
           </div>
         </div>
@@ -63,7 +63,7 @@ const styles = {
     marginBottom: "10px",
     border: "1px solid black",
     borderRadius: "10px",
-    backgroundColor: "white",
+    backgroundColor: "#1E1E1E",
     display: "fixed",
     position: "relative",
     // left: "24%",
@@ -74,7 +74,7 @@ const styles = {
     width: "100%",
     border: "1px solid black",
     borderRadius: "10px",
-    backgroundColor: "white",
+    backgroundColor: "#1E1E1E",
     overflow: "hidden",
   },
   cardImage: {
@@ -97,6 +97,7 @@ const styles = {
     fontWeight: "bold",
     margin: "0",
     width: "100%",
+    color: "#E0E0E0",
   },
   descriptionAndCountdown: {
     display: "flex",
@@ -109,6 +110,7 @@ const styles = {
     fontSize: "16px",
     flex: "1",
     width: "35vw",
+    color: "#004F4F",
   },
   countdownContainer: {
     display: "flex",
@@ -143,6 +145,7 @@ const styles = {
     margin: "0",
     padding: "0",
     width: "70%",
+    color: "#004F4F",
   },
   addressRegisterButton: {
     display: "flex",

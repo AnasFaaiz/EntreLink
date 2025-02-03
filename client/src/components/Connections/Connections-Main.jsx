@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Navbar from '../Navbar';
 import PersonCard from './PersonCard';
 
 const Connections = () => {
+  const [isFilterButtonHovered, setIsFilterButtonHovered] = useState(false);
+
   const recommendingPeoples = [
     { name: 'Alice Johnson', role: 'CEO', startupName: 'Tech Innovators', profilePic: 'https://shorturl.at/6mu5O', tag: 'EDC' },
-    { name: 'Bob Smith', role: 'CTO', startupName: 'AI Solutions', profilePic: 'https://shorturl.at/PnPyo', tag: 'Student' },
-    { name: 'Charlie Davis', role: 'Founder', startupName: 'Innovation Labs', profilePic: 'https://shorturl.at/btboT', tag: 'EDC' },
+    { name: 'Bob Smith', role: 'CTO', startupName: 'AI Solutions', profilePic: 'https://tinyurl.com/bdcseyxu', tag: 'Student' },
+    { name: 'Charlie Davis', role: 'Founder', startupName: 'Innovation Labs', profilePic: 'https://shorturl.at/6mu5O', tag: 'EDC' },
     { name: 'Emma Wilson', role: 'Product Manager', startupName: 'Tech Ventures', profilePic: 'https://tinyurl.com/bdcseyxu', tag: 'Mentor' },
   ];
 
@@ -35,7 +37,13 @@ const Connections = () => {
             placeholder="Search connections..." 
             style={styles.searchInput} 
           />
-          <button style={styles.filterButton}>Filters</button>
+          <button 
+            style={isFilterButtonHovered ? { ...styles.filterButton, ...styles.filterButtonHover } : styles.filterButton}
+            onMouseEnter={() => setIsFilterButtonHovered(true)}
+            onMouseLeave={() => setIsFilterButtonHovered(false)}
+          >
+            Filters
+          </button>
         </div>
 
         {[
@@ -63,16 +71,16 @@ const Connections = () => {
 
 const styles = {
   pageWrapper: {
-    backgroundColor: '#f4f4f4',
     minHeight: '100vh',
   },
   container: {
     maxWidth: '1200px',
+    marginLeft: '15px',
     margin: '0 auto',
     padding: '20px',
     marginTop: '6%',
     width: '100vw',
-    
+    backgroundColor: '#121212',
   },
   searchSection: {
     display: 'flex',
@@ -90,13 +98,19 @@ const styles = {
   filterButton: {
     padding: '12px 20px',
     borderRadius: '8px',
-    backgroundColor: '#008080',
-    color: 'white',
+    backgroundColor: '#008B8B',
+    color: '#0D1117',
     border: 'none',
     cursor: 'pointer',
+    boxShadow: "0px 0px 10px rgba(218, 165, 32, 0.4)",
+  },
+  filterButtonHover: {
+    backgroundColor: '#DAA520',
+    color: "#121829",
+    boxShadow: "0px 0px 16px rgba(218, 165, 32, 0.8)",
   },
   section: {
-    backgroundColor: 'white',
+    backgroundColor: '#1E1E1E',
     borderRadius: '12px',
     boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)',
     padding: '25px',
@@ -111,7 +125,7 @@ const styles = {
   sectionTitle: {
     fontSize: '22px',
     fontWeight: 'bold',
-    color: '#008080',
+    color: '#DAA520',
     margin: 0,
   },
   seeAllLink: {

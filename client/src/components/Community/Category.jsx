@@ -15,7 +15,7 @@ const Category = () => {
         <Link to="/opportunity" style={styles.button}>Opportunity</Link>
       </div>
 
-      <hr style={{...styles.hr,border: '3px solid black'}} />
+      <hr style={{...styles.hr,border: '3px solid #E0E0E0'}} />
 
       <div className="categories" style={styles.cat}>
         <label style={styles.catTitle}>Categories</label>
@@ -28,17 +28,15 @@ const styles = {
  cont: {
     width: "23vw",
     border: "1px solid black",
-    backgroundColor: "#66b2b2",
+    backgroundColor: "#1E1E1E",
     borderRadius: "10px",
-    // margin: "10px",
-
  },
  menu: {
     display: "flex",
     flexWrap: "wrap",
     gap: "5px",
     margin: "8px",
-    backgroundColor: "#66b2b2",
+    backgroundColor: "#1E1E1E",
     marginBottom: "7%",
     // border: "1px solid black",
  },
@@ -47,19 +45,20 @@ const styles = {
     padding: '5px',
     fontSize: '14px',
     cursor: 'pointer',
-    backgroundColor: '#66b2b2',
+    backgroundColor: '##E0E0E0',
     border: 'none',
  },
  hr: {
     width: "90%",
     margin: "3px auto",
-    border: "1px solid black",
+    border: "1px solid #E0E0E0",
     borderRadius: "50px",
  },
  catTitle: {
   fontSize: "15px",
   position: "relative",
   margin: "10px",
+  color: "#E0E0E0",
   
  },
  verticalLine: {
@@ -67,8 +66,8 @@ const styles = {
   top: "12%",
   left: "14%",
   height: "11%",
-  backgroundColor: "black",
-  border: "0.2px solid black",
+  backgroundColor: "#E0E0E0",
+  border: "0.2px solid #E0E0E0",
 },
 };
 
