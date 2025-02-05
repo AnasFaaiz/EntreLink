@@ -130,6 +130,7 @@ const styles = {
     width: "100%",
     boxSizing: "border-box",
     height: "55px",
+    zIndex: 1000,
   },
   container: {
     display: 'flex',

@@ -110,7 +110,7 @@ const styles = {
     margin: "auto 10px 20px",
     textAlign: "center",
     height: "fit-content",
-    top: "90vh",
+    top: "95%",
     position: "absolute",
   },
   heading: {

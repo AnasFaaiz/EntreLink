@@ -58,7 +58,7 @@ const Eventcard = () => {
 
 const styles = {
   cardContainer: {
-    width: "70%",
+    width: "95%",
     margin: "5px",
     marginBottom: "10px",
     border: "1px solid black",
@@ -110,7 +110,7 @@ const styles = {
     fontSize: "16px",
     flex: "1",
     width: "35vw",
-    color: "#004F4F",
+    color: "grey",
   },
   countdownContainer: {
     display: "flex",
@@ -145,7 +145,7 @@ const styles = {
     margin: "0",
     padding: "0",
     width: "70%",
-    color: "#004F4F",
+    color: "white",
   },
   addressRegisterButton: {
     display: "flex",

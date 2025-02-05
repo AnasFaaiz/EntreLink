@@ -3,30 +3,30 @@ import SentimentVerySatisfiedIcon from '@mui/icons-material/SentimentVerySatisfi
 import SentimentVeryDissatisfiedIcon from '@mui/icons-material/SentimentVeryDissatisfied';
 
 const PostCard = ({ title, description, author, date, imageUrl }) => {
-   const [likes, setLikes] = useState(0);
-    const [dislikes, setDislikes] = useState(0);
-  
-    const handleLike = () => {
-      setLikes(likes + 1);
-    };
-  
-    const handleDislike = () => {
-      setDislikes(dislikes + 1);
-    };
+  const [likes, setLikes] = useState(0);
+  const [dislikes, setDislikes] = useState(0);
+
+  const handleLike = () => {
+    setLikes(likes + 1);
+  };
+
+  const handleDislike = () => {
+    setDislikes(dislikes + 1);
+  };
 
   return (
     <div className="postCard" style={styles.card}>
       <img src={imageUrl} alt={title} style={styles.image} />
       <h4 style={styles.title}>{title}</h4>
-      <div style={styles.likeDislikeContainer}> 
-            <button style={styles.likeButton} onClick={handleLike}>
-              <SentimentVerySatisfiedIcon /> ({likes})
-            </button>
-            <hr />
-            <button style={styles.dislikeButton} onClick={handleDislike}>
-              <SentimentVeryDissatisfiedIcon /> ({dislikes})
-            </button>
-        </div>
+      <div style={styles.likeDislikeContainer}>
+        <button style={styles.likeButton} onClick={handleLike}>
+          <SentimentVerySatisfiedIcon /> ({likes})
+        </button>
+        <hr />
+        <button style={styles.dislikeButton} onClick={handleDislike}>
+          <SentimentVeryDissatisfiedIcon /> ({dislikes})
+        </button>
+      </div>
       {/* <p style={styles.description}>{description}</p> */}
       <div style={styles.footer}>
         <span style={styles.author}>By: {author}</span>
@@ -98,16 +98,18 @@ const styles = {
   },
   likeDislikeContainer: {
     display: 'flex',
-    justifyContent: 'center',
+    justifyContent: 'flex-end',
     borderRadius: '50px',
-    // marginTop: '10px',
-    border: '2px solid black',
+    marginTop: '10px',
+    marginBottom: '10px',
+    border: '2px solid grey',
     padding: '5px',
     width: '50%',
+    marginLeft: 'auto', // Move the container to the right end
   },
   likeButton: {
     backgroundColor: 'transparent',
-    color: 'darkgreen',
+    color: 'green',
     padding: '0',
     cursor: 'pointer',
     borderRadius: '50px',

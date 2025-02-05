@@ -28,14 +28,14 @@ const Events = () => {
             <div>
                 <CategoryBox />
                 <div  className="upcoming-events" style={styles.upcoming}>
-                    <label style={styles.label}>UPCOMING EVENTS</label>
-                    <hr style={styles.hr}/>
-                    <div className="event-cards">
-              <Eventcard />
-              <Eventcard />  
-              <Eventcard />    
-              </div>
-              </div>     
+                  <label style={styles.label}>UPCOMING EVENTS</label>
+                  <hr style={styles.hr}/>
+                  <div className="event-cards" style={styles.cards}>
+                    <Eventcard />
+                    <Eventcard />  
+                    <Eventcard />    
+                  </div>
+                </div>     
             </div>       
          </div>
     );
@@ -45,12 +45,11 @@ const styles = {
     locations: {
         color: "black",
         padding: "10px",
-        width: "400px",
-        // margin: "0 auto",
+        width: "200px",
         textAlign: "center",
         display: "flex",
         alignItems: "center",
-        position: "absolute",
+        position: "relative",
         top: "87vh",
         left: "80%",
         gap: "5px",
@@ -101,6 +100,10 @@ const styles = {
         top: "82vh",
         left: "24%",
         margin: "5px",
+        width: "75%",
+      },
+      cards: {
+        width: "100%",
       },
       hr: {
         height: "1px",
