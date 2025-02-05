@@ -10,7 +10,7 @@ const HomePage = () => {
             <Navbar />    
             <div className="main-content" style={styles.mainContent}>
               <div className="HeroSection" style={styles.heroSection}>
-                <img src="./images/Herosection.jpg" alt="hero" style={{width: '100%', height: '100%'}}/>
+                
               </div>
               <div>
                 <DiscoverComponent />
@@ -51,9 +51,9 @@ const styles = {
   },
   heroSection: {
     maxWidth: '100vw',
-    width: '100%',
+    width: '98%',
     height: '90%',
-    border: '1px solid black',
+    border: '1px solid white',
     position: 'relative',
     top: '8.3%',
   },

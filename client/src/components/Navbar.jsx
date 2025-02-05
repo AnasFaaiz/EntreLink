@@ -20,23 +20,35 @@ const Navbar = () => {
 
   return (
     <nav style={styles.navbar}>
+      <style>
+        {`
+          @keyframes bulbFlicker {
+            0% { opacity: 0; transform: scale(0.9); }
+            20% { opacity: 1; transform: scale(1); }
+            40% { opacity: 0.8; transform: scale(0.95); }
+            60% { opacity: 1; transform: scale(1); }
+            80% { opacity: 0.9; transform: scale(0.98); }
+            100% { opacity: 1; transform: scale(1); }
+          }
+        `}
+      </style>
       <div style={styles.container}>
-      <div 
-        style={styles.logoContainer}
-        onMouseEnter={(e) => {
-          e.currentTarget.querySelector('.underline').style.transform = 'scaleX(1)';
-        }}
-        onMouseLeave={(e) => {
-          e.currentTarget.querySelector('.underline').style.transform = 'scaleX(0)';
-        }}
-        onClick={handleLogoClick}
-      >
-        <span style={styles.logo}>
-          EntreLink
-        </span>
-        <div className="underline" style={styles.underline}></div>
+        <div 
+          style={styles.logoContainer}
+          onMouseEnter={(e) => {
+            e.currentTarget.querySelector('.underline').style.transform = 'scaleX(1)';
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.querySelector('.underline').style.transform = 'scaleX(0)';
+          }}
+          onClick={handleLogoClick}
+        >
+          <span style={styles.logo}>
+            EntreLink
+          </span>
+          <div className="underline" style={styles.underline}></div>
+        </div>
       </div>
-    </div>
       <div style={styles.searchContainer}>
         {/* Conditionally render Search Bar */}
         {searchVisible && (
@@ -154,6 +166,7 @@ const styles = {
     WebkitTextFillColor: 'transparent', // Makes the gradient visible
     display: 'inline-block',
     transition: 'transform 0.3s ease',
+    animation: 'bulbFlicker 2s ease-in-out 1', // Flicker for 3 iterations
   },
   underline: {
     position: 'absolute',
@@ -167,29 +180,29 @@ const styles = {
     transformOrigin: 'center',
     borderRadius: '100px',  // Large border-radius for more pronounced curve
     // boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)', // Optional for a subtle shadow effect
-},
-navLinks: {
-  listStyleType: "none",
-  display: "flex",
-  gap: "1rem",
-  padding: "1px",
-  alignItems: "center",
-},
+  },
+  navLinks: {
+    listStyleType: "none",
+    display: "flex",
+    gap: "1rem",
+    padding: "1px",
+    alignItems: "center",
+  },
 
-link: {
- fontSize: '12px',
- color: '#E0E0E0',
- display: "flex",
- flexDirection: "column",
- alignItems: "center",
- justifyContent: "center",
- position: 'relative',
-},
-linkHover: {
-  backgroundColor: "#f0f0f0",
-  color: "black",
-  display: 'block',
-},
+  link: {
+    fontSize: '12px',
+    color: '#E0E0E0',
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+    position: 'relative',
+  },
+  linkHover: {
+    backgroundColor: "#f0f0f0",
+    color: "black",
+    display: 'block',
+  },
 
   searchContainer: {
     display: "flex",
@@ -266,7 +279,6 @@ linkHover: {
     boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
     zIndex: 1,
   },
-  
 };
 
 export default Navbar;
