@@ -1,61 +1,57 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-// import "../App.css";
+import React from 'react';
 import Navbar from "../Navbar";
 import DiscoverComponent from './DiscoverComponent';
+import './herosection.css'
 
 const HomePage = () => {
   return (
-        <div className='main-page'>
-            <Navbar />    
-            <div className="main-content" style={styles.mainContent}>
-              <div className="HeroSection" style={styles.heroSection}>
-                
-              </div>
-              <div>
-                <DiscoverComponent />
-              </div>
-              <div className="PartnerSection" style={styles.sponser}>
-                <h2 style={styles.Title}>Our Trusted Partners</h2>
-                <div className="PartnerLogos" style={styles.sponserLogos}>
-                  <img src="./images/KLogo.png" alt="partner1" style={styles.logoImage} />
-                  <img src="./images/KLogo.png" alt="partner2" style={styles.logoImage} />
-                  <img src="./images/KLogo.png" alt="partner3" style={styles.logoImage} />
-                  <img src="./images/KLogo.png" alt="partner4" style={styles.logoImage} />
-                </div>
-              </div>
-              <div className="SponsorSection" style={styles.sponser}>
-                <h2 style={styles.Title}>Our Sponsors</h2>
-                <div className="sponser-logos" style={styles.sponserLogos}>
-                  <img src="./images/KLogo.png" alt="sponsor1" style={styles.logoImage} />
-                  <img src="./images/KLogo.png" alt="sponsor2" style={styles.logoImage}/>
-                </div>
-              </div>
-              <div className="FooterSection" style={styles.footer}>
-                <h2>Footer</h2>
-              </div>
-              
-            </div>     
+    <div className='main-page'>
+      <Navbar />
+      <div className="main-content" style={styles.mainContent}>
+        <div className="hero-section">
+          <div className="bubble bubble1"></div>
+          <div className="bubble bubble2"></div>
+          <div className="bubble bubble3"></div>
+          <div className="bubble bubble4"></div>
+          <div className="bubble bubble5"></div>
+          <div className="hero-text">
+            <h1>Entrepreneur Mindset Requirements</h1>
+            <p>Risk, Vision, Commitment, Innovation, etc.</p>
+          </div>
         </div>
+        <DiscoverComponent />
+        <div className="PartnerSection" style={styles.sponser}>
+          <h2 style={styles.Title}>Our Trusted Partners</h2>
+          <div className="PartnerLogos" style={styles.sponserLogos}>
+            <img src="./images/KLogo.png" alt="partner1" style={styles.logoImage} />
+            <img src="./images/KLogo.png" alt="partner2" style={styles.logoImage} />
+            <img src="./images/KLogo.png" alt="partner3" style={styles.logoImage} />
+            <img src="./images/KLogo.png" alt="partner4" style={styles.logoImage} />
+          </div>
+        </div>
+        <div className="SponsorSection" style={styles.sponser}>
+          <h2 style={styles.Title}>Our Sponsors</h2>
+          <div className="sponser-logos" style={styles.sponserLogos}>
+            <img src="./images/KLogo.png" alt="sponsor1" style={styles.logoImage} />
+            <img src="./images/KLogo.png" alt="sponsor2" style={styles.logoImage}/>
+          </div>
+        </div>
+        <div className="FooterSection" style={styles.footer}>
+          <h2>Footer</h2>
+        </div>
+      </div>
+    </div>
   );
 };
 
 const styles = {
   mainContent: {
     display: 'block',
-    width: '100vw', 
-    height: '100vh', 
+    width: '100vw',
+    height: '100vh',
     justifyContent: 'center',
     alignItems: 'center',
-    margin: '0 auto', 
-  },
-  heroSection: {
-    maxWidth: '100vw',
-    width: '98%',
-    height: '90%',
-    border: '1px solid white',
-    position: 'relative',
-    top: '8.3%',
+    margin: '0 auto',
   },
   Title: {
     fontSize: '24',
@@ -80,7 +76,6 @@ const styles = {
     border: '1px solid transparent ',
     borderRadius: '10px',
     backgroundColor: 'rgba(245, 245, 245, 0.27)',
-    // filter: 'blur(1px)',
     boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
   },
   footer: {
@@ -88,8 +83,7 @@ const styles = {
     color: 'white',
     position: 'relative',
     top: '10%',
-
   },
 };
-export default HomePage;
 
+export default HomePage;
