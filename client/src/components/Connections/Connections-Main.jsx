@@ -80,7 +80,7 @@ const styles = {
     padding: '20px',
     marginTop: '6%',
     width: '100vw',
-    backgroundColor: '#121212',
+    backgroundColor: '#rgb(10, 160, 151)',
   },
   searchSection: {
     display: 'flex',
@@ -110,7 +110,7 @@ const styles = {
     boxShadow: "0px 0px 16px rgba(218, 165, 32, 0.8)",
   },
   section: {
-    backgroundColor: '#1E1E1E',
+    backgroundColor: 'rgb(1, 61, 42)',
     borderRadius: '12px',
     boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)',
     padding: '25px',

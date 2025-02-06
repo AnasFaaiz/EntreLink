@@ -103,7 +103,7 @@ const CategoryBox = () => {
 const styles = {
   categoryBox: {
     padding: "15px",
-    backgroundColor: "#1E1E1E",
+    backgroundColor: "#0aa097",
     borderRadius: "10px",
     boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
     width: "250px",

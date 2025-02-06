@@ -43,8 +43,8 @@ const styles = {
     padding: '20px',
     margin: '10px',
     boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
-    backgroundColor: 'rgba(18, 24, 41, 0.8)',
-    width: '100%', // Ensure the card takes full width of the grid item
+    backgroundColor: 'rgb(20, 105, 94)',
+    width: '100%',
   },
   image: {
     width: '100%',
@@ -64,18 +64,6 @@ const styles = {
     // justifyContent: 'space-between',
     marginBottom: '10px',
   },
-  button: {
-    padding: '10px 20px',
-    borderRadius: '5px',
-    border: '1px solid #ccc',
-    backgroundColor: '#008080', // Teal green hex code
-    color: 'white',
-    cursor: 'pointer',
-    fontSize: '16px',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
   icon: {
     marginRight: '5px',
   },
@@ -88,7 +76,7 @@ const styles = {
     justifyContent: 'space-between',
     alignItems: 'center',
     fontSize: '14px',
-    color: '#555',
+    color: 'white',
   },
   author: {
     fontStyle: 'italic',
@@ -109,7 +97,7 @@ const styles = {
   },
   likeButton: {
     backgroundColor: 'transparent',
-    color: 'green',
+    color: 'lightcyan',
     padding: '0',
     cursor: 'pointer',
     borderRadius: '50px',
@@ -117,7 +105,7 @@ const styles = {
   },
   dislikeButton: {
     backgroundColor: 'transparent',
-    color: 'darkred',
+    color: 'rgb(92, 15, 2)',
     padding: '0',
     cursor: 'pointer',
     borderRadius: '50px',
