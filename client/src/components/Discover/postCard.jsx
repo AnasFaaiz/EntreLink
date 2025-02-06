@@ -1,29 +1,30 @@
 import React, { useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faThumbsUp, faThumbsDown } from '@fortawesome/free-solid-svg-icons';
+import SentimentVerySatisfiedIcon from '@mui/icons-material/SentimentVerySatisfied';
+import SentimentVeryDissatisfiedIcon from '@mui/icons-material/SentimentVeryDissatisfied';
 
 const PostCard = ({ title, description, author, date, imageUrl }) => {
-  const [likeCount, setLikeCount] = useState(0);
-  const [dislikeCount, setDislikeCount] = useState(0);
+  const [likes, setLikes] = useState(0);
+  const [dislikes, setDislikes] = useState(0);
 
   const handleLike = () => {
-    setLikeCount(likeCount + 1);
+    setLikes(likes + 1);
   };
 
   const handleDislike = () => {
-    setDislikeCount(dislikeCount + 1);
+    setDislikes(dislikes + 1);
   };
 
   return (
     <div className="postCard" style={styles.card}>
       <img src={imageUrl} alt={title} style={styles.image} />
       <h4 style={styles.title}>{title}</h4>
-      <div style={styles.buttonsContainer}>
-        <button style={styles.button} onClick={handleLike}>
-          <FontAwesomeIcon icon={faThumbsUp} style={styles.icon} /> {likeCount}
+      <div style={styles.likeDislikeContainer}>
+        <button style={styles.likeButton} onClick={handleLike}>
+          <SentimentVerySatisfiedIcon /> ({likes})
         </button>
-        <button style={styles.button} onClick={handleDislike}>
-          <FontAwesomeIcon icon={faThumbsDown} style={styles.icon} /> {dislikeCount}
+        <hr />
+        <button style={styles.dislikeButton} onClick={handleDislike}>
+          <SentimentVeryDissatisfiedIcon /> ({dislikes})
         </button>
       </div>
       {/* <p style={styles.description}>{description}</p> */}
@@ -37,12 +38,12 @@ const PostCard = ({ title, description, author, date, imageUrl }) => {
 
 const styles = {
   card: {
-    border: '1px solid #ccc',
+    border: '1px solid #E0E0E0',
     borderRadius: '10px',
     padding: '20px',
     margin: '10px',
     boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
-    backgroundColor: 'white',
+    backgroundColor: 'rgba(18, 24, 41, 0.8)',
     width: '100%', // Ensure the card takes full width of the grid item
   },
   image: {
@@ -56,6 +57,7 @@ const styles = {
     fontWeight: 'bold',
     marginBottom: '15px',
     margin: '0',
+    color: "#E0E0E0",
   },
   buttonsContainer: {
     display: 'flex',
@@ -93,6 +95,33 @@ const styles = {
   },
   date: {
     fontStyle: 'italic',
+  },
+  likeDislikeContainer: {
+    display: 'flex',
+    justifyContent: 'flex-end',
+    borderRadius: '50px',
+    marginTop: '10px',
+    marginBottom: '10px',
+    border: '2px solid grey',
+    padding: '5px',
+    width: '50%',
+    marginLeft: 'auto', // Move the container to the right end
+  },
+  likeButton: {
+    backgroundColor: 'transparent',
+    color: 'green',
+    padding: '0',
+    cursor: 'pointer',
+    borderRadius: '50px',
+    border: 'none',
+  },
+  dislikeButton: {
+    backgroundColor: 'transparent',
+    color: 'darkred',
+    padding: '0',
+    cursor: 'pointer',
+    borderRadius: '50px',
+    border: 'none',
   },
 };
 

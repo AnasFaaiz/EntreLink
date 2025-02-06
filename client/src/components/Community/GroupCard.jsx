@@ -4,16 +4,27 @@ const GroupCard = ({ group }) => {
   // Destructure group properties
   const { name, tags, keywords, memberCount, activityLevel } = group;
 
+  // Function to get background color for tags
+  const getTagColor = (tag) => {
+    switch (tag) {
+      case "Technology": return "#4CAF50";
+      case "Startups": return "#2196F3"; 
+      case "Innovation": return "#FF5722";
+      case "education": return "#FFC107"; 
+      default: return "#E0E0E0"; 
+    }
+  };
+
   // Styles
   const styles = {
     card: {
-      border: "1px solid #ddd",
+      border: "0.5px dotted black",
       borderRadius: "10px",
-      boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+      boxShadow: "8px 8px 8px rgba(0, 0, 0, 0.1)",
       padding: "13px",
       margin: "5px",
       maxWidth: "300px",
-      backgroundColor: "#ffffff",
+      backgroundColor: "rgba(18, 24, 41, 0.8)",
       display: "flex",
       flexDirection: "column",
       justifyContent: "space-between",
@@ -27,6 +38,7 @@ const GroupCard = ({ group }) => {
     header: {
       fontSize: "18px",
       fontWeight: "bold",
+      color: "#E0E0E0",
     },
     tags: {
       display: "flex",
@@ -37,9 +49,8 @@ const GroupCard = ({ group }) => {
     tag: {
       fontSize: "12px",
       padding: "5px 10px",
-      backgroundColor: "#f0f8f8",
       borderRadius: "5px",
-      color: "#008080",
+      color: "#FFFFFF",
       fontWeight: "bold",
     },
     stats: {
@@ -51,8 +62,8 @@ const GroupCard = ({ group }) => {
       padding: "10px 15px",
       fontSize: "14px",
       fontWeight: "bold",
-      backgroundColor: "#008080",
-      color: "white",
+      backgroundColor: "#DAA520",
+      color: "#001F3F",
       border: "none",
       borderRadius: "100px",
       cursor: "pointer",
@@ -81,7 +92,7 @@ const GroupCard = ({ group }) => {
       {/* Tags and Keywords */}
       <div style={styles.tags}>
         {tags.map((tag, index) => (
-          <div key={index} style={styles.tag}>
+          <div key={index} style={{ ...styles.tag, backgroundColor: getTagColor(tag) }}>
             {tag}
           </div>
         ))}

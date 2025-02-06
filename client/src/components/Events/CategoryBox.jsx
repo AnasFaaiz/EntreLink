@@ -1,8 +1,4 @@
 import React, { useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGlobe } from '@fortawesome/free-solid-svg-icons';
-import DropdownBox from './DropdownBox';
-import EditLocationIcon from '@mui/icons-material/EditLocation';
 
 const startupFields = [
   "Fintech", "Healthtech", "Edtech", "E-commerce", "SaaS", "Biotech", 
@@ -22,21 +18,15 @@ const entrepreneurEvents = [
   "Marketing and Branding Workshops"
 ];
 
+const locations = ['Hyderabad','Bangalore', 'Chennai', 'Delhi','Mumbai', 'Pune', 'Punjab'];
+
 const CategoryBox = () => {
   const [showStartupFields, setShowStartupFields] = useState(false);
   const [showEntrepreneurEvents, setShowEntrepreneurEvents] = useState(false);
-  const [showDropdown, setShowDropdown] = useState(false);
-
-  const toggleDropdown = () => {
-    setShowDropdown(!showDropdown);
-  }
-
-  const locations = ['Bangalore','Chennai','Delhi','Hyderabad','Mumbai','Pune','Punjab',];
 
   return (
     <div style={styles.categoryBox}>
       <div style={styles.section}>
-        {/* <h4 style={styles.subHeading}>Mode</h4> */}
         <ul style={{ ...styles.list, display:"flex",gap:"15px" }}>
           <li style={styles.listItem}>
             <input type="checkbox" id="online" name="online" style={styles.checkbox} />
@@ -45,12 +35,6 @@ const CategoryBox = () => {
           <li style={styles.listItem}>
             <input type="checkbox" id="offline" name="offline" style={styles.checkbox} />
             <label htmlFor="offline" style={styles.label}>Offline</label>
-          </li>
-          <li>
-            <button style={styles.iconButton} onClick={toggleDropdown}>
-              <FontAwesomeIcon icon={faGlobe} />
-            </button>
-            {showDropdown && <DropdownBox locations={locations} />}
           </li>
         </ul>
       </div>
@@ -100,6 +84,18 @@ const CategoryBox = () => {
         )}
       </div>
       <hr style={styles.hr} />
+      <div style={styles.section}>
+        <h4 style={styles.subHeading}>Locations</h4>
+        <ul style={styles.list}>
+          {locations.map(location => (
+            <li style={styles.listItem} key={location}>
+              <input type="checkbox" id={location.toLowerCase()} name={location.toLowerCase()} style={styles.checkbox} />
+              <label htmlFor={location.toLowerCase()} style={styles.label}>{location}</label>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <hr style={styles.hr} />
     </div>
   );
 };
@@ -107,14 +103,14 @@ const CategoryBox = () => {
 const styles = {
   categoryBox: {
     padding: "15px",
-    backgroundColor: "#66b2b2",
+    backgroundColor: "#1E1E1E",
     borderRadius: "10px",
     boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
     width: "250px",
     margin: "auto 10px 20px",
     textAlign: "center",
     height: "fit-content",
-    top: "90vh",
+    top: "95%",
     position: "absolute",
   },
   heading: {
@@ -127,7 +123,8 @@ const styles = {
     textAlign: "left",
     display: "flex",
     justifyContent: "space-between",
-    alignItems: "center"
+    alignItems: "center",
+    color: "#E0E0E0",
   },
   section: {
     // marginBottom: "20px"
@@ -138,6 +135,7 @@ const styles = {
     margin: "0",
     textAlign: "left",
     width: "100%",
+    color: "#004F4F",
   },
   listItem: {
     fontSize: "16px",

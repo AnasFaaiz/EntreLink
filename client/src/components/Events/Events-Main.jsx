@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-// import "../App.css";
 import Navbar from '../Navbar';
 import CategoryBox from './CategoryBox';
 import ImagesSlider from './ImageSlider';
@@ -21,15 +20,6 @@ const Events = () => {
             </div>
             
             <div className='Locations' style={styles.locations}>
-                {/* <select style={styles.dropdown}>
-                    <option value="" disabled selected >map</option>
-                    <option value="online">Online</option>
-                    <option value="Hyderabad">Hyderabad</option>
-                    <option value="Mumbai">Mumbai</option>
-                    <option value="Bangalore">Bangalore</option>
-                    <option value="Chennai">Chennai</option>
-                    <option value="Pune">Pune</option>
-                </select> */}
                 <button style={styles.createButton}>+ Create</button>
                 <button style={styles.ticketButton}>Tickets</button>
             </div>
@@ -38,38 +28,28 @@ const Events = () => {
             <div>
                 <CategoryBox />
                 <div  className="upcoming-events" style={styles.upcoming}>
-                    <label atyle={styles.label}>Upcoming Events</label>
-                    <hr style={styles.hr}/>
-                    <div className="event-cards">
-              <Eventcard />
-              <Eventcard />  
-              <Eventcard />    
-              </div>
-              </div>     
+                  <label style={styles.label}>UPCOMING EVENTS</label>
+                  <hr style={styles.hr}/>
+                  <div className="event-cards" style={styles.cards}>
+                    <Eventcard />
+                    <Eventcard />  
+                    <Eventcard />    
+                  </div>
+                </div>     
             </div>       
          </div>
     );
 };
 
 const styles = {
-
-    // container: {
-    //   // display: "flex",
-    //   // flexDirection: "column",
-    //   // alignItems: "center",
-    //   // width: "100%",
-    //   // padding: "20px",
-    //   // boxSizing: "border-box",
-    // },
     locations: {
         color: "black",
         padding: "10px",
-        width: "400px",
-        // margin: "0 auto",
+        width: "200px",
         textAlign: "center",
         display: "flex",
         alignItems: "center",
-        position: "absolute",
+        position: "relative",
         top: "87vh",
         left: "80%",
         gap: "5px",
@@ -98,14 +78,14 @@ const styles = {
       },
       ticketButton: {
         display: 'flex',
-    alignItems: 'center',
-    // padding: '10px 20px',
-    borderRadius: '5px',
-    border: '1px solid #ccc',
-    backgroundColor: '#008080', // Teal green hex code
-    color: 'white',
-    cursor: 'pointer',
-    fontSize: '16px',
+        alignItems: 'center',
+        // padding: '10px 20px',
+        borderRadius: '5px',
+        border: '1px solid #ccc',
+        backgroundColor: '#008080', // Teal green hex code
+        color: 'white',
+        cursor: 'pointer',
+        fontSize: '16px',
       },
       // cont: {
       //   // display: "flex",
@@ -120,6 +100,10 @@ const styles = {
         top: "82vh",
         left: "24%",
         margin: "5px",
+        width: "75%",
+      },
+      cards: {
+        width: "100%",
       },
       hr: {
         height: "1px",
@@ -133,6 +117,7 @@ const styles = {
      },
      label: {
       marginBottom: "0",
+      color: "#E0E0E0",
      },
      
      

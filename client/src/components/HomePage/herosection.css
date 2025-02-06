@@ -1,0 +1,40 @@
+.hero-section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-color: #0A0A0A; /* Dark Theme */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #DAA520; /* Gold for a premium feel */
+  overflow: hidden;
+}
+
+.hero-title {
+  font-size: 3rem;
+  font-weight: bold;
+  z-index: 2;
+}
+
+.bubble {
+  position: absolute;
+  background-color: rgba(0, 102, 102, 0.7); /* Transparent Teal Green */
+  color: white;
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 10px 15px;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(218, 165, 32, 0.5); /* Gold Glow */
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Random positioning */
+.bubble:nth-child(1) { top: 10%; left: 20%; }
+.bubble:nth-child(2) { top: 30%; left: 70%; }
+.bubble:nth-child(3) { top: 50%; left: 40%; }
+.bubble:nth-child(4) { top: 70%; left: 60%; }
+.bubble:nth-child(5) { top: 80%; left: 30%; }
+.bubble:nth-child(6) { top: 20%; left: 50%; }
+.bubble:nth-child(7) { top: 60%; left: 80%; }
+.bubble:nth-child(8) { top: 40%; left: 10%; }
