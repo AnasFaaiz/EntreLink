@@ -1,23 +1,15 @@
 import React from 'react';
 import Navbar from "../Navbar";
 import DiscoverComponent from './DiscoverComponent';
-import './herosection.css'
+import HeroSection from './HeroSection';
 
 const HomePage = () => {
   return (
     <div className='main-page'>
       <Navbar />
       <div className="main-content" style={styles.mainContent}>
-        <div className="hero-section">
-          <div className="bubble bubble1"></div>
-          <div className="bubble bubble2"></div>
-          <div className="bubble bubble3"></div>
-          <div className="bubble bubble4"></div>
-          <div className="bubble bubble5"></div>
-          <div className="hero-text">
-            <h1>Entrepreneur Mindset Requirements</h1>
-            <p>Risk, Vision, Commitment, Innovation, etc.</p>
-          </div>
+        <div>
+          <HeroSection />
         </div>
         <DiscoverComponent />
         <div className="PartnerSection" style={styles.sponser}>
@@ -53,8 +45,33 @@ const styles = {
     alignItems: 'center',
     margin: '0 auto',
   },
+  heroSection: {
+    position: 'relative',
+    width: '100%',
+    height: '90vh',
+    backgroundImage: 'url(./images/hero-background.jpg)',
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    color: 'white',
+    textAlign: 'center',
+  },
+  bubble: {
+    position: 'absolute',
+    borderRadius: '50%',
+    backgroundColor: 'rgba(255, 255, 255, 0.8)',
+    padding: '20px',
+    boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+    animation: 'float 6s ease-in-out infinite',
+  },
+  heroText: {
+    zIndex: 1,
+  },
   Title: {
-    fontSize: '24',
+    fontSize: '24px',
     textAlign: 'center',
     margin: '5%',
   },
@@ -66,7 +83,7 @@ const styles = {
     display: 'flex',
     height: '10vh',
     width: '100%',
-    justifyContent: 'Space-around',
+    justifyContent: 'space-around',
     alignItems: 'center',
   },
   logoImage: {
