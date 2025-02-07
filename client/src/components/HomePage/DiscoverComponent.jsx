@@ -3,22 +3,20 @@ import { Link } from "react-router-dom";
 import SentimentVerySatisfiedIcon from '@mui/icons-material/SentimentVerySatisfied';
 import SentimentVeryDissatisfiedIcon from '@mui/icons-material/SentimentVeryDissatisfied';
 
-
 const NewsCard = ({ image, title, content, source, date }) => {
-
   return (
     <div style={styles.newsCard}>
-    <img src={image} alt={title} style={styles.cardImage} />
-    <div style={styles.cardHeader}>
-      <h3 style={styles.cardTitle}>{title}</h3>
-      <p style={{...styles.cardDate, width: '30%'}}>{date}</p>
-    </div>
+      <img src={image} alt={title} style={styles.cardImage} />
+      <div style={styles.cardHeader}>
+        <h3 style={styles.cardTitle}>{title}</h3>
+        <p style={{...styles.cardDate, width: '30%'}}>{date}</p>
+      </div>
       <p style={styles.cardContent}>{content}</p>
-    <div style={styles.footerSection}>
-      <Link to="/news-details" style={styles.readMoreLink}>Read More</Link>
-      <p style={styles.cardSource}>Source: {source}</p>
+      <div style={styles.footerSection}>
+        <Link to="/news-details" style={styles.readMoreLink}>Read More</Link>
+        <p style={styles.cardSource}>Source: {source}</p>
+      </div>
     </div>
-  </div>
   );
 };
 
@@ -41,19 +39,19 @@ const PostCard = ({ image, title, content, date, author }) => {
         <h3 style={styles.cardTitle}>{title}</h3>
         <p style={styles.cardMeta}>
           <span>{date}</span> | <span>{author}</span>
-      </p>
+        </p>
       </div>
       <p style={styles.cardContent}>{content}</p>
       <div style={styles.footerSection}>
         <Link to="/post-details" style={styles.readMoreLink}>Read More</Link>
         <div style={styles.likeDislikeContainer}> 
-            <button style={styles.likeButton} onClick={handleLike}>
-              <SentimentVerySatisfiedIcon /> ({likes})
-            </button>
-            <hr />
-            <button style={styles.dislikeButton} onClick={handleDislike}>
-              <SentimentVeryDissatisfiedIcon /> ({dislikes})
-            </button>
+          <button style={styles.likeButton} onClick={handleLike}>
+            <SentimentVerySatisfiedIcon /> ({likes})
+          </button>
+          <hr />
+          <button style={styles.dislikeButton} onClick={handleDislike}>
+            <SentimentVeryDissatisfiedIcon /> ({dislikes})
+          </button>
         </div>
       </div>
     </div>
@@ -61,7 +59,7 @@ const PostCard = ({ image, title, content, date, author }) => {
 };
 
 const DiscoverComponent = () => {
-    const [newsIndex, setNewsIndex] = useState(0);
+  const [newsIndex, setNewsIndex] = useState(0);
   const [postIndex, setPostIndex] = useState(0);
 
   const news = [
@@ -75,6 +73,7 @@ const DiscoverComponent = () => {
     { image: "./images/Event2.jpg", title: "Post 2", content: "This is the content of post 2.", date: "01-02-2025", author: "Emma Watson" },
     { image: "./images/Event3.png", title: "Post 3", content: "This is the content of post 3.", date: "01-02-2025", author: "Alex Johnson" },
   ];
+
   useEffect(() => {
     const newsInterval = setInterval(() => {
       setNewsIndex((prevIndex) => (prevIndex + 1) % news.length);
@@ -108,11 +107,11 @@ const DiscoverComponent = () => {
 
   return (
     <div className="discover-container" style={styles.MainContainer}>
-      <div className="Latest-News" style={styles.NewsContainer}>
-        <div className="Tites" style={styles.title}>
-          <h2 style={styles.heading}>Trending News</h2>
+      <fieldset className="Latest-News" style={styles.NewsContainer}>
+        <legend style={styles.legend}>Trending News</legend>
+        {/* <div className="Tites" style={styles.title}>
           <Link to="/EntreLink/News" style={styles.linking}>View More</Link>
-        </div>
+        </div> */}
         <button style={{ ...styles.arrowButton, ...styles.leftArrow }} onClick={handlePrevNews}>
           &#9664;
         </button>
@@ -140,12 +139,12 @@ const DiscoverComponent = () => {
             />
           ))}
         </div>
-      </div>
-      <div className="Posts-container" style={styles.PostContainer}>
-        <div className="Tites" style={styles.title}>
-          <h2 style={styles.heading}>Trending Posts</h2>
+      </fieldset>
+      <fieldset className="Posts-container" style={styles.PostContainer}>
+        <legend style={styles.legend}>Trending Posts</legend>
+        {/* <div className="Tites" style={styles.title}>
           <Link to="/EntreLink/Discover" style={styles.linking}>View More</Link>
-        </div>
+        </div> */}
         <button style={{ ...styles.arrowButton, ...styles.leftArrow }} onClick={handlePrevPost}>
           &#9664;
         </button>
@@ -173,7 +172,7 @@ const DiscoverComponent = () => {
             />
           ))}
         </div>
-      </div>
+      </fieldset>
     </div>
   );
 };
@@ -188,22 +187,28 @@ const styles = {
     gap: '50px',
   },
   NewsContainer: {
-    width: '40vw',
-    border: '1px solid black',
+    width: '35vw',
+    border: '1px solid white',
     borderRadius: '20px',
-    backgroundColor: 'white',
-    boxShadow: '2px 2px 5px grey',
-    padding: '20px',
+    backgroundColor: 'transparent',
+    // boxShadow: '2px 2px 5px grey',
+    padding: '5px',
     position: 'relative',
   },
   PostContainer: {
-    width: '40vw',
-    border: '1px solid black',
+    width: '35vw',
+    border: '2px solid white',
     borderRadius: '20px',
-    backgroundColor: 'white',
-    boxShadow: '2px 2px 5px grey',
-    padding: '20px',
+    backgroundColor: 'transparent',
+    // boxShadow: '2px 2px 5px grey', //Use borderShadow
+    padding: '5px',
     position: 'relative',
+  },
+  legend: {
+    fontSize: '1.5vw',
+    padding: '0 10px',
+    backgroundColor: 'transparent', // Match the background color of the container
+    color: 'white',
   },
   title: {
     fontSize: '2vw',
@@ -233,22 +238,20 @@ const styles = {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    width: '100%',
-    // height: '300px', // Set a fixed height for the news card
+    width: '70%',
     maxWidth: '400px',
   },
   postCard: {
     border: '1px solid black',
     borderRadius: '10px',
-    backgroundColor: 'lightblue',
+    backgroundColor: 'white',
     boxShadow: '1px 1px 3px grey',
     padding: '20px',
     margin: '10px auto',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    width: '100%',
-    // height: '400px', // Set a fixed height for the post card
+    width: '70%',
     maxWidth: '400px',
   },
   cardImage: {
@@ -294,10 +297,9 @@ const styles = {
     display: 'flex',
     justifyContent: 'center',
     borderRadius: '50px',
-    // marginTop: '10px',
     border: '2px solid black',
     padding: '5px',
-    width: '30%',
+    width: '40%',
   },
   likeButton: {
     backgroundColor: 'transparent',
@@ -353,6 +355,5 @@ const styles = {
     backgroundColor: 'black',
   },
 };
-
 
 export default DiscoverComponent;
