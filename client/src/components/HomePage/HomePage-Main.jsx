@@ -92,7 +92,7 @@ const styles = {
     padding: '3%',
     border: '1px solid transparent ',
     borderRadius: '10px',
-    backgroundColor: 'rgba(245, 245, 245, 0.27)',
+    backgroundColor: '#F2F2F2',
     boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
   },
   footer: {

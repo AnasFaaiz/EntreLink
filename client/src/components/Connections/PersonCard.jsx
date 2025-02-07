@@ -20,7 +20,7 @@ const PersonCard = ({ name, role, startupName, profilePic, tag,onConnect }) => {
       borderRadius: '12px',
       padding: '20px',
       margin: '10px',
-      backgroundColor: 'rgba(18, 24, 41, 0.8)',
+      backgroundColor: '#0e0d3e',
       color: '#E0E0E0',
       width: '200px',
       textAlign: 'center',
