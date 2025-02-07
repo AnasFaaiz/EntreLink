@@ -108,11 +108,9 @@ const DiscoverComponent = () => {
 
   return (
     <div className="discover-container" style={styles.MainContainer}>
-      <div className="Latest-News" style={styles.NewsContainer}>
-        <div className="Tites" style={styles.title}>
-          <h2 style={styles.heading}>Trending News</h2>
-          <Link to="/EntreLink/News" style={styles.linking}>View More</Link>
-        </div>
+      <fieldset className="Latest-News" style={styles.NewsContainer}>
+        <legend className="Tites" style={styles.title}>Latest News</legend>
+        {/* <Link to="/EntreLink/News" style={styles.linking}>View More</Link> */}
         <button style={{ ...styles.arrowButton, ...styles.leftArrow }} onClick={handlePrevNews}>
           &#9664;
         </button>
@@ -140,12 +138,11 @@ const DiscoverComponent = () => {
             />
           ))}
         </div>
-      </div>
-      <div className="Posts-container" style={styles.PostContainer}>
-        <div className="Tites" style={styles.title}>
-          <h2 style={styles.heading}>Trending Posts</h2>
-          <Link to="/EntreLink/Discover" style={styles.linking}>View More</Link>
-        </div>
+      </fieldset>
+
+      <fieldset className="Posts-container" style={styles.PostContainer}>
+        <legend className="Tites" style={styles.title}>Latest Posts</legend>
+        {/* <Link to="/EntreLink/Discover" style={styles.linking}>View More</Link> */}
         <button style={{ ...styles.arrowButton, ...styles.leftArrow }} onClick={handlePrevPost}>
           &#9664;
         </button>
@@ -173,7 +170,7 @@ const DiscoverComponent = () => {
             />
           ))}
         </div>
-      </div>
+      </fieldset>
     </div>
   );
 };
@@ -189,30 +186,26 @@ const styles = {
     color: '#0056B3',
   },
   NewsContainer: {
-    width: '40vw',
-    border: '1px solid black',
+    width: '35vw',
+    border: '3px solid black',
     borderRadius: '20px',
-    backgroundColor: '#F2F2F2',
-    boxShadow: '2px 2px 5px grey',
-    padding: '20px',
+    backgroundColor: 'transparent',
+    // boxShadow: '2px 2px 5px grey',
+    padding: '10px',
     position: 'relative',
   },
   PostContainer: {
-    width: '40vw',
-    border: '1px solid black',
+    width: '35vw',
+    border: '3px solid black',
     borderRadius: '20px',
-    backgroundColor: '#F2F2F2',
-    boxShadow: '2px 2px 5px grey',
-    padding: '20px',
+    backgroundColor: 'transparent',
+    // boxShadow: '2px 2px 5px grey',
+    padding: '10px',
     position: 'relative',
   },
   title: {
-    fontSize: '2vw',
-    position: 'relative',
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginTop: '-1vh',
+    fontSize: '2rem',
+    textAlign: 'start',
   },
   heading: {
     textAlign: 'center',
@@ -227,15 +220,15 @@ const styles = {
   newsCard: {
     border: '1px solid black',
     borderRadius: '10px',
-    backgroundColor: 'white',
+    backgroundColor: 'lightblue',
     boxShadow: '1px 1px 3px grey',
-    padding: '20px',
+    padding: '30px',
     margin: '10px auto',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    width: '100%',
-    // height: '300px', // Set a fixed height for the news card
+    width: '75%',
+    // height: '60vh', // Set a fixed height for the news card
     maxWidth: '400px',
   },
   postCard: {
@@ -243,12 +236,12 @@ const styles = {
     borderRadius: '10px',
     backgroundColor: 'lightblue',
     boxShadow: '1px 1px 3px grey',
-    padding: '20px',
+    padding: '30px',
     margin: '10px auto',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    width: '100%',
+    width: '75%',
     // height: '400px', // Set a fixed height for the post card
     maxWidth: '400px',
   },
@@ -298,7 +291,7 @@ const styles = {
     // marginTop: '10px',
     border: '2px solid black',
     padding: '5px',
-    width: '30%',
+    width: '40%',
   },
   likeButton: {
     backgroundColor: 'transparent',
@@ -320,8 +313,8 @@ const styles = {
     position: 'absolute',
     top: '50%',
     transform: 'translateY(-50%)',
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
-    color: 'white',
+    backgroundColor: 'transparent',
+    color: 'black',
     border: 'none',
     borderRadius: '50%',
     width: '30px',
@@ -332,10 +325,10 @@ const styles = {
     alignItems: 'center',
   },
   leftArrow: {
-    left: '10px',
+    left: '5px',
   },
   rightArrow: {
-    right: '10px',
+    right: '5px',
   },
   indicators: {
     display: 'flex',

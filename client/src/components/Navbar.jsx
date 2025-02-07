@@ -135,7 +135,7 @@ const styles = {
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
-    backgroundColor: "#00796B", 
+    backgroundColor: "transparent", 
     color: "white",
     position: "fixed",
     top: 0,
