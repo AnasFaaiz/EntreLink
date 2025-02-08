@@ -30,6 +30,23 @@ const Navbar = () => {
             80% { opacity: 0.9; transform: scale(0.98); }
             100% { opacity: 1; transform: scale(1); }
           }
+
+          .link-underline::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(to right, rgb(79, 98, 125), rgb(85, 223, 200));
+            bottom: -5px;
+            left: 0;
+            transform: scaleX(0);
+            transform-origin: center;
+            transition: transform 0.3s ease;
+          }
+
+          .link-underline:hover::after {
+            transform: scaleX(1);
+          }
         `}
       </style>
       <div style={styles.container}>
@@ -64,16 +81,15 @@ const Navbar = () => {
           {searchVisible ? "X" : "🔍"}
         </button>
       </div>
+
       <ul style={styles.navLinks}>
         <li>
-          <Link to="/EntreLink/Events" style={styles.link}>
-            <img src="./images/Event.png" alt="Event" style={{ width: '30px', height: '30px' }} />
+          <Link to="/EntreLink/Events" style={styles.link} className="link-underline">
             <div>Events</div>
           </Link>
         </li>
         <li>
-          <Link to="/EntreLink/Discover" style={styles.link}>
-            <img src="./images/Discover.png" alt="Discover" style={{ width: '30px', height: '30px' }} />
+          <Link to="/EntreLink/Discover" style={styles.link} className="link-underline">
             <div>Discover</div>
             <div className="dropdown" style={styles.dropdown}>
               <Link to="/EntreLink/More1" style={styles.link}>More Link 1</Link>
@@ -83,14 +99,12 @@ const Navbar = () => {
           </Link>
         </li>
         <li>
-          <Link to="/EntreLink/Community" style={styles.link}>
-            <img src="./images/community.png" alt="Community" style={{ width: '30px', height: '30px' }} />
+          <Link to="/EntreLink/Community" style={styles.link} className="link-underline">
             <div>Community</div>
           </Link>
         </li>
         <li>
-          <Link to="/EntreLink/Connections" style={styles.link}>
-            <img src="./images/Connections.png" alt="Connections" style={{ width: '30px', height: '30px' }} />
+          <Link to="/EntreLink/Connections" style={styles.link} className="link-underline">
             <div>Connections</div>
           </Link>
         </li>
@@ -142,7 +156,7 @@ const styles = {
     width: "100%",
     boxSizing: "border-box",
     height: "55px",
-    zIndex: 1000,
+    zIndex: 100,
   },
   container: {
     display: 'flex',
@@ -187,11 +201,12 @@ const styles = {
     gap: "1rem",
     padding: "1px",
     alignItems: "center",
+    margin: "0",
   },
 
   link: {
-    fontSize: '12px',
-    color: '#E0E0E0',
+    fontSize: '1rem',
+    color: 'black',
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
@@ -234,10 +249,11 @@ const styles = {
     margin: "10px",
     display: "flex",
     alignItems: "center",
-    marginRight: "20px",
+    marginLeft: "15px",
   },
   profileIcon: {
-    display: "inline-block",
+    display: "flex",
+    justifyContent: "center",
   },
   profileImage: {
     borderRadius: "50%",
