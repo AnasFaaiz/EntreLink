@@ -53,6 +53,7 @@ function LoginPage() {
                                 placeholder="Enter your username" 
                                 value={username} 
                                 onChange={(e) => setUsername(e.target.value)} 
+                                required
                             />
                         </div>
                         <div className="form-group">
@@ -63,6 +64,7 @@ function LoginPage() {
                                 placeholder="Enter your password" 
                                 value={password} 
                                 onChange={(e) => setPassword(e.target.value)} 
+                                required
                             />
                         </div>
                         {error && <div className="error-message">{error}</div>}

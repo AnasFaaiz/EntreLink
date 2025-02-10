@@ -11,7 +11,7 @@ function SignUp() {
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [error, setError] = useState('');
+    // const [error, setError] = useState('');
 
     const handleLoginClick = () => {
         navigate('/EntreLink');
@@ -19,14 +19,10 @@ function SignUp() {
 
     const handleSignUpSubmit = (e) => {
         e.preventDefault();
-        axios.post('https://localhost:3001/register', {name, email, password})
-        .then(result => console.log(result))
-        .catch(err => console.log(err)) 
-    
-        if (!username || !email || !password) {
-            setError("All fields are required.");
-            return;
-        }
+        axios.post('https://localhost:3003/register', {username, email, password}, {withCredentials: true})
+            .then(result => console.log(result))
+            .catch(err => console.log(err)) 
+
     
         // try {
         //     // Make a POST request to the backend
@@ -70,6 +66,7 @@ function SignUp() {
                                 placeholder="Enter your username" 
                                 value={username} 
                                 onChange={(e) => setUsername(e.target.value)} 
+                                required
                             />
                         </div>
                         <div className="form-group">
@@ -80,6 +77,7 @@ function SignUp() {
                                 placeholder="Enter your email" 
                                 value={email} 
                                 onChange={(e) => setEmail(e.target.value)} 
+                                required
                             />
                         </div>
                         <div className="form-group">
@@ -90,9 +88,10 @@ function SignUp() {
                                 placeholder="Enter your password" 
                                 value={password} 
                                 onChange={(e) => setPassword(e.target.value)} 
+                                required
                             />
                         </div>
-                        {error && <div className="error-message">{error}</div>}
+                        {/* {error && <div className="error-message">{error}</div>} */}
                         <button type="submit" className="signup-btn">Sign Up</button>
                     </form>
                     <div className="social-login">
