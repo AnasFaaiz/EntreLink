@@ -17,39 +17,27 @@ function SignUp() {
         navigate('/EntreLink');
     };
 
-    const handleSignUpSubmit = (e) => {
+    const handleSignUpSubmit = async (e) => {
         e.preventDefault();
-        axios.post('https://localhost:3001/register', {name, email, password})
-        .then(result => console.log(result))
-        .catch(err => console.log(err)) 
-    
-        if (!username || !email || !password) {
-            setError("All fields are required.");
-            return;
+        setError(''); // Clear any previous errors
+        
+        try {
+            const response = await axios.post(
+                'http://localhost:3003/register', 
+                { username, email, password },
+                { 
+                    withCredentials: true,
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                }
+            );
+            console.log('✅ Registration successful:', response.data);
+            navigate('/EntreLink');
+        } catch (err) {
+            console.error('❌ Registration error:', err.response?.data || err.message);
+            setError(err.response?.data?.message || 'Registration failed. Please try again.');
         }
-    
-        // try {
-        //     // Make a POST request to the backend
-        //     const response = await fetch("http://localhost:5175/api/auth/register", {
-        //         method: "POST",
-        //         headers: {
-        //             "Content-Type": "application/json",
-        //         },
-        //         body: JSON.stringify({ username, email, password }),
-        //     });
-    
-        //     const data = await response.json();
-    
-        //     if (response.ok) {
-        //         alert(data.message); // Display success message
-        //         navigate("/login"); // Redirect to login page
-        //     } else {
-        //         setError(data.message); // Display error from the backend
-        //     }
-        // } catch (err) {
-        //     console.error(err);
-        //     setError("Error connecting to the server.");
-        // }
     };
     return (
         <div className="page-container">
@@ -70,6 +58,7 @@ function SignUp() {
                                 placeholder="Enter your username" 
                                 value={username} 
                                 onChange={(e) => setUsername(e.target.value)} 
+                                required
                             />
                         </div>
                         <div className="form-group">
@@ -80,6 +69,7 @@ function SignUp() {
                                 placeholder="Enter your email" 
                                 value={email} 
                                 onChange={(e) => setEmail(e.target.value)} 
+                                required
                             />
                         </div>
                         <div className="form-group">
@@ -90,6 +80,7 @@ function SignUp() {
                                 placeholder="Enter your password" 
                                 value={password} 
                                 onChange={(e) => setPassword(e.target.value)} 
+                                required
                             />
                         </div>
                         {error && <div className="error-message">{error}</div>}

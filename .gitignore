@@ -1,2 +1,11 @@
+# Dependencies
 node_modules/
+
+# Environment Variables
 .env
+
+# SSL Certificates
+server/*.key
+server/*.cert
+server/server.key
+server/server.cert
