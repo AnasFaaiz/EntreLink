@@ -11,41 +11,33 @@ function SignUp() {
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    // const [error, setError] = useState('');
+    const [error, setError] = useState('');
 
     const handleLoginClick = () => {
         navigate('/EntreLink');
     };
 
-    const handleSignUpSubmit = (e) => {
+    const handleSignUpSubmit = async (e) => {
         e.preventDefault();
-        axios.post('https://localhost:3003/register', {username, email, password}, {withCredentials: true})
-            .then(result => console.log(result))
-            .catch(err => console.log(err)) 
-
-    
-        // try {
-        //     // Make a POST request to the backend
-        //     const response = await fetch("http://localhost:5175/api/auth/register", {
-        //         method: "POST",
-        //         headers: {
-        //             "Content-Type": "application/json",
-        //         },
-        //         body: JSON.stringify({ username, email, password }),
-        //     });
-    
-        //     const data = await response.json();
-    
-        //     if (response.ok) {
-        //         alert(data.message); // Display success message
-        //         navigate("/login"); // Redirect to login page
-        //     } else {
-        //         setError(data.message); // Display error from the backend
-        //     }
-        // } catch (err) {
-        //     console.error(err);
-        //     setError("Error connecting to the server.");
-        // }
+        setError(''); // Clear any previous errors
+        
+        try {
+            const response = await axios.post(
+                'http://localhost:3003/register', 
+                { username, email, password },
+                { 
+                    withCredentials: true,
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                }
+            );
+            console.log('✅ Registration successful:', response.data);
+            navigate('/EntreLink');
+        } catch (err) {
+            console.error('❌ Registration error:', err.response?.data || err.message);
+            setError(err.response?.data?.message || 'Registration failed. Please try again.');
+        }
     };
     return (
         <div className="page-container">
@@ -91,7 +83,7 @@ function SignUp() {
                                 required
                             />
                         </div>
-                        {/* {error && <div className="error-message">{error}</div>} */}
+                        {error && <div className="error-message">{error}</div>}
                         <button type="submit" className="signup-btn">Sign Up</button>
                     </form>
                     <div className="social-login">
