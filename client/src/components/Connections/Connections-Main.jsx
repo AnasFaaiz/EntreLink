@@ -91,9 +91,10 @@ const styles = {
     flex: 1,
     padding: '12px 20px',
     borderRadius: '8px',
-    border: '1px solid #ddd',
+    border: '1px solid #268217',
     fontSize: '16px',
     marginRight: '15px',
+    backgroundColor: 'white',
   },
   filterButton: {
     padding: '12px 20px',
@@ -114,13 +115,13 @@ const styles = {
     borderRadius: '12px',
     boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)',
     padding: '25px',
-    marginBottom: '25px',
+    marginBottom: '15px',
   },
   sectionHeader: {
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginBottom: '20px',
+    marginBottom: '10px',
   },
   sectionTitle: {
     fontSize: '22px',

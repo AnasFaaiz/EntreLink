@@ -10,6 +10,7 @@ import Connections from './components/Connections/Connections-Main.jsx';
 import Discussion from './components/Community/Discussion';
 import Challenges from './components/Community/Challenges.jsx';
 import Opportunity from './components/Community/Opportunity.jsx';
+import News from './components/News/News-Main.jsx';
 
 function App() {
     return (
@@ -25,6 +26,7 @@ function App() {
                 <Route path="/EntreLink/Community/Discussion" element={<Discussion />} />
                 <Route path="/EntreLink/Community/Challenges" element={<Challenges />} />
                 <Route path="/EntreLink/Community/Opportunity" element={<Opportunity />} />
+                <Route path="/EntreLink/News" element={<News />} />
             </Routes>
         </Router>
     );

@@ -18,19 +18,26 @@ const PersonCard = ({ name, role, startupName, profilePic, tag,onConnect }) => {
     card: {
       border: '1px solid #ccc',
       borderRadius: '12px',
-      padding: '20px',
       margin: '10px',
       backgroundColor: '#0e0d3e',
       color: '#E0E0E0',
-      width: '200px',
+      width: '19vw',
       textAlign: 'center',
       transition: "all 0.3s ease",
       boxShadow: "0px 4px 8px rgba(218, 165, 32, 0.2)",
       transform: isHovered ? "translateY(-5px)" : "translateY(0)",
     },
+    bordertop: {
+      width: '60%',
+      height: '3%',
+      backgroundColor: '#DAA520',
+      margin: 'auto',
+      borderRadius: '0px 0px 15px 15px',
+    },
     profileContainer: {
       position: 'relative',
       marginBottom: '10px',
+      padding: '20px',
     },
     profilePic: {
       width: '80px',
@@ -84,12 +91,13 @@ const PersonCard = ({ name, role, startupName, profilePic, tag,onConnect }) => {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
+      <div className='bordertop' style={styles.bordertop}></div>
       <div style={styles.profileContainer}>
         <img src={profilePic} alt={name} style={styles.profilePic} />
         <div style={{ ...styles.tag, backgroundColor: getBadgeColor(tag) }}>
           {tag}
         </div>
-      </div>
+      
       <h3 style={styles.name}>{name}</h3>
       <div style={styles.roleContainer}>
         <p style={styles.role}>{role} • <span style={styles.startupName}>{startupName}</span></p>
@@ -100,6 +108,7 @@ const PersonCard = ({ name, role, startupName, profilePic, tag,onConnect }) => {
       >
       Connect
       </button>
+      </div>
     </div>
   );
 };
