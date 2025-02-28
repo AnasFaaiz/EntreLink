@@ -27,6 +27,7 @@ function App() {
                 <Route path="/EntreLink/Community/Challenges" element={<Challenges />} />
                 <Route path="/EntreLink/Community/Opportunity" element={<Opportunity />} />
                 <Route path="/EntreLink/News" element={<News />} />
+                {/* <Route path="/EntreLink/" */}
             </Routes>
         </Router>
     );

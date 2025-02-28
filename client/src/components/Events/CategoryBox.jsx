@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const startupFields = [
+export const startupFields = [
   "Fintech", "Healthtech", "Edtech", "E-commerce", "SaaS", "Biotech", 
   "Cleantech", "Foodtech", "Agtech", "Proptech", "Traveltech", 
   "AI & Machine Learning", "Blockchain", "Cybersecurity", 

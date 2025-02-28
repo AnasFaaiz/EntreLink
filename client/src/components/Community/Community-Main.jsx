@@ -29,7 +29,7 @@ const Community = () => {
       display: "flex",
       flexDirection: "row",
       width: '100%',
-      maxWidth: "1200px", // Maintains max-width for content
+      maxWidth: "1200px", 
       padding: "20px",
       marginTop: "4%",
       margin: "5",
