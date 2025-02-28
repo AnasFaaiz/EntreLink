@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import Navbar from "../Navbar";
-import GroupCard from "./GroupCard";
+import GroupCard from "./Community/GroupCard";
 import Category from "./Category";
-import SquadCircle from "./SquadCircle";
-// import /images/EntreLink.png from "./images/EntreLink.png";
+import SquadCircle from "./Community/SquadCircle";
+
 
 const Community = () => {
   const [isHovered, setIsHovered] = useState(false);

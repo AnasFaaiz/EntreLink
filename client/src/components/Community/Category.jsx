@@ -64,6 +64,7 @@ const styles = {
   gap: "10px",                           
   padding: "15px",
   backgroundColor: "#1E1E1E",
+  borderRadius: "inherit",
 },
 button: {
   padding: '12px',
