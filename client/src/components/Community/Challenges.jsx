@@ -2,13 +2,8 @@ import React from 'react';
 import Navbar from '../Navbar';
 import Category from './Category';
 
-const Challenges = ({ categories }) => {
-  if (!categories || !Array.isArray(categories)) {
-    console.error("Invalid categories prop");
-    return <div>Error: Invalid categories prop</div>;
-  }
+const Challenges = () => {
 
-  console.log("Categories:", categories);
 
   const styles = {
     mainContent: {
@@ -26,8 +21,9 @@ const Challenges = ({ categories }) => {
     <div className="container">
       <Navbar />
       <div style={styles.mainContent}>
-        {/* Top Row Container */}
-        <Category categories={categories} />
+        <aside style={styles.sidebar}>
+          <Category />
+        </aside>
         <h1>Challenges</h1>
       </div>
     </div>

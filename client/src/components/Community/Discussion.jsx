@@ -1,6 +1,7 @@
 import React from 'react';
 import Navbar from '../Navbar';
 import Category from './Category';
+import Box from './Discussions/Box';
 
 const Discussion = () => {
   return (
@@ -13,6 +14,10 @@ const Discussion = () => {
           </aside>
           <main style={styles.content}>
             <h1 style={styles.heading}>Discussions</h1>
+
+            <div>
+              <Box />
+            </div>
           </main>
         </div>
       </div>

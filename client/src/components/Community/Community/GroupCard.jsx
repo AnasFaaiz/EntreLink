@@ -76,10 +76,10 @@ const GroupCard = ({ group }) => {
   };
 
   return (
-    <div style={styles.card}>
+    <main style={styles.card}>
       {/* Group Name and Join Button */}
-      <div style={styles.headerContainer}>
-        <div style={styles.header}>{name}</div>
+      <section style={styles.headerContainer}>
+        <section style={styles.header}>{name}</section>
         <button
           style={styles.button}
           onMouseEnter={(e) => (e.target.style.backgroundColor = styles.buttonHover.backgroundColor)}
@@ -87,23 +87,24 @@ const GroupCard = ({ group }) => {
         >
           Join
         </button>
-      </div>
+      </section>
 
       {/* Tags and Keywords */}
-      <div style={styles.tags}>
+      <section style={styles.tags}>
         {tags.map((tag, index) => (
-          <div key={index} style={{ ...styles.tag, backgroundColor: getTagColor(tag) }}>
+          <section key={index} style={{ ...styles.tag, backgroundColor: getTagColor(tag) }}>
             {tag}
-          </div>
+          </section>
         ))}
-      </div>
+      </section>
 
       {/* Member Count and Activity Level */}
-      <div style={styles.stats}>
+      <section style={styles.stats}>
         <div>👥 Members: {memberCount}</div>
         <div>📈 Activity: {activityLevel}</div>
-      </div>
-    </div>
+      </section>
+
+    </main>
   );
 };
 
