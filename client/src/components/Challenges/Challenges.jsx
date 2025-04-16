@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import Navbar from '../Navbar';
 import './Challenges.css';
 
 const Challenges = () => {
@@ -70,59 +69,56 @@ const Challenges = () => {
   });
 
   return (
-    <div className="container">
-      <Navbar />
-      <div className="challenges-container">
-        <div className="challenges-header">
-          <h1>Entrepreneurship Challenges</h1>
-          <p>Discover exciting opportunities to showcase your skills and win prizes</p>
-        </div>
+    <div className="challenges-container">
+      <div className="challenges-header">
+        <h1>Entrepreneurship Challenges</h1>
+        <p>Discover exciting opportunities to showcase your skills and win prizes</p>
+      </div>
 
-        <div className="challenges-filters">
-          <div className="search-box">
-            <input
-              type="text"
-              placeholder="Search challenges..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-            />
-          </div>
-          <div className="category-filters">
-            {categories.map(category => (
-              <button
-                key={category.id}
-                className={`category-btn ${selectedCategory === category.id ? 'active' : ''}`}
-                onClick={() => setSelectedCategory(category.id)}
-              >
-                {category.name}
-              </button>
-            ))}
-          </div>
+      <div className="challenges-filters">
+        <div className="search-box">
+          <input
+            type="text"
+            placeholder="Search challenges..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+          />
         </div>
-
-        <div className="challenges-grid">
-          {filteredChallenges.map(challenge => (
-            <div key={challenge.id} className="challenge-card">
-              <div className="challenge-image">
-                <img src={challenge.image} alt={challenge.title} />
-              </div>
-              <div className="challenge-content">
-                <h3>{challenge.title}</h3>
-                <p>{challenge.description}</p>
-                <div className="challenge-details">
-                  <span className="prize">Prize: {challenge.prize}</span>
-                  <span className="deadline">Deadline: {challenge.deadline}</span>
-                  <span className="participants">{challenge.participants} participants</span>
-                  <span className="difficulty">{challenge.difficulty}</span>
-                </div>
-                <button className="participate-btn">Participate Now</button>
-              </div>
-            </div>
+        <div className="category-filters">
+          {categories.map(category => (
+            <button
+              key={category.id}
+              className={`category-btn ${selectedCategory === category.id ? 'active' : ''}`}
+              onClick={() => setSelectedCategory(category.id)}
+            >
+              {category.name}
+            </button>
           ))}
         </div>
+      </div>
+
+      <div className="challenges-grid">
+        {filteredChallenges.map(challenge => (
+          <div key={challenge.id} className="challenge-card">
+            <div className="challenge-image">
+              <img src={challenge.image} alt={challenge.title} />
+            </div>
+            <div className="challenge-content">
+              <h3>{challenge.title}</h3>
+              <p>{challenge.description}</p>
+              <div className="challenge-details">
+                <span className="prize">Prize: {challenge.prize}</span>
+                <span className="deadline">Deadline: {challenge.deadline}</span>
+                <span className="participants">{challenge.participants} participants</span>
+                <span className="difficulty">{challenge.difficulty}</span>
+              </div>
+              <button className="participate-btn">Participate Now</button>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );
 };
 
-export default Challenges;
+export default Challenges; 
