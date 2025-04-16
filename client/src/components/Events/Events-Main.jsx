@@ -6,6 +6,8 @@ import ImagesSlider from './ImageSlider';
 import Eventcard from './Eventcard';
 
 const Events = () => {
+    const [events, setEvents] = useState([]);
+    const [showDialog, setShowDialog] = useState(false);
     const images = [
         "./images/Event1.jpg",
         "./images/Event2.jpg",
@@ -20,9 +22,47 @@ const Events = () => {
             </div>
             
             <div className='Locations' style={styles.locations}>
-                <button style={styles.createButton}>+ Create</button>
+                <button style={styles.createButton} onClick={() => setShowDialog(true)}>+ Create</button>
                 <button style={styles.ticketButton}>Tickets</button>
             </div>
+
+            {showDialog && (
+                <div style={styles.overlay}>
+                    <div style={styles.dialog}>
+                        <h2 style={styles.dialogTitle}>Create New Event</h2>
+                        <form onSubmit={(e) => {
+                            e.preventDefault();
+                            setShowDialog(false);
+                            // Add your form submission logic here
+                        }}>
+                            <div style={styles.formGroup}>
+                                <label>Event Name</label>
+                                <input type="text" required style={styles.input} />
+                            </div>
+                            <div style={styles.formGroup}>
+                                <label>Date & Time</label>
+                                <input type="datetime-local" required style={styles.input} />
+                            </div>
+                            <div style={styles.formGroup}>
+                                <label>Location</label>
+                                <input type="text" required style={styles.input} />
+                            </div>
+                            <div style={styles.formGroup}>
+                                <label>Description</label>
+                                <textarea style={styles.textarea} required rows="4" />
+                            </div>
+                            <div style={styles.buttonGroup}>
+                                <button type="submit" style={styles.submitButton}>Create Event</button>
+                                <button type="button" 
+                                        onClick={() => setShowDialog(false)} 
+                                        style={styles.cancelButton}>
+                                    Cancel
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            )}
 
 
             <div>
@@ -119,6 +159,100 @@ const styles = {
       marginBottom: "0",
       color: "#127e59",
      },
+     overlay: {
+      position: 'fixed',
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0,
+      backgroundColor: 'rgba(0, 0, 0, 0.7)',
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      zIndex: 1000,
+      backdropFilter: 'blur(5px)',
+  },
+  dialog: {
+    backgroundColor: 'white',
+    padding: '20px',
+    borderRadius: '8px',
+    width: '500px',
+    maxWidth: '90%',
+    boxShadow: '0 10px 25px rgba(0,0,0,0.2)',
+    transform: 'translateY(0)',
+    animation: 'slideIn 0.3s ease-out',
+  },
+  dialogTitle: {
+      color: '#008080',
+      marginBottom: '20px',
+      textAlign: 'center',
+      fontSize: '24px',
+      fontWeight: '600',
+  },
+  formGroup: {
+      marginBottom: '20px',
+  },
+  input: {
+    width: '100%',
+    padding: '8px',
+    marginTop: '5px',
+    borderRadius: '8px',
+    border: '2px solid #e0e0e0',
+        fontSize: '16px',
+        transition: 'border-color 0.3s ease',
+        outline: 'none',
+        '&:focus': {
+            borderColor: '#008080',
+        }
+  },
+  textarea: {
+    width: '100%',
+    padding: '8px',
+    marginTop: '5px',
+    borderRadius: '4px',
+    border: '2px solid #e0e0e0',
+    fontSize: '16px',
+    transition: 'border-color 0.3s ease',
+    outline: 'none',
+    resize: 'vertical',
+    minHeight: '120px',
+  },
+  buttonGroup: {
+    display: 'flex',
+    justifyContent: 'flex-end',
+    gap: '15px',
+    marginTop: '30px',
+  },
+  submitButton: {
+    backgroundColor: '#008080',
+        color: 'white',
+        border: 'none',
+        padding: '12px 24px',
+        borderRadius: '8px',
+        cursor: 'pointer',
+        fontSize: '16px',
+        fontWeight: '500',
+        transition: 'transform 0.2s ease, background-color 0.2s ease',
+        '&:hover': {
+            backgroundColor: '#006666',
+            transform: 'translateY(-2px)',
+        }
+  },
+  cancelButton: {
+    backgroundColor: '#666',
+    color: 'white',
+    border: 'none',
+    padding: '12px 24px',
+    borderRadius: '8px',
+    cursor: 'pointer',
+    fontSize: '16px',
+    fontWeight: '500',
+    transition: 'transform 0.2s ease, background-color 0.2s ease',
+    '&:hover': {
+        backgroundColor: '#555',
+        transform: 'translateY(-2px)',
+    }
+  }
      
      
 };

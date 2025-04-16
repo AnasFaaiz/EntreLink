@@ -7,9 +7,21 @@
   background-color: #f8f9fa;
 }
 
+.container {
+  width: 100%;
+  min-height: 100vh;
+}
+
+.main-content {
+  display: flex;
+  gap: 2rem;
+  padding: 2rem;
+  margin-top: 60px; /* Adjust based on your Navbar height */
+}
+
 .challenges-header {
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
 }
 
 .challenges-header h1 {
@@ -32,16 +44,16 @@
 }
 
 .search-box {
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
+  width: 100%;
 }
 
 .search-box input {
   width: 100%;
-  padding: 1rem;
-  border: 2px solid #e0e0e0;
+  padding: 0.75rem;
+  border: 1px solid #e0e0e0;
   border-radius: 8px;
   font-size: 1rem;
-  transition: border-color 0.3s ease;
 }
 
 .search-box input:focus {
@@ -50,10 +62,7 @@
 }
 
 .category-filters {
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
-  justify-content: center;
+  display: none;
 }
 
 .category-btn {
@@ -158,10 +167,97 @@
   background-color: #2980b9;
 }
 
+.main-content {
+  display: flex;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.categories-sidebar {
+  width: 250px;
+  background-color: #fff;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  height: fit-content;
+  position: sticky;
+  top: 80px;
+}
+
+.categories-sidebar h2 {
+  color: #008080;
+  margin-bottom: 1.5rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.category-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.category-item {
+  padding: 0.75rem 1rem;
+  border: none;
+  background-color: #f5f5f5;
+  border-radius: 6px;
+  cursor: pointer;
+  text-align: left;
+  font-size: 1rem;
+  color: #333;
+  transition: all 0.2s ease;
+}
+
+.category-item:hover {
+  background-color: #e0e0e0;
+}
+
+.category-item.active {
+  background-color: #008080;
+  color: white;
+}
+
+.challenges-container {
+  flex: 1;
+  /* max-width: calc(100% - 280px); */
+  padding: 0 1rem;
+}
+
+/* Update existing styles */
+.challenges-filters {
+  margin-bottom: 2rem;
+}
+
+.search-box input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.2s ease;
+}
+
+.search-box input:focus {
+  outline: none;
+  border-color: #008080;
+}
+
 @media (max-width: 768px) {
   .challenges-container {
-    padding: 1rem;
-    margin-top: 60px;
+    /* padding: 1rem;
+    margin-top: 60px; */
+    padding: 0;
+  }
+
+  .main-content {
+    flex-direction: column;
+  }
+
+  .categories-sidebar {
+    position: relative;
+    top: 0;
+    width: 100%;
   }
 
   .challenges-header h1 {

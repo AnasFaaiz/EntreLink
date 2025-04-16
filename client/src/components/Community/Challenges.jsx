@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import Navbar from '../Navbar';
 import './Challenges.css';
+import Category from './Category';
 
 const Challenges = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [searchQuery, setSearchQuery] = useState('');
 
-  // Sample challenges data - in a real app, this would come from an API
   const challenges = [
     {
       id: 1,
@@ -72,6 +72,13 @@ const Challenges = () => {
   return (
     <div className="container">
       <Navbar />
+      <div className="main-content">
+        <Category 
+          categories={categories}
+          selectedCategory={selectedCategory}
+          onCategiryChange={setSelectedCategory}
+        />
+      
       <div className="challenges-container">
         <div className="challenges-header">
           <h1>Entrepreneurship Challenges</h1>
@@ -120,6 +127,7 @@ const Challenges = () => {
             </div>
           ))}
         </div>
+      </div>
       </div>
     </div>
   );

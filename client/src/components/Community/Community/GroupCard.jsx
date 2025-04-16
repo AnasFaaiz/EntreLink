@@ -1,111 +1,138 @@
 import React from "react";
+import PropTypes from 'prop-types';
 
-const GroupCard = ({ group }) => {
+const GroupCard = ({ group, isJoined, onJoin }) => {
   // Destructure group properties
-  const { name, tags, keywords, memberCount, activityLevel } = group;
+  const { name, description, tags, keywords, memberCount, activityLevel } = group;
 
-  // Function to get background color for tags
   const getTagColor = (tag) => {
-    switch (tag) {
-      case "Technology": return "#4CAF50";
-      case "Startups": return "#2196F3"; 
-      case "Innovation": return "#FF5722";
+    switch (tag.toLowerCase()) {
+      case "technology": return "#4CAF50";
+      case "startups": return "#2196F3"; 
+      case "innovation": return "#FF5722";
       case "education": return "#FFC107"; 
-      default: return "#E0E0E0"; 
+      default: return "#008080"; 
     }
   };
 
-  // Styles
   const styles = {
     card: {
-      border: "0.5px dotted black",
+      border: "1px solid #008080",
       borderRadius: "10px",
-      boxShadow: "8px 8px 8px rgba(0, 0, 0, 0.1)",
-      padding: "13px",
-      margin: "5px",
-      maxWidth: "300px",
-      backgroundColor: "rgba(18, 24, 41, 0.8)",
+      boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
+      padding: "20px",
+      backgroundColor: "#1E1E1E",
       display: "flex",
       flexDirection: "column",
-      justifyContent: "space-between",
+      gap: "15px",
     },
     headerContainer: {
       display: "flex",
       justifyContent: "space-between",
-      alignItems: "center",
-      marginBottom: "10px",
+      alignItems: "flex-start",
     },
     header: {
-      fontSize: "18px",
+      fontSize: "20px",
       fontWeight: "bold",
       color: "#E0E0E0",
+    },
+    description: {
+      color: "#B0B0B0",
+      fontSize: "14px",
+      marginTop: "8px",
     },
     tags: {
       display: "flex",
       flexWrap: "wrap",
-      gap: "5px",
-      marginBottom: "10px",
+      gap: "8px",
     },
     tag: {
       fontSize: "12px",
-      padding: "5px 10px",
-      borderRadius: "5px",
+      padding: "4px 12px",
+      borderRadius: "4px",
       color: "#FFFFFF",
-      fontWeight: "bold",
+      fontWeight: "500",
     },
     stats: {
+      display: "flex",
+      gap: "20px",
+      color: "#B0B0B0",
       fontSize: "14px",
-      color: "#555",
-      marginBottom: "15px",
     },
-    button: {
-      padding: "10px 15px",
-      fontSize: "14px",
-      fontWeight: "bold",
-      backgroundColor: "#DAA520",
-      color: "#001F3F",
-      border: "none",
-      borderRadius: "100px",
-      cursor: "pointer",
-      textAlign: "center",
-      transition: "background-color 0.3s ease",
+    joinButton: {
+      padding: '8px 16px',
+      backgroundColor: '#008080',
+      color: '#E0E0E0',
+      border: 'none',
+      borderRadius: '4px',
+      cursor: 'pointer',
+      fontSize: '14px',
+      transition: 'all 0.2s ease',
+      '&:hover': {
+        backgroundColor: '#006666',
+      },
     },
-    buttonHover: {
-      backgroundColor: "#006666",
-    },
+    joinedButton: {
+      padding: '8px 16px',
+      backgroundColor: '#2C2C2C',
+      color: '#008080',
+      border: '2px solid #008080',
+      borderRadius: '4px',
+      cursor: 'default',
+      fontSize: '14px',
+    }
   };
 
   return (
-    <main style={styles.card}>
-      {/* Group Name and Join Button */}
-      <section style={styles.headerContainer}>
-        <section style={styles.header}>{name}</section>
+    <div style={styles.card}>
+      <div style={styles.headerContainer}>
+        <div>
+          <div style={styles.header}>{name}</div>
+          <div style={styles.description}>{description}</div>
+        </div>
         <button
-          style={styles.button}
-          onMouseEnter={(e) => (e.target.style.backgroundColor = styles.buttonHover.backgroundColor)}
-          onMouseLeave={(e) => (e.target.style.backgroundColor = styles.button.backgroundColor)}
+          style={isJoined ? styles.joinedButton : styles.joinButton}
+          onClick={onJoin}
+          disabled={isJoined}
         >
-          Join
+          {isJoined ? 'Joined' : 'Join Squad'}
         </button>
-      </section>
+      </div>
 
-      {/* Tags and Keywords */}
-      <section style={styles.tags}>
+      <div style={styles.tags}>
         {tags.map((tag, index) => (
-          <section key={index} style={{ ...styles.tag, backgroundColor: getTagColor(tag) }}>
+          <span key={index} style={{ ...styles.tag, backgroundColor: getTagColor(tag) }}>
             {tag}
-          </section>
+          </span>
         ))}
-      </section>
+      </div>
 
-      {/* Member Count and Activity Level */}
-      <section style={styles.stats}>
-        <div>👥 Members: {memberCount}</div>
-        <div>📈 Activity: {activityLevel}</div>
-      </section>
-
-    </main>
+      <div style={styles.stats}>
+        <div>👥 {memberCount} member{memberCount !== 1 ? 's' : ''}</div>
+        <div>📈 {activityLevel} activity</div>
+      </div>
+    </div>
   );
+};
+
+GroupCard.propTypes = {
+  group: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    description: PropTypes.string,
+    tags: PropTypes.arrayOf(PropTypes.string),
+    keywords: PropTypes.arrayOf(PropTypes.string),
+    memberCount: PropTypes.number,
+    activityLevel: PropTypes.string,
+    privacy: PropTypes.string,
+    profilePic: PropTypes.string,
+  }).isRequired,
+  isJoined: PropTypes.bool,
+  onJoin: PropTypes.func,
+};
+
+GroupCard.defaultProps = {
+  isJoined: false,
+  onJoin: () => {},
 };
 
 export default GroupCard;
