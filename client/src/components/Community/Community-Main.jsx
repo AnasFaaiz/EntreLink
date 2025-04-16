@@ -17,7 +17,8 @@ const Community = () => {
     name: "",
     description: "",
     tags: '',
-    privacy: 'public'
+    privacy: 'public',
+    code: '',
   });
   const [exploreSquads, setExploreSquads] = useState([
     {
@@ -29,7 +30,8 @@ const Community = () => {
       memberCount: 120,
       activityLevel: "High",
       privacy: "public",
-      profilePic: "./images/EntreLink.png"
+      profilePic: "./images/EntreLink.png",
+      code: "#TECHZX9Y4K"
     },
     {
       id: 2,
@@ -40,7 +42,8 @@ const Community = () => {
       memberCount: 85,
       activityLevel: "Medium",
       privacy: "public",
-      profilePic: "./images/EntreLink.png"
+      profilePic: "./images/EntreLink.png",
+      code: "#IMPACTZX9Y4K"
     }
   ]);
 
@@ -57,23 +60,27 @@ const Community = () => {
   }, [mySquads]);
 
   const filteredExploreSquads = exploreSquads.filter(squad => {
+    const searchTerm = searchQuery.toLowerCase();
+    const searchWithoutHash = searchTerm.replace('#', '');
     const matchesSearch = 
-      squad.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      squad.description.toLowerCase().includes(searchQuery.toLowerCase());
+      squad.name.toLowerCase().includes(searchTerm) ||
+      squad.description.toLowerCase().includes(searchTerm) ||
+      (squad.code && squad.code.toLowerCase().replace('#', '').includes(searchWithoutHash));
     const matchesTag = 
       filterTag === 'all' || 
       squad.tags.some(tag => tag.toLowerCase() === filterTag.toLowerCase());
     return matchesSearch && matchesTag;
   });
 
-
-  const groupData = {
-    name: "Tech Innovators",
-    tags: ["Technology", "Startups", "Innovation"],
-    keywords: ["AI", "Blockchain", "Web Development"],
-    memberCount: 120,
-    activityLevel: "High",
-  };
+  // Add after imports
+const generateUniqueCode = (name) => {
+  const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+  const randomChars = Array(6).fill(0)
+    .map(() => chars.charAt(Math.floor(Math.random() * chars.length)))
+    .join('');
+  const prefix = name.split(' ')[0].substring(0, 3).toUpperCase();
+  return `#${prefix}${randomChars}`;
+};
 
 
   const styles = {
@@ -334,7 +341,21 @@ const Community = () => {
       fontStyle: 'italic',
       textAlign: 'center',
       padding: '20px 0',
+    },
+    squadCode: {
+      backgroundColor: '#2C2C2C',
+      color: '#008080',
+      padding: '4px 8px',
+      borderRadius: '4px',
+      fontSize: '13px',
+      fontFamily: 'monospace',
+      letterSpacing: '1px',
+      fontWeight: '600',
+      display: 'inline-block',
+      marginLeft: '8px',
+      border: '1px solid #004040'
     }
+
 
 
   };
@@ -369,7 +390,11 @@ const Community = () => {
                       description: squadForm.description,
                       tags: tags,
                       privacy: squadForm.privacy,
-                      profilePic: "./images/EntreLink.png" // default image
+                      profilePic: "./images/EntreLink.png",
+                      code: generateUniqueCode(squadForm.name),
+                      memberCount: 1,
+                      activityLevel: "New",
+                      keywords: tags,
                     };
                     
                     setMySquads([...mySquads, newSquad]);
@@ -379,7 +404,8 @@ const Community = () => {
                       name: "",
                       description: "",
                       tags: "",
-                      privacy: "public"
+                      privacy: "public",
+                      code: "",
                     });
                     setTags([]);
                     setTagInput("");
@@ -481,7 +507,7 @@ const Community = () => {
             <div style={styles.mysquads}>
               {mySquads.length === 0 ? (
                 <p style={{ color: '#E0E0E0', fontStyle: 'italic' }}>
-                  No squads yet. Create your first squad!
+                  No squads yet. Create your first squad! Or Join one from the list below.
                 </p>
               ) : (
                 mySquads.map(squad => (
@@ -489,9 +515,15 @@ const Community = () => {
                     key={squad.id}
                     name={squad.name}
                     profilePic={squad.profilePic}
+                    code={squad.code}
                     onClick={() => {
                       // Handle squad click - you can add navigation or details view here
                       console.log('Squad clicked:', squad);
+                    }}
+                    onLeave={() => {
+                      // Handle leave squad
+                      const updatedSquads = mySquads.filter(s => s.id !== squad.id);
+                      setMySquads(updatedSquads);
                     }}
                   />
                 ))
@@ -504,7 +536,7 @@ const Community = () => {
             <div style={styles.exploreFilters}>
               <input
                 type="text"
-                placeholder="Search squads..."
+                placeholder="Search by name, description or squad code (#XXX123...)"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 style={styles.searchInput}
@@ -536,9 +568,10 @@ const Community = () => {
                       activityLevel: squad.activityLevel || "New",
                       privacy: squad.privacy,
                       profilePic: squad.profilePic,
-                      isJoined: isJoined // Add this property
+                      code: squad.code,
+                      isJoined: isJoined 
                     }}
-                    isJoined={isJoined} // Add this prop
+                    isJoined={isJoined} 
                     onJoin={() => {
                       if (!isJoined) {
                         setMySquads([...mySquads, squad]);

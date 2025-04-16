@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const GroupCard = ({ group, isJoined, onJoin }) => {
   // Destructure group properties
-  const { name, description, tags, keywords, memberCount, activityLevel } = group;
+  const { name, description, tags, keywords, memberCount, activityLevel, code } = group;
 
   const getTagColor = (tag) => {
     switch (tag.toLowerCase()) {
@@ -80,15 +80,30 @@ const GroupCard = ({ group, isJoined, onJoin }) => {
       borderRadius: '4px',
       cursor: 'default',
       fontSize: '14px',
-    }
+    },
+    titleSection: {
+      display: 'flex',
+      alignItems: 'center',
+      gap: '10px',
+    },
+    squadCode: {
+      backgroundColor: '#2C2C2C',
+      color: '#008080',
+      padding: '4px 8px',
+      borderRadius: '4px',
+      fontSize: '13px',
+      fontFamily: 'monospace',
+      letterSpacing: '1px',
+      fontWeight: '600',
+    },
   };
 
   return (
     <div style={styles.card}>
       <div style={styles.headerContainer}>
-        <div>
+        <div style={styles.titleSection}>
           <div style={styles.header}>{name}</div>
-          <div style={styles.description}>{description}</div>
+          <span style={styles.squadCode}>{code}</span>
         </div>
         <button
           style={isJoined ? styles.joinedButton : styles.joinButton}
@@ -98,7 +113,7 @@ const GroupCard = ({ group, isJoined, onJoin }) => {
           {isJoined ? 'Joined' : 'Join Squad'}
         </button>
       </div>
-
+      <div style={styles.description}>{description}</div>
       <div style={styles.tags}>
         {tags.map((tag, index) => (
           <span key={index} style={{ ...styles.tag, backgroundColor: getTagColor(tag) }}>
