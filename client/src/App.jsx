@@ -8,7 +8,7 @@ import Community from './components/Community/Community-Main.jsx';
 import Events from './components/Events/Events-Main.jsx';
 import Connections from './components/Connections/Connections-Main.jsx';
 import Discussion from './components/Community/Discussion.jsx';
-import Challenges from './components/Community/Challenges.jsx';
+import Challenges from './components/Community/Challenges/Challenges.jsx';
 import Opportunity from './components/Community/Opportunity.jsx';
 import News from './components/News/News-Main.jsx';
 
