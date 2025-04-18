@@ -4,6 +4,7 @@ import Navbar from '../Navbar';
 import CategoryBox from './CategoryBox';
 import ImagesSlider from './ImageSlider';
 import Eventcard from './Eventcard';
+import colorPalette from '../colorPalette';
 
 const Events = () => {
     const [events, setEvents] = useState([]);
@@ -83,7 +84,7 @@ const Events = () => {
 
 const styles = {
     locations: {
-        color: "black",
+        color: colorPalette.text.dark,
         padding: "10px",
         width: "200px",
         textAlign: "center",
@@ -100,7 +101,7 @@ const styles = {
         padding: "6px",
         paddingBottom: "5px",
         borderRadius: "5px",
-        border: "1px solid #ccc",
+        border: `1px solid ${colorPalette.text.muted}`,
         fontSize: "13px",
         height: "35px",
         marginTop: "9px",
@@ -110,9 +111,9 @@ const styles = {
         alignItems: 'center',
         // padding: '10px 20px',
         borderRadius: '5px',
-        border: '1px solid #ccc',
-        backgroundColor: '#008080', // Teal green hex code
-        color: 'white',
+        border: `1px solid ${colorPalette.text.muted}`,
+        backgroundColor: colorPalette.primary.main,
+        color: colorPalette.text.light,
         cursor: 'pointer',
         fontSize: '16px',
       },
@@ -121,9 +122,9 @@ const styles = {
         alignItems: 'center',
         // padding: '10px 20px',
         borderRadius: '5px',
-        border: '1px solid #ccc',
-        backgroundColor: '#008080', // Teal green hex code
-        color: 'white',
+        border: `1px solid ${colorPalette.text.muted}`,
+        backgroundColor: colorPalette.primary.main,
+        color: colorPalette.text.light,
         cursor: 'pointer',
         fontSize: '16px',
       },
@@ -148,7 +149,7 @@ const styles = {
       hr: {
         height: "1px",
         width: "70%",
-        color: "black",
+        color: colorPalette.text.dark,
         backgroundImage: "linear-gradient(90deg, rgba(255, 0, 0, 1), rgba(255, 0, 0, 0) 100%, rgba(255, 0, 0, 0) 50%)",
         border: "none",
         position: "absolute",
@@ -157,7 +158,7 @@ const styles = {
      },
      label: {
       marginBottom: "0",
-      color: "#127e59",
+      color: colorPalette.accent.green,
      },
      overlay: {
       position: 'fixed',
@@ -165,7 +166,7 @@ const styles = {
       left: 0,
       right: 0,
       bottom: 0,
-      backgroundColor: 'rgba(0, 0, 0, 0.7)',
+      backgroundColor: colorPalette.utility.overlay,
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
@@ -173,17 +174,17 @@ const styles = {
       backdropFilter: 'blur(5px)',
   },
   dialog: {
-    backgroundColor: 'white',
+    backgroundColor: colorPalette.background.main,
     padding: '20px',
     borderRadius: '8px',
     width: '500px',
     maxWidth: '90%',
-    boxShadow: '0 10px 25px rgba(0,0,0,0.2)',
+    boxShadow:  `0 10px 25px ${colorPalette.utility.shadow}`,
     transform: 'translateY(0)',
     animation: 'slideIn 0.3s ease-out',
   },
   dialogTitle: {
-      color: '#008080',
+      color: colorPalette.primary.main,
       marginBottom: '20px',
       textAlign: 'center',
       fontSize: '24px',
@@ -197,7 +198,9 @@ const styles = {
     padding: '8px',
     marginTop: '5px',
     borderRadius: '8px',
-    border: '2px solid #e0e0e0',
+    border: `2px solid ${colorPalette.text.muted}`,
+    backgroundColor: colorPalette.background.dark,
+    color: colorPalette.text.light,
         fontSize: '16px',
         transition: 'border-color 0.3s ease',
         outline: 'none',
@@ -210,12 +213,14 @@ const styles = {
     padding: '8px',
     marginTop: '5px',
     borderRadius: '4px',
-    border: '2px solid #e0e0e0',
+    border: `2px solid ${colorPalette.text.muted}`,
     fontSize: '16px',
     transition: 'border-color 0.3s ease',
     outline: 'none',
     resize: 'vertical',
     minHeight: '120px',
+    backgroundColor: colorPalette.background.dark,
+    color: colorPalette.text.light,
   },
   buttonGroup: {
     display: 'flex',
@@ -224,8 +229,8 @@ const styles = {
     marginTop: '30px',
   },
   submitButton: {
-    backgroundColor: '#008080',
-        color: 'white',
+    backgroundColor: colorPalette.primary.main,
+        color: colorPalette.text.light,
         border: 'none',
         padding: '12px 24px',
         borderRadius: '8px',
@@ -239,8 +244,8 @@ const styles = {
         }
   },
   cancelButton: {
-    backgroundColor: '#666',
-    color: 'white',
+    backgroundColor: colorPalette.background.dark,
+    color: colorPalette.text.light,
     border: 'none',
     padding: '12px 24px',
     borderRadius: '8px',

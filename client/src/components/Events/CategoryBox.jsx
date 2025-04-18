@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import colorPalette from '../colorPalette';
 
 export const startupFields = [
   "Fintech", "Healthtech", "Edtech", "E-commerce", "SaaS", "Biotech", 
@@ -103,9 +104,9 @@ const CategoryBox = () => {
 const styles = {
   categoryBox: {
     padding: "15px",
-    backgroundColor: "#0aa097",
+    backgroundColor: colorPalette.primary.light,
     borderRadius: "10px",
-    boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+    boxShadow: `0 4px 8px ${colorPalette.utility.shadow}`,
     width: "250px",
     margin: "auto 10px 20px",
     textAlign: "center",
@@ -124,7 +125,7 @@ const styles = {
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
-    color: "#E0E0E0",
+    color: colorPalette.text.light,
   },
   section: {
     // marginBottom: "20px"
@@ -135,7 +136,7 @@ const styles = {
     margin: "0",
     textAlign: "left",
     width: "100%",
-    color: "#004F4F",
+    color: colorPalette.primary.dark,
   },
   listItem: {
     fontSize: "16px",
@@ -146,6 +147,7 @@ const styles = {
   checkbox: {
     marginRight: "10px",
     width: "20%",
+    accentColor: colorPalette.primary.main,
   },
   label: {
     width: "100%",
@@ -155,20 +157,23 @@ const styles = {
     border: "none",
     fontSize: "20px",
     cursor: "pointer",
-    color: "white",
+    color: colorPalette.text.light,
     padding: "5px",
   },
   hr: {
     height: "1px",
     color: "black",
-    backgroundImage: "linear-gradient(90deg, rgba(255, 0, 0, 0), rgba(255, 0, 0, 1) 50%, rgba(255, 0, 0, 0) 100%)",
+    backgroundImage: `linear-gradient(90deg, 
+      ${colorPalette.utility.overlay}, 
+      ${colorPalette.primary.main} 50%, 
+      ${colorPalette.utility.overlay} 100%)`,
     border: "none",
  },
  iconButton: {
   marginLeft: "30px",
   padding: "2px 5px",
   fontSize: "20px",
-  backgroundColor: "black",
+  backgroundColor: colorPalette.background.dark,
 },
 };
 

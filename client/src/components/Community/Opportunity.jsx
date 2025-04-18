@@ -30,12 +30,12 @@ const styles = {
   mainContent: {
     display: "flex",
     // flexDirection: "column",
-    alignItems: "center",
+    alignItems: "flex-start",
     position: "relative",
     minHeight: "calc(100vh - 65px)",
     marginTop: "65px",
     padding: "20px",
-    gap: '10px',
+    gap: '20px',
   },
   Leftside: {
     display: "flex",

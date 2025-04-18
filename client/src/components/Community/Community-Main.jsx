@@ -101,6 +101,7 @@ const generateUniqueCode = (name) => {
       padding: "20px",
       marginTop: "4%",
       margin: "5",
+      gap: "20px",
     },
     leftColumn: {
       flex: "0.8",

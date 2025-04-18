@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-
+import colorPalette from "../colorPalette";
 // filepath: /d:/00-Projects/EntreLink-1/client/src/components/Events/Eventcard.jsx
 const Eventcard = () => {
   const [timeRemaining, setTimeRemaining] = useState({ days: 0, hours: 0 });
@@ -61,9 +61,9 @@ const styles = {
     width: "95%",
     margin: "5px",
     marginBottom: "10px",
-    border: "1px solid black",
+    border: colorPalette.background.dark,
     borderRadius: "10px",
-    backgroundColor: "#F2F2F2",
+    backgroundColor: colorPalette.background.main,
     display: "fixed",
     position: "relative",
     // left: "24%",
@@ -72,9 +72,9 @@ const styles = {
   card: {
     display: "flex",
     width: "100%",
-    border: "1px solid black",
+    border: `1px solid ${colorPalette.text.dark}`,
     borderRadius: "10px",
-    backgroundColor: "#020149",
+    backgroundColor: colorPalette.background.section,
     overflow: "hidden",
     padding: '15px',
   },
@@ -98,7 +98,7 @@ const styles = {
     fontWeight: "bold",
     margin: "0",
     width: "100%",
-    color: "#E0E0E0",
+    color: colorPalette.text.light,
   },
   descriptionAndCountdown: {
     display: "flex",
@@ -111,7 +111,7 @@ const styles = {
     fontSize: "16px",
     flex: "1",
     width: "35vw",
-    color: "grey",
+    color: colorPalette.text.muted,
   },
   countdownContainer: {
     display: "flex",
@@ -123,20 +123,22 @@ const styles = {
     flexDirection: "column",
     alignItems: "center",
     padding: "5px",
-    border: "1px solid black",
+    border: `1px solid ${colorPalette.text.dark}`,
     borderRadius: "5px",
-    backgroundColor: "#f0f0f0",
+    backgroundColor: colorPalette.background.dark,
   },
   countdownNumber: {
     fontSize: "20px",
     fontWeight: "bold",
+    color: colorPalette.text.light,
   },
   countdownLabel: {
     fontSize: "12px",
+    color: colorPalette.text.muted,
   },
   maps: {
     fontSize: "14px",
-    color: "blue",
+    color: colorPalette.primary.light,
     textDecoration: "none",
     position: "absolute",
     right: "0",
@@ -146,7 +148,7 @@ const styles = {
     margin: "0",
     padding: "0",
     width: "70%",
-    color: "white",
+    color: colorPalette.text.light,
   },
   addressRegisterButton: {
     display: "flex",
@@ -157,9 +159,13 @@ const styles = {
   registerButton: {
     padding: "5px",
     borderRadius: "5px",
-    border: "1px solid black",
-    backgroundColor: "green",
+    backgroundColor: colorPalette.accent.green,
+    color: colorPalette.text.light,
     cursor: "pointer",
+    transition: "background-color 0.2s ease",
+    '&:hover': {
+      backgroundColor: colorPalette.primary.main,
+    }
   },
 };
 

@@ -2,9 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { startupFields } from '../Events/CategoryBox';
 import { useState } from 'react';
+import colorPalette from '../colorPalette';
 
 const Category = () => {
   const [selectedFields, setSelectedFields] = useState({});
+  const [hoveredButton, setHoveredButton] = useState(null);
 
   const handleCheckboxChange = (field) => {
     setSelectedFields(prev => ({
@@ -16,10 +18,43 @@ const Category = () => {
   return (
     <div className="container" style={styles.cont}>
       <div className="menu" style={styles.menu}>
-        <Link to="/EntreLink/Community" style={{...styles.button, marginTop: '5px', marginLeft: '3.5px'}}>Squads</Link>
-        <Link to="/EntreLink/Discussion" style={{...styles.button, marginTop: '5px'}}>Discussion</Link>
-        <Link to="/EntreLink/Challenges" style={styles.button}>Challenges</Link>
-        <Link to="/EntreLink/Opportunity" style={styles.button}>Opportunity</Link>
+        <Link to="/EntreLink/Community" 
+          style={{...styles.button, marginTop: '5px', 
+                marginLeft: '3.5px', 
+                backgroundColor: hoveredButton === 'squads' ? colorPalette.accent.gold : colorPalette.accent.teal 
+                }}
+                onMouseEnter={() => setHoveredButton('squads')}
+                onMouseLeave={() => setHoveredButton(null)}
+              >
+                  Squads
+        </Link>
+        <Link to="/EntreLink/Discussion" 
+          style={{...styles.button,
+             marginTop: '5px', 
+             backgroundColor: hoveredButton === 'discussion' ? colorPalette.accent.gold : colorPalette.accent.teal
+             }}
+             onMouseEnter={() => setHoveredButton('discussion')}
+              onMouseLeave={() => setHoveredButton(null)}
+             > Discussion
+        </Link>
+        <Link to="/EntreLink/Challenges" 
+          style={{...styles.button,
+              backgroundColor: hoveredButton === 'challenges' ? colorPalette.accent.gold : colorPalette.accent.teal
+            }}
+            onMouseEnter={() => setHoveredButton('challenges')}
+            onMouseLeave={() => setHoveredButton(null)}
+            >
+              Challenges
+        </Link>
+        <Link to="/EntreLink/Opportunity" 
+          style={{...styles.button,
+            backgroundColor: hoveredButton === 'opportunity' ? colorPalette.accent.gold : colorPalette.accent.teal
+          }}
+          onMouseEnter={() => setHoveredButton('opportunity')}
+          onMouseLeave={() => setHoveredButton(null)}
+          >
+            Opportunity
+        </Link>
       </div>
 
       <hr style={{...styles.hr,border: '3px solid #E0E0E0'}} />
@@ -53,8 +88,8 @@ const Category = () => {
 const styles = {
  cont: {
     width: "23vw",
-    border: "1px solid black",
-    backgroundColor: "#1E1E1E",
+    border: `1px solid ${colorPalette.primary.main}`,
+    backgroundColor: colorPalette.background.main,
     borderRadius: "10px",
  },
  menu: {
@@ -63,36 +98,37 @@ const styles = {
   gridTemplateRows: "repeat(2, 1fr)",    
   gap: "10px",                           
   padding: "15px",
-  backgroundColor: "#1E1E1E",
+  backgroundColor: colorPalette.background.main,
   borderRadius: "inherit",
 },
 button: {
   padding: '12px',
   fontSize: '14px',
   cursor: 'pointer',
-  backgroundColor: '#E0E0E0',
+  backgroundColor: colorPalette.accent.teal,
   border: 'none',
   borderRadius: '8px',
   textAlign: 'center',
   textDecoration: 'none',
-  color: '#1E1E1E',
-  transition: 'transform 0.2s ease',
+  color: colorPalette.text.light,
+  transition: 'background-color 0.3s ease',
   '&:hover': {
     transform: 'scale(1.05)',
-    backgroundColor: '#CCCCCC',
+    backgroundColor: colorPalette.accent.gold,
+    boxShadow: `0px 0px 10px ${colorPalette.utility.highlight}`,
   }
 },
  hr: {
     width: "90%",
     margin: "3px auto",
-    border: "1px solid #E0E0E0",
+    border: `1px solid ${colorPalette.primary.main}`,
     borderRadius: "50px",
  },
  catTitle: {
   fontSize: "15px",
   position: "relative",
   margin: "10px",
-  color: "#E0E0E0",
+  color: colorPalette.accent.gold,
   
  },
  verticalLine: {
@@ -100,8 +136,8 @@ button: {
   top: "12%",
   left: "14%",
   height: "11%",
-  backgroundColor: "#E0E0E0",
-  border: "0.2px solid #E0E0E0",
+  backgroundColor: colorPalette.primary.main,
+  border: `0.2px solid ${colorPalette.primary.main}`,
 },
 
 
@@ -122,21 +158,22 @@ categoryList: {
 categoryItem: {
   display: 'flex',
   alignItems: 'center',
-  color: '#E0E0E0',
+  color: colorPalette.text.light,
   borderRadius: '6px',
   fontSize: '13px',
   cursor: 'pointer',
   transition: 'all 0.2s ease',
   '&:hover': {
-    backgroundColor: '#444444',
+    backgroundColor: colorPalette.background.dark,
     transform: 'translateY(-2px)',
+    boxShadow: `0px 0px 8px ${colorPalette.utility.shadow}`,
   }
 },
 
 checkbox: {
   marginRight: '10px',
   cursor: 'pointer',
-  accentColor: '#E0E0E0',
+  accentColor: colorPalette.accent.teal,
   width: '16px',
   height: '16px'
 },
@@ -144,7 +181,8 @@ checkbox: {
 categoryLabel: {
   cursor: 'pointer',
   flex: 1,
-  userSelect: 'none'
+  userSelect: 'none',
+  color: colorPalette.text.light,
 }
 
 };

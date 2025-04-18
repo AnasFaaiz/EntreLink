@@ -59,7 +59,7 @@ useEffect(() => {
       console.error('Error loading jobs:', err);
     } finally {
       setIsLoading(false);
-    }
+    } 
   };
 
       fetchJobs();
