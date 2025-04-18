@@ -104,9 +104,10 @@ const CategoryBox = () => {
 const styles = {
   categoryBox: {
     padding: "15px",
-    backgroundColor: colorPalette.primary.light,
+    backgroundColor: colorPalette.background.dark,
     borderRadius: "10px",
     boxShadow: `0 4px 8px ${colorPalette.utility.shadow}`,
+    border: `1px solid ${colorPalette.primary.main}30`,
     width: "250px",
     margin: "auto 10px 20px",
     textAlign: "center",
@@ -117,6 +118,7 @@ const styles = {
   heading: {
     fontSize: "24px",
     marginBottom: "20px",
+    color: colorPalette.text.light,
   },
   subHeading: {
     fontSize: "16px",
@@ -125,7 +127,7 @@ const styles = {
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
-    color: colorPalette.text.light,
+    color: colorPalette.accent.teal,
   },
   section: {
     // marginBottom: "20px"
@@ -136,37 +138,51 @@ const styles = {
     margin: "0",
     textAlign: "left",
     width: "100%",
-    color: colorPalette.primary.dark,
+    color: colorPalette.text.light,
   },
   listItem: {
     fontSize: "16px",
     margin: "5px 0",
     display: "flex",
     alignItems: "center",
+    color: colorPalette.text.muted,
+    "&:hover": {
+      color: colorPalette.text.light,
+    }
   },
   checkbox: {
     marginRight: "10px",
     width: "20%",
     accentColor: colorPalette.primary.main,
+    cursor: "pointer",
   },
   label: {
     width: "100%",
+    cursor: "pointer",
+    "&:hover": {
+      color: colorPalette.accent.teal,
+    }
   },
   toggleButton: {
     background: "none",
     border: "none",
     fontSize: "20px",
     cursor: "pointer",
-    color: colorPalette.text.light,
+    border: `1px solid ${colorPalette.primary.main}30`,
+    color: colorPalette.primary.light,
     padding: "5px",
+    "&:hover": {
+      backgroundColor: colorPalette.primary.main,
+      color: colorPalette.text.light,
+    }
   },
   hr: {
     height: "1px",
     color: "black",
     backgroundImage: `linear-gradient(90deg, 
-      ${colorPalette.utility.overlay}, 
-      ${colorPalette.primary.main} 50%, 
-      ${colorPalette.utility.overlay} 100%)`,
+      ${colorPalette.background.dark}, 
+      ${colorPalette.primary.main} 40, 
+      ${colorPalette.background.dark})`,
     border: "none",
  },
  iconButton: {
@@ -174,6 +190,14 @@ const styles = {
   padding: "2px 5px",
   fontSize: "20px",
   backgroundColor: colorPalette.background.dark,
+  color: colorPalette.text.light,
+  border: `1px solid ${colorPalette.primary.main}30`,
+  borderRadius: "4px",
+  transition: "all 0.2s ease",
+  "&:hover": {
+    backgroundColor: colorPalette.primary.main,
+    color: colorPalette.text.light,
+  }
 },
 };
 
