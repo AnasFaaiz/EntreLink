@@ -11,6 +11,9 @@ import Discussion from './components/Community/Discussion.jsx';
 import Challenges from './components/Community/Challenges/Challenges.jsx';
 import Opportunity from './components/Community/Opportunity.jsx';
 import News from './components/News/News-Main.jsx';
+import Profile from './components/Details/profile.jsx';
+import Mentor from './components/Details/Mentor.jsx';
+
 
 function App() {
     return (
@@ -27,6 +30,8 @@ function App() {
                 <Route path="/EntreLink/Challenges" element={<Challenges />} />
                 <Route path="/EntreLink/Opportunity" element={<Opportunity />} />
                 <Route path="/EntreLink/News" element={<News />} />
+                <Route path="/EntreLink/Profile" element={<Profile />} />
+                <Route path="/EntreLink/my_mentor" element={<Mentor />} />
             </Routes>
         </Router>
     );
