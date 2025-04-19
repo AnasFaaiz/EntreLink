@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Navbar from '../Navbar';
 import PersonCard from './PersonCard';
+import colorPalette from '../colorPalette';
 
 const Connections = () => {
   const [isFilterButtonHovered, setIsFilterButtonHovered] = useState(false);
@@ -80,7 +81,7 @@ const styles = {
     padding: '20px',
     marginTop: '6%',
     width: '100vw',
-    backgroundColor: '#rgb(10, 160, 151)',
+    backgroundColor: colorPalette.background.dark,
   },
   searchSection: {
     display: 'flex',
@@ -91,7 +92,7 @@ const styles = {
     flex: 1,
     padding: '12px 20px',
     borderRadius: '8px',
-    border: '1px solid #268217',
+    border: `1px solid ${colorPalette.accent.green}`,
     fontSize: '16px',
     marginRight: '15px',
     backgroundColor: 'white',
@@ -99,21 +100,21 @@ const styles = {
   filterButton: {
     padding: '12px 20px',
     borderRadius: '8px',
-    backgroundColor: '#008B8B',
-    color: '#0D1117',
+    backgroundColor: colorPalette.accent.teal,
+    color: colorPalette.text.dark,
     border: 'none',
     cursor: 'pointer',
-    boxShadow: "0px 0px 10px rgba(218, 165, 32, 0.4)",
+    boxShadow: `0px 0px 10px ${colorPalette.utility.highlight}`,
   },
   filterButtonHover: {
-    backgroundColor: '#DAA520',
-    color: "#121829",
-    boxShadow: "0px 0px 16px rgba(218, 165, 32, 0.8)",
+    backgroundColor: colorPalette.accent.gold,
+    color: colorPalette.text.dark,
+    boxShadow: `0px 0px 16px ${colorPalette.utility.highlight}`,
   },
   section: {
-    backgroundColor: 'rgb(1, 61, 42)',
+    backgroundColor: colorPalette.background.section,
     borderRadius: '12px',
-    boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)',
+    boxShadow: `0 4px 12px ${colorPalette.utility.shadow}`,
     padding: '25px',
     marginBottom: '15px',
   },
@@ -126,11 +127,11 @@ const styles = {
   sectionTitle: {
     fontSize: '22px',
     fontWeight: 'bold',
-    color: '#DAA520',
+    color: colorPalette.accent.gold,
     margin: 0,
   },
   seeAllLink: {
-    color: '#008080',
+    color: colorPalette.primary.main, 
     textDecoration: 'none',
     fontWeight: '600',
   },

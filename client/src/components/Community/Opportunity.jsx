@@ -1,35 +1,49 @@
 import React from 'react';
 import Navbar from '../Navbar';
 import Category from './Category';
+import JobsList from './Opportunity/JobsList';
 
-function Opportunity({ categories }){
-  if (!categories || !Array.isArray(categories)) {
-    console.error("Invalid categories prop");
-    return <div>Error: Invalid categories prop</div>;
-  }
+
+function Opportunity(){
 
   return (
-    <div className="container">
-      <Navbar />
-      <div style={styles.mainContent}>
-        {/* Top Row Container */}
-        <Category categories={categories} />
-        <h1>Opportunity</h1>
-      </div>
-    </div>
+    <main className="container">
+      <nav>
+        <Navbar />
+      </nav>
+      <section style={styles.mainContent}>
+        <section className="Left-Side" style={styles.Leftside}>
+          <aside style={styles.sidebar}>
+            <Category />
+          </aside>
+        </section>
+        <section className="Right-Side" style={styles.Rightside}>
+          <JobsList />
+        </section>
+        
+      </section>
+    </main>
   );
 };
 
 const styles = {
   mainContent: {
     display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
+    // flexDirection: "column",
+    alignItems: "flex-start",
     position: "relative",
     minHeight: "calc(100vh - 65px)",
     marginTop: "65px",
     padding: "20px",
+    gap: '20px',
   },
+  Leftside: {
+    display: "flex",
+  },
+  Rightside: {
+    display: "flex",
+  }
+
 };
 
 export default Opportunity;

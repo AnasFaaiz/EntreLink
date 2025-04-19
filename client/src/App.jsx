@@ -7,14 +7,19 @@ import Discover from './components/Discover/Discover-Main.jsx';
 import Community from './components/Community/Community-Main.jsx';
 import Events from './components/Events/Events-Main.jsx';
 import Connections from './components/Connections/Connections-Main.jsx';
-import Discussion from './components/Community/Discussion';
-import Challenges from './components/Community/Challenges.jsx';
+import Discussion from './components/Community/Discussion.jsx';
+import Challenges from './components/Community/Challenges/Challenges.jsx';
 import Opportunity from './components/Community/Opportunity.jsx';
 import News from './components/News/News-Main.jsx';
+import Profile from './components/Details/profile.jsx';
+import Mentor from './components/Details/Mentor.jsx';
+import Chatbot from './components/Chatbot/chatbot.jsx';
+
 
 function App() {
     return (
         <Router>
+            <div >
             <Routes>
                 <Route path="/EntreLink/signup" element={<SignUp />} />
                 <Route path="/EntreLink" element={<LoginPage />} />
@@ -23,11 +28,15 @@ function App() {
                 <Route path="/EntreLink/Community" element={<Community />} />
                 <Route path="/EntreLink/Events" element={<Events />} />
                 <Route path="/EntreLink/Connections" element={<Connections />} />
-                <Route path="/EntreLink/Community/Discussion" element={<Discussion />} />
-                <Route path="/EntreLink/Community/Challenges" element={<Challenges />} />
-                <Route path="/EntreLink/Community/Opportunity" element={<Opportunity />} />
+                <Route path="/EntreLink/Discussion" element={<Discussion />} />
+                <Route path="/EntreLink/Challenges" element={<Challenges />} />
+                <Route path="/EntreLink/Opportunity" element={<Opportunity />} />
                 <Route path="/EntreLink/News" element={<News />} />
+                <Route path="/EntreLink/Profile" element={<Profile />} />
+                <Route path="/EntreLink/my_mentor" element={<Mentor />} />
             </Routes>
+            <Chatbot  style={{ position: 'relative', minHeight: '100vh' }}/>
+            </div>
         </Router>
     );
 }
