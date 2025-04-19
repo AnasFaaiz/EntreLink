@@ -148,4 +148,87 @@ export const mentorProfiles = [
         availability: 'Monthly',
         rating: 4.9
     },
+    // Marketing & Growth Experts
+    {
+        id: 12,
+        name: 'Sophie Martinez',
+        role: 'Professional',
+        experience: 'Expert',
+        avatar: '/avatars/sophie.jpg',
+        bio: 'Growth Marketing Lead at Shopify. Scaled multiple startups from zero to millions.',
+        skills: ['Growth Marketing', 'SEO', 'Content Strategy', 'Analytics'],
+        interests: ['E-commerce', 'Digital Marketing', 'Consumer Psychology'],
+        achievements: ['10x growth at 3 startups', 'Marketing Tech Innovation Award'],
+        availability: 'Weekly',
+        rating: 4.8
+    },
+    {
+        id: 13,
+        name: 'David Kim',
+        role: 'Mentor',
+        experience: 'Expert',
+        avatar: '/avatars/david.jpg',
+        bio: 'Former CMO at Airbnb. Digital marketing strategist and brand builder.',
+        skills: ['Brand Strategy', 'Digital Marketing', 'Customer Acquisition'],
+        interests: ['Brand Building', 'Community Marketing', 'Social Media'],
+        achievements: ['Built $2B brand value', 'Cannes Lion Award'],
+        availability: 'Bi-weekly',
+        rating: 4.9
+    },
+
+    // Product Development Experts
+    {
+        id: 14,
+        name: 'Nina Patel',
+        role: 'Professional',
+        experience: 'Expert',
+        avatar: '/avatars/nina.jpg',
+        bio: 'Product Lead at Netflix. Specialized in user experience and product strategy.',
+        skills: ['Product Management', 'UX Design', 'A/B Testing', 'Agile'],
+        interests: ['User Psychology', 'Product Innovation', 'Streaming Tech'],
+        achievements: ['Led Netflixs top 3 features', 'Product of the Year Award'],
+        availability: 'Weekly',
+        rating: 4.9
+    },
+    {
+        id: 15,
+        name: 'Thomas Anderson',
+        role: 'Mentor',
+        experience: 'Expert',
+        avatar: '/avatars/thomas.jpg',
+        bio: 'VP of Product at Stripe. Built and scaled financial products globally.',
+        skills: ['Product Strategy', 'FinTech', 'Platform Design'],
+        interests: ['Payment Systems', 'Financial Inclusion', 'Open Banking'],
+        achievements: ['Scaled product to 100M users', '$500M revenue impact'],
+        availability: 'Monthly',
+        rating: 4.8
+    },
+
+    // Sustainability & Green Tech
+    {
+        id: 16,
+        name: 'Emma Wilson',
+        role: 'Professional',
+        experience: 'Advanced',
+        avatar: '/avatars/emma.jpg',
+        bio: 'CleanTech entrepreneur. Founded successful solar energy startup.',
+        skills: ['Renewable Energy', 'Sustainability', 'Green Business'],
+        interests: ['Solar Tech', 'Carbon Reduction', 'ESG'],
+        achievements: ['Reduced 1M tons CO2', 'CleanTech Innovator Award'],
+        availability: 'Weekly',
+        rating: 4.7
+    },
+    {
+        id: 17,
+        name: 'Carlos Rivera',
+        role: 'Mentor',
+        experience: 'Expert',
+        avatar: '/avatars/carlos.jpg',
+        bio: 'Environmental consultant and green tech investor. Former Tesla engineer.',
+        skills: ['Green Technology', 'Environmental Impact', 'Sustainable Design'],
+        interests: ['Electric Vehicles', 'Energy Storage', 'Climate Tech'],
+        achievements: ['Patents in EV technology', 'UN Climate Action Award'],
+        availability: 'Bi-weekly',
+        rating: 4.9
+    }
 ];
