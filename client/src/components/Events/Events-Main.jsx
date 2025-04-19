@@ -5,6 +5,7 @@ import CategoryBox from './CategoryBox';
 import ImagesSlider from './ImageSlider';
 import Eventcard from './Eventcard';
 import colorPalette from '../colorPalette';
+import sampleEvent from './Sample_Data/sampleEvent';
 
 const Events = () => {
     const [events, setEvents] = useState([]);
@@ -267,7 +268,8 @@ const Events = () => {
                                 />
                             ))
                         ) : (
-                            <p style={styles.noEvents}>No events scheduled yet</p>
+                            // <p style={styles.noEvents}>No events scheduled yet</p>
+                            <Eventcard event={sampleEvent} />
                         )}
                     </div>
                 </div>     

@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import colorPalette from "../colorPalette";
 import PropTypes from 'prop-types';
-
+import MapView from "./Mapview";
+import sampleEvent from "./Sample_Data/sampleEvent";
 const CountdownBox = ({ value, label }) => (
   <div style={styles.countdownBox}>
     <span style={styles.countdownNumber}>{value}</span>
@@ -19,6 +20,7 @@ const Eventcard = ({ event }) => {
   const [isImageHovered, setIsImageHovered] = useState(false);
   const [isBoxHovered, setIsBoxHovered] = useState(false);
   const [isMapHovered, setIsMapHovered] = useState(false);
+  const [showMap, setShowMap] = useState(false);
 
   useEffect(() => {
     const eventDate = new Date(event.date);
@@ -49,6 +51,7 @@ const Eventcard = ({ event }) => {
   };
 
   return (
+    <>
     <article style={styles.card}>
         <div style={styles.cardImageWrapper}>
           <img 
@@ -78,18 +81,22 @@ const Eventcard = ({ event }) => {
                 </div>
 
                 <a 
-                  href="/" 
-                  style={{
-                    ...styles.mapLink,
-                    backgroundColor: isMapHovered ? `${colorPalette.primary.light}25` : `${colorPalette.primary.light}15`,
-                    transform: isMapHovered ? 'translateY(-2px)' : 'none',
-                  }}
-                  onMouseEnter={() => setIsMapHovered(true)}
-                  onMouseLeave={() => setIsMapHovered(false)}
-                >
-                    <span style={styles.mapIcon}>📍</span>
-                    View in Map
-                </a>
+                onClick={(e) => {
+                  e.preventDefault();
+                  setShowMap(true);
+                }}
+                style={{
+                  ...styles.mapLink,
+                  backgroundColor: isMapHovered ? `${colorPalette.primary.light}25` : `${colorPalette.primary.light}15`,
+                  transform: isMapHovered ? 'translateY(-2px)' : 'none',
+                  cursor: 'pointer'
+                }}
+                onMouseEnter={() => setIsMapHovered(true)}
+                onMouseLeave={() => setIsMapHovered(false)}
+              >
+                <span style={styles.mapIcon}>📍</span>
+                View in Map
+              </a>
             </header>
             
             <div style={styles.cardBody}>
@@ -113,38 +120,59 @@ const Eventcard = ({ event }) => {
             </div>
 
             <footer style={styles.cardFooter}>
-                <div style={styles.venueInfo}>
-                    <h4 style={styles.venue}>
-                        <span style={styles.venueIcon}>📌</span>
-                        {event.location}
-                    </h4>
-                    {event.capacity && (
-                        <span style={styles.capacity}>
-                            Capacity: {event.capacity} people
-                        </span>
-                    )}
-                </div>
-                <button style={styles.registerButton}>Register Now</button>
-            </footer>
+              <div style={styles.venueInfo}>
+                  <h4 style={styles.venue}>
+                      <span style={styles.venueIcon}>📌</span>
+                      {event.location.address}
+                  </h4>
+                  {event.capacity && (
+                      <span style={styles.capacity}>
+                          Capacity: {event.capacity} people
+                      </span>
+                  )}
+              </div>
+              <button style={styles.registerButton}>Register Now</button>
+          </footer>
         </div>
     </article>
-);
+    {showMap && (
+      <div style={styles.modalOverlay}>
+        <div style={styles.mapModal}>
+          <button 
+            onClick={() => setShowMap(false)}
+            style={styles.closeButton}
+          >
+            ✕
+          </button>
+          <MapView 
+            eventLocation={event.location}
+            eventName={event.name}
+          />
+        </div>
+      </div>
+    )}
+    </>
+  );
 };
-  Eventcard.propTypes = {
-    event: PropTypes.shape({
-        name: PropTypes.string.isRequired,
-        date: PropTypes.string.isRequired,
-        startTime: PropTypes.string.isRequired,
-        endTime: PropTypes.string.isRequired,
-        location: PropTypes.string.isRequired,
-        description: PropTypes.string.isRequired,
-        category: PropTypes.string.isRequired,
-        type: PropTypes.string.isRequired,
-        price: PropTypes.string,
-        capacity: PropTypes.string,
-        imageUrl: PropTypes.string,
+Eventcard.propTypes = {
+  event: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    date: PropTypes.string.isRequired,
+    startTime: PropTypes.string.isRequired,
+    endTime: PropTypes.string.isRequired,
+    location: PropTypes.shape({
+      address: PropTypes.string.isRequired,
+      latitude: PropTypes.number.isRequired,
+      longitude: PropTypes.number.isRequired
     }).isRequired,
-  };
+    description: PropTypes.string.isRequired,
+    category: PropTypes.string.isRequired,
+    type: PropTypes.string.isRequired,
+    price: PropTypes.string,
+    capacity: PropTypes.string,
+    imageUrl: PropTypes.string,
+  }).isRequired,
+};
 
 
 const styles = {
@@ -363,6 +391,47 @@ noEvents: {
     '&:active': {
       transform: 'translateY(0)',
     },
+  },
+  modalOverlay: {
+    position: 'fixed',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    backgroundColor: 'rgba(0, 0, 0, 0.75)',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    zIndex: 1000,
+  },
+  mapModal: {
+    position: 'relative',
+    width: '90%',
+    maxWidth: '800px',
+    backgroundColor: colorPalette.background.dark,
+    borderRadius: '16px',
+    padding: '20px',
+    boxShadow: `0 20px 40px ${colorPalette.background.dark}40`,
+  },
+  closeButton: {
+    position: 'absolute',
+    top: '10px',
+    right: '10px',
+    backgroundColor: 'transparent',
+    border: 'none',
+    color: colorPalette.text.light,
+    fontSize: '24px',
+    cursor: 'pointer',
+    width: '32px',
+    height: '32px',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: '50%',
+    transition: 'all 0.3s ease',
+    '&:hover': {
+      backgroundColor: `${colorPalette.background.light}20`,
+    }
   },
 };
 

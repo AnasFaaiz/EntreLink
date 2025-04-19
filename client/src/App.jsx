@@ -13,11 +13,13 @@ import Opportunity from './components/Community/Opportunity.jsx';
 import News from './components/News/News-Main.jsx';
 import Profile from './components/Details/profile.jsx';
 import Mentor from './components/Details/Mentor.jsx';
+import Chatbot from './components/Chatbot/chatbot.jsx';
 
 
 function App() {
     return (
         <Router>
+            <div >
             <Routes>
                 <Route path="/EntreLink/signup" element={<SignUp />} />
                 <Route path="/EntreLink" element={<LoginPage />} />
@@ -33,6 +35,8 @@ function App() {
                 <Route path="/EntreLink/Profile" element={<Profile />} />
                 <Route path="/EntreLink/my_mentor" element={<Mentor />} />
             </Routes>
+            <Chatbot  style={{ position: 'relative', minHeight: '100vh' }}/>
+            </div>
         </Router>
     );
 }
